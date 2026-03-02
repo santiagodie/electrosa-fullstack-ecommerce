@@ -231,24 +231,22 @@
 
         <main class="main cd-main-content">
             <div class="dihola_container">
+                <div class="card">
 
-                <%    
+                    <%    
                 SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
                 String fechaHora = formatoFecha.format(new Date());
-                %>
-
-                <h2>¡Hola, <span class="span_p2_diHola"><%= nombre %></span> !<br> Bienvenido a Electrosa </h2>
-                <p>La fecha y hora actual es:  <span class="span_p2_diHola"><%= fechaHora %></span></p>
-
-                <a href="/BackOffice">
+                    %>
+                    <h2>¡Hola, <span class="span_p2_diHola"><%= nombre %></span> !<br> Bienvenido a Electrosa </h2>
+                    <p>La fecha y hora actual es:  <span class="span_p2_diHola"><%= fechaHora %></span></p>
                     <div class="boton">
-                    <button type="submit" class="boton_p2">
-                        <span>Volver al formulario</span>
-                    </button>        
-                </div> 
-                </a>
-                
-
+                        <a href="/BackOffice">
+                            <button type="submit" class="boton_p2">
+                                <span>Volver al formulario</span>
+                            </button>        
+                        </a>
+                    </div> 
+                </div>
             </div>
 
 
