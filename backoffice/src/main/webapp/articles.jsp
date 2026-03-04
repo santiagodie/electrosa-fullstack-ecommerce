@@ -228,72 +228,51 @@
         <!-- ++++++++++++++++++++++++++++++++++-MAIN-++++++++++++++++++++++++++++++++++++++++ -->
 
         <main class="main cd-main-content">
-            <div class="articles_container">
-                <div class="card">
-                    <div class="card_container">
-                        <section>
-                            <form action="articles.jsp">
-                                <fieldset>
-                                    <div class ="search_container_aux">
-                                        <div>
-                                            <h3 id="cd-search" for="some-input">Buscar en todo el catálogo</h3>
-                                        </div>
-                                        <div class="group">
-                                            <input type="text" required="" id="nom" name="q"  value="<%= request.getParameter("q") != null ? request.getParameter("q") : "" %>" class="input">
-                                            <span class="highlight"></span>
-                                            <span class="bar"></span>
-                                            <label>Buscar</label>
-                                        </div>
-                                        <div class="boton">
-                                            <button type="submit" class="boton_p2" id="cd-buscador">
-                                                <span>Buscar productos</span>
-                                            </button>
-                                        </div>
-                                        <div>
-                                            <h3>Resultados de la búsqueda: </h3>
-                                        </div>
-                                    </div>
-
-
-                                </fieldset>
-                            </form>
-
-
-                            <p>Búsqueda de <span style="font-weight: bold;">'<%= request.getParameter("q") == null ? "" : request.getParameter("q")%>'</span> en todo el catálogo de productos:</p>
-                            <div style="margin: 20px 0"> 
-                                <%
-                                    String nombre = request.getParameter("q");
-                                    if (nombre != null && !nombre.trim().isEmpty()) {
-                                        GestorBD gbd = new GestorBD();
-                                        List<String> articulos = gbd.getArticulosLike(nombre);
-                                        if (articulos != null && !articulos.isEmpty()) { 
-                                %>
-                                <ul>
-                                    <%
-                                        for (String n : articulos) {
-                                    %>
-                                    <li><%= n %></li>
-                                        <%
-                                            }
-                                        %>
-                                </ul>
-                                <%
-                                        } else { //(lista vacía o null)
-                                %>
-                                <ul>
-                                    <li>El artículo buscado no se ha podido encontrar...</li>
-                                </ul>
-                                <%
-                                        }
-                                    }
-                                %>
-
-                            </div>
-                        </section>
-                    </div>
+            <section>
+                <form action="articles.jsp">
+                    <fieldset>
+                        <legend id="cd-Bus">¿Qué producto busca?</legend>
+                        <div>
+                            <label id="cd-search" for="some-input">Buscar en todo el catálogo</label>
+                            <input type="text" name="q" id="cd-search" placeholder="Buscar..."value="<%= request.getParameter("q") != null ? request.getParameter("q") : "" %>">
+                        </div>
+                        <div>
+                            <input id="cd-buscador" type="submit" value="Buscar productos">
+                        </div>
+                    </fieldset>
+                </form>
+                <h2>Resultados de la búsqueda: </h2>
+                <p>Búsqueda de <span style="font-weight: bold;">'<%= request.getParameter("q") == null ? "" : request.getParameter("q")%>'</span> en todo el catálogo de productos:</p>
+                <div style="margin: 20px 0"> 
+                    <%
+                        String nombre = request.getParameter("q");
+                        if (nombre != null && !nombre.trim().isEmpty()) {
+                            GestorBD gbd = new GestorBD();
+                            List<String> articulos = gbd.getArticulosLike(nombre);
+                            if (articulos != null && !articulos.isEmpty()) { 
+                    %>
+                    <ul>
+                        <%
+                            for (String n : articulos) {
+                        %>
+                        <li><%= n %></li>
+                            <%
+                                }
+                            %>
+                    </ul>
+                    <%
+                            } else { //(lista vacía o null)
+                    %>
+                    <ul>
+                        <li>El artículo buscado no se ha podido encontrar...</li>
+                    </ul>
+                    <%
+                            }
+                        }
+                    %>
 
                 </div>
-            </div>
+            </section>
         </main>
         <!-- ++++++++++++++++++++++++++++++++++- FIN MAIN-++++++++++++++++++++++++++++++++++++++++ -->
         <footer class="footer">
