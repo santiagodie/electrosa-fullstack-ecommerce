@@ -185,7 +185,7 @@ button:hover span {
 }
 .dihola_container, .search_container{
     display: flex;
-    justify-content: center; 
+    justify-content: center;
 }
 .dihola_container h2{
     font-size:2.5rem;
@@ -203,4 +203,23 @@ button:hover span {
     align-items: center;
     display: flex;
     flex-direction: column;
+}
+
+.search_container_aux {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+    align-items: center;
+}
+.articles_container ul {
+    display: grid;
+    grid-template-columns: repeat(3, 1.1fr);
+    gap: 10px;
+    column-gap: 50px;
+}
+
+.articles_container {
+    display: flex;
+    justify-content: center;
 }
