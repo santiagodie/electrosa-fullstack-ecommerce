@@ -229,22 +229,35 @@
         <main class="main cd-main-content">
             <div class="search_container">
                 <div class="card">
-                    <h2 id="cd-hola">Hola</h2>
-                    <p id="cd-p">Electrosa ha venido acompañando a los alumnos de informática de la Universidad de La Rioja desde 2003</p>
-                    <section>
-                        <form action="articles.jsp">
-                            <fieldset>
-                                <legend id="cd-Bus">¿Qué producto busca?</legend>
-                                <div>
-                                    <label id="cd-search" for="some-input">Buscar en todo el catálogo</label>
-                                    <input type="text" name="q" id="cd-search" placeholder="Buscar...">
-                                </div>
-                                <div>
-                                    <input id="cd-buscador" type="submit" value="Buscar productos">
-                                </div>
-                            </fieldset>
-                        </form>
-                    </section>
+                    <div class="card_container">
+                        <h2 id="cd-hola">Hola</h2>
+                        <p id="cd-p">Electrosa ha venido acompañando a los alumnos de informática de la Universidad de La Rioja desde 2003</p>
+                        <section>
+                            <form action="articles.jsp">
+                                <fieldset>
+                                    <legend id="cd-Bus">¿Qué producto busca?</legend>
+                                    <div class ="search_container_aux">
+                                        <div>
+                                            <h3 id="cd-search" for="some-input">Buscar en todo el catálogo</h3>
+                                        </div>
+                                        <div class="group">
+                                            <input type="text" required="" id="nom" name="q" value="" class="input">
+                                            <span class="highlight"></span>
+                                            <span class="bar"></span>
+                                            <label>Buscar</label>
+                                        </div>
+                                        <div class="boton">
+                                            <button type="submit" class="boton_p2" id="cd-buscador">
+                                                <span>Buscar productos</span>
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                </fieldset>
+                            </form>
+                        </section>
+                    </div>
+
                 </div>
             </div>
 
