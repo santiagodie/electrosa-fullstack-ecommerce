@@ -1,0 +1,19 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 10 mar 2026, 13:01:36
+    Author     : Santiago Die
+*/
+
+.main_container {
+display: grid;
+grid-template-columns: repeat(5, 1fr);
+grid-template-rows: repeat(5, 1fr);
+grid-column-gap: 0px;
+grid-row-gap: 0px;
+}
+
+.titulo_container { grid-area: 1 / 1 / 2 / 6; }
+.cuerpo_container { grid-area: 2 / 1 / 6 / 6; }

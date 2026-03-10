@@ -46,7 +46,7 @@
 
 
         <header class="cd-main-header header">
-            <a class="cd-logo" href="/BackOffice">
+            <a class="cd-logo" href="/backoffice">
                 <h1 class="store-branding-logo">                   
                     <img src="assets/images/logo-electrosa-retro.png" />        
                     <span>Backoffice</span>
@@ -240,7 +240,7 @@
                     <h2>¡Hola, <span class="span_p2_diHola"><%= nombre %></span> !<br> Bienvenido a Electrosa </h2>
                     <p>La fecha y hora actual es:  <span class="span_p2_diHola"><%= fechaHora %></span></p>
                     <div class="boton">
-                        <a href="/BackOffice">
+                        <a href="/backoffice/welcome.html">
                             <button type="submit" class="boton_p2">
                                 <span>Volver al formulario</span>
                             </button>        

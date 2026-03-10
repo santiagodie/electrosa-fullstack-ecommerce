@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Context path="/BackOffice">
+<Context path="/backoffice">
     <Resource
         name="jdbc/electrosa"
         type="javax.sql.DataSource"

@@ -247,7 +247,7 @@
                     <tbody>
                         <% for (Articulo a : articulos) { %>
                             <tr class="table-row <%= (cont % 2 == 0) ? "even" : "odd" %>">
-                                <td><img src ="assets/images/store/<%= a.getFoto() %>"/></td>
+                                <td><a href="/backoffice/articulo.jsp?codigo=<%= a.getCodigo() %>"><img src ="assets/images/store/<%= a.getFoto() %>"/></a></td>
                                 <td><a href="/backoffice/articulo.jsp?codigo=<%= a.getCodigo() %>"><%= a.getCodigo() %></a></td>
                                 <td><%= a.getNombre() %></td>
                                 <td><%= String.format("%.2f", a.getPvp()) %> €</td>
