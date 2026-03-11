@@ -25,36 +25,54 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     --onyx: hsl(0, 0%, 27%);
     --epic-green: hsl(162, 16%, 43%);
 
-}        
-    .table-row.odd {
-            background-color: #f9f9f9;
-        }
-        .table-row.even {
-            background-color: #ffffff;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        th, td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: left;
-        }
-        th {
-            background-color: var(--epic-green);
-            color: white;
-        }
-        #t_catalogo{
-            margin: 0 auto;
-            width: 80%;
+}
+.table-row.odd {
+    background-color: #f9f9f9;
+}
+.table-row.even {
+    background-color: #ffffff;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+th {
+    background-color: var(--epic-green);
+    color: white;
+}
+#t_catalogo{
+    margin: 0 auto;
+    width: 80%;
 
-        }
-        #t_catalogo td{
-            vertical-align: middle;
-            text-align:center;
-        }
-        img {
-            max-width: 150px; 
-            height: auto;
-        }
+}
+#t_catalogo td{
+    vertical-align: middle;
+    text-align:center;
+    overflow: visible;
+}
+img {
+    max-width: 150px;
+    height: auto;
+}
+#t_catalogo td a {
+    display: inline-block;
+    position: relative;
+    transition: transform 0.2s ease;
+}
+
+#t_catalogo td a:has(img):hover {
+    transform: scale(1.035);
+}
+
+#t_catalogo td a:not(:has(img)):hover {
+    transform: scale(1.07);
+}
+
+#t_catalogo table {
+    overflow: visible;
+}

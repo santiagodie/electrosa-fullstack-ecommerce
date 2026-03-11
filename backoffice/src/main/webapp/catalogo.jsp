@@ -21,12 +21,11 @@
         <link rel="shortcut icon" href="assets/images/logo/favicon.ico" type="image/x-icon">
 
         <link href="https://cdn.lineicons.com/5.0/lineicons.css" rel="stylesheet" />
-
+        
         <link rel="stylesheet" href="assets/css/reset.css">
         <link rel="stylesheet" href="assets/css/megamenu.css">
         <link rel="stylesheet" href="assets/css/style.css">
         <link rel="stylesheet" href="assets/css/catalogo.css">
-        <link rel="stylesheet" href="assets/css/practica3.css">
         
         <script src="assets/js/modernizr.js"></script>
 

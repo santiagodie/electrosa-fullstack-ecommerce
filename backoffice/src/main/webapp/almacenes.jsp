@@ -256,12 +256,16 @@
                         break;
                 } 
                 %>
-                <div class="card-layout__item">
+                <div class="card-layout__item" onclick="window.location = '<%= url %>'">
                     <p id="card-layout__item_1"><%= almacen.getCodigo() %></p>
-                    <a href="<%= url %>"><img src="assets/images/warehouse/512px-<%= almacen.getCodigo() %>.jpg" alt="<%= almacen.getCiudad() %>"></a>
+                    <img src="assets/images/warehouse/512px-<%= almacen.getCodigo() %>.jpg" alt="<%= almacen.getCiudad() %>">
                     <h3><%= almacen.getCiudad() %></h3>
-                    <p> <%= almacen.getProvincia() %></p>
+                    <p><%= almacen.getProvincia() %></p>
+                    <button type="submit" class="boton_almacen" onclick="event.stopPropagation()">
+                        <span>Cambiar</span>
+                    </button>
                 </div>
+
                 <%
                     }
                 %>
