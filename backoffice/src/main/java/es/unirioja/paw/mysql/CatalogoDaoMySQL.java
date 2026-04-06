@@ -25,6 +25,10 @@ public class CatalogoDaoMySQL implements CatalogoDAO {
     public CatalogoDaoMySQL() {
         this.ds = new ConnectionManagerDS();
     }
+
+    public CatalogoDaoMySQL(ConnectionManagerDS connectionManager) {
+        this.ds = connectionManager;
+    }
     
     @Override
     public List<Articulo> findAll() throws ExcepcionDeAplicacion {
@@ -105,5 +109,47 @@ public class CatalogoDaoMySQL implements CatalogoDAO {
             }
         }
         return articulo;
-    }   
+    }
+     @Override
+    public void modificarArticulo(Articulo articulo) throws ExcepcionDeAplicacion {
+        if (articulo == null) {
+            throw new ExcepcionDeAplicacion("El artículo no puede ser null");
+        }
+        PreparedStatement pst = null;
+        Connection con = null;
+        String sql = "UPDATE articulo SET nombre = ?, descripcion = ?, tipo = ?, fabricante = ?, pvp = ?, foto = ? WHERE codigo = ?";
+
+        try {
+            con = ds.crearCon();
+            pst = con.prepareStatement(sql);
+
+            pst.setString(1, articulo.getNombre());
+            pst.setString(2, articulo.getDescripcion());
+            pst.setString(3, articulo.getTipo());
+            pst.setString(4, articulo.getFabricante());
+            pst.setDouble(5, articulo.getPvp());
+            pst.setString(6, articulo.getFoto());
+            pst.setString(7, articulo.getCodigo());
+
+            int rowsAffected = pst.executeUpdate();
+
+            if (rowsAffected == 0) {
+                throw new ExcepcionDeAplicacion("No se encontró el artículo con código: " + articulo.getCodigo());
+            }
+
+            pst.close();
+
+        } catch (SQLException e) {
+            throw new ExcepcionDeAplicacion("Error al actualizar el artículo en la base de datos.", e);
+        } finally {
+            try {
+                if (pst != null)
+                    pst.close();
+                ds.cerrarCon(con);
+            } catch (SQLException e) {
+                e.printStackTrace();
+                throw new ExcepcionDeAplicacion("Error al cerrar recursos.", e);
+            }
+        }
+    }
 }

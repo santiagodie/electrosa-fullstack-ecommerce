@@ -19,4 +19,6 @@ public interface CatalogoDAO {
      */
     public Articulo findOneByCodigo(String codigo) throws ExcepcionDeAplicacion;
 
+    //metodo para modificar un articulo
+    public void modificarArticulo(Articulo articulo)throws ExcepcionDeAplicacion;
 }

@@ -1,30 +1,10 @@
-<!DOCTYPE html>
-<html lang="es">
+<%-- 
+    Document   : __body_top
+    Created on : 27 mar 2026, 9:56:52
+    Author     : Santiago Die
+--%>
 
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Electrosa - Welcome Backoffice</title>
-
-        <link rel="shortcut icon" href="assets/images/logo/favicon.ico" type="image/x-icon">
-
-        <link href="https://cdn.lineicons.com/5.0/lineicons.css" rel="stylesheet" />
-
-        <link rel="stylesheet" href="assets/css/reset.css">
-        <link rel="stylesheet" href="assets/css/megamenu.css">
-        <link rel="stylesheet" href="assets/css/style.css">
-        <link rel="stylesheet" href="assets/css/estilos_P2.css">
-
-        <script src="assets/js/modernizr.js"></script>
-
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    </head>
-
-    <body>
-        <div class="topbar">
+<div class="topbar">
 
             <span class="topbar_userinfo" style="">Santiago </span>
             <span class="topbar_sep">/</span> 
@@ -33,7 +13,7 @@
 
 
         <header class="cd-main-header header">
-            <a class="cd-logo" href="/backoffice">
+            <a class="cd-logo" href="/backoffice/">
                 <h1 class="store-branding-logo">                   
                     <img src="assets/images/logo-electrosa-retro.png" />        
                     <span>Backoffice</span>
@@ -44,7 +24,6 @@
                 <li><a class="cd-search-trigger" href="#cd-search">Search<span></span></a></li>
                 <li><a class="cd-nav-trigger" href="#cd-primary-nav">Menu<span></span></a></li>
             </ul> <!-- cd-header-buttons -->
-
             <nav class="cd-nav ">
                 <ul id="cd-primary-nav" class="cd-primary-nav is-fixed">
 
@@ -55,14 +34,14 @@
                             <li class="go-back"><a href="#0">Menu</a></li>
                             <li class="see-all"><a href="#">Ver todas las opciones</a></li>
                             <li>
-                                <a class="cd-nav-item" href="#">
+                                <a class="cd-nav-item" href="/backoffice/orders">
                                     <img src="assets/images/megamenu/img.jpg" alt="Product Image">
                                     <h3>Pedidos</h3>
                                 </a>
                             </li>
 
                             <li>
-                                <a class="cd-nav-item" href="#">
+                                <a class="cd-nav-item" href="/backoffice/almacenes.jsp">
                                     <img src="assets/images/megamenu/img.jpg" alt="Product Image">
                                     <h3>Almacenes</h3>
                                 </a>
@@ -70,7 +49,7 @@
                             <li>
                                 <a class="cd-nav-item" href="#">
                                     <img src="assets/images/megamenu/img.jpg" alt="Product Image">
-                                    <h3>Envíos</h3>
+                                    <h3>Envios</h3>
                                 </a>
                             </li>
                             <li>
@@ -85,12 +64,12 @@
                     </li>
 
                     <li class="has-children">
-                        <a href="#"><i class="lni lni-dashboard-square-1"></i> Catálogo</a>
+                        <a href="#"><i class="lni lni-dashboard-square-1"></i> Catalogo</a>
                         <ul class="cd-nav-icons is-hidden">
                             <li class="go-back"><a href="#0">Menu</a></li>
                             <li class="see-all"><a href="#">Ver todas las opciones</a></li>
                             <li>
-                                <a class="cd-nav-item item-9" href="#">
+                                <a class="cd-nav-item item-9" href="${pageContext.request.contextPath}/catalogue">
                                     <h3>Productos</h3>
                                     <p>Todos los productos</p>
                                 </a>
@@ -98,8 +77,8 @@
 
                             <li>
                                 <a class="cd-nav-item item-10" href="#">
-                                    <h3>Categorías</h3>
-                                    <p>Categorías / Tipos de producto</p>
+                                    <h3>Categorias</h3>
+                                    <p>Categorias / Tipos de producto</p>
                                 </a>
                             </li>
 
@@ -115,7 +94,7 @@
                     </li>
 
                     <li class="has-children">
-                        <a href="#"><i class="lni lni-rocket-5"></i> Analítica</a>
+                        <a href="#"><i class="lni lni-rocket-5"></i> Analitica</a>
 
                         <ul class="cd-nav-gallery is-hidden">
                             <li class="go-back"><a href="#0">Menu</a></li>
@@ -136,7 +115,7 @@
                             <li>
                                 <a class="cd-nav-item" href="#">
                                     <img src="assets/images/megamenu/img.jpg" alt="Product Image">
-                                    <h3>Facturación</h3>
+                                    <h3>Facturacion</h3>
                                 </a>
                             </li>
 
@@ -154,7 +133,7 @@
                         <ul class="cd-nav-icons is-hidden">
                             <li class="go-back"><a href="#0">Menu</a></li>
                             <li>
-                                <a class="cd-nav-item item-1" href="#">
+                                <a class="cd-nav-item item-1" href="/backoffice/clientes">
                                     <h3>Usuarios</h3>
                                     <p>Usuarios del sistema</p>
                                 </a>
@@ -163,14 +142,14 @@
                             <li>
                                 <a class="cd-nav-item item-2" href="#">
                                     <h3>Rendimiento</h3>
-                                    <p>Optimizaciones, cache y módulos</p>
+                                    <p>Optimizaciones, cache y modulos</p>
                                 </a>
                             </li>
 
                             <li>
                                 <a class="cd-nav-item item-3" href="#">
                                     <h3>Importar</h3>
-                                    <p>Importación de datos en el catálogo</p>
+                                    <p>Importacion de datos en el catalogo</p>
                                 </a>
                             </li>
 
@@ -184,7 +163,7 @@
                             <li>
                                 <a class="cd-nav-item item-5" href="#">
                                     <h3>Seguridad</h3>
-                                    <p>Parámetros de seguridad de la tienda online</p>
+                                    <p>Parametros de seguridad de la tienda online</p>
                                 </a>
                             </li>
 
@@ -197,15 +176,15 @@
 
                             <li>
                                 <a class="cd-nav-item item-7" href="#">
-                                    <h3>Información</h3>
-                                    <p>Información del sistema</p>
+                                    <h3>Informacion</h3>
+                                    <p>Informacion del sistema</p>
                                 </a>
                             </li>
 
                             <li>
                                 <a class="cd-nav-item item-8" href="#">
                                     <h3>Logs</h3>
-                                    <p>Registros de errores y auditoría</p>
+                                    <p>Registros de errores y auditoria</p>
                                 </a>
                             </li>
                         </ul>
@@ -213,36 +192,4 @@
                 </ul> <!-- primary-nav -->
 
             </nav> <!-- cd-nav -->
-
         </header>
-
-        <main class="main cd-main-content">
-
-        </main>
-
-        <footer class="footer">
-            <p><a href="#">Programación de Aplicaciones Web - Universidad de la Rioja</a></p>
-            <p><a href="https://www.flaticon.es/iconos-gratis" title="l iconos">Icons made by Freepik - Flaticon</a></p>
-        </footer>
-
-
-        <!-- primary navigation menu -->
-        <div class="cd-overlay"></div>
-
-
-        <div id="cd-search" class="cd-search">
-            <form action="articles.jsp" >
-                <input type="search" name="q" placeholder="Nombre artículo (por ejemplo: sci)">
-            </form>
-        </div>
-
-        <!-- #primary navigation menu -->
-
-
-        <script src="assets/js/jquery-2.1.1.js"></script>
-        <script src="assets/js/jquery.mobile.custom.min.js"></script>
-        <script src="assets/js/main.js"></script> <!-- Resource jQuery -->
-
-    </body>
-
-</html>

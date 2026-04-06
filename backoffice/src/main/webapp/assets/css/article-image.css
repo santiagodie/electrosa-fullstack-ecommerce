@@ -1,0 +1,282 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 6 abr 2026, 20:54:05
+    Author     : Santiago Die
+*/
+:root {
+
+    /**
+     * colors
+     */
+
+    --spanish-gray: hsl(0, 0%, 60%);
+    --sonic-silver: hsl(0, 0%, 47%);
+    --eerie-black: hsl(0, 0%, 13%);
+    --salmon-pink: hsl(353, 100%, 78%);
+    --sandy-brown: hsl(29, 90%, 65%);
+    --bittersweet: hsl(0, 100%, 70%);
+    --ocean-green: hsl(152, 51%, 52%);
+    --davys-gray: hsl(0, 0%, 33%);
+    --cultured: hsl(0, 0%, 93%);
+    --white: hsl(0, 100%, 100%);
+    --onyx: hsl(0, 0%, 27%);
+    --epic-green: hsl(162, 16%, 43%);
+    }
+.article-image-page-title {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--eerie-black);
+    letter-spacing: -0.025em;
+    margin-bottom: 28px;
+}
+ 
+ 
+.article-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: start;
+}
+
+ 
+.article-image-container {
+    position: sticky;
+    top: 24px;
+    border-radius: 16px;
+    overflow: hidden;
+    background: var(--cultured);
+    aspect-ratio: 4/5;
+    box-shadow:
+        0 2px 8px hsla(0, 0%, 0%, 0.06),
+        0 0 0 1px hsla(0, 0%, 0%, 0.04);
+}
+ 
+.article-image-container > div {
+    width: 100%;
+    height: 100%;
+}
+ 
+.article-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+    display: block;
+}
+ 
+.article-image-container:hover img {
+    transform: scale(1.02);
+}
+ 
+.article-image-container::before {
+    content: 'Foto actual';
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    background: hsla(0, 100%, 100%, 0.85);
+    backdrop-filter: blur(8px);
+    color: var(--davys-gray);
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border-radius: 20px;
+    z-index: 1;
+    box-shadow: 0 2px 8px hsla(0, 0%, 0%, 0.08);
+}
+ 
+ 
+.article-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    padding: 8px 0;
+}
+ 
+.article-details > a {
+    align-self: flex-end;
+    font-size: 1.4rem;
+    color: var(--sonic-silver);
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    border: 1px solid var(--cultured);
+    border-radius: 20px;
+    padding: 5px 14px;
+    margin-bottom: 32px;
+    transition: all 0.2s;
+}
+ 
+.article-details > a:hover {
+    background: var(--cultured);
+    color: var(--eerie-black);
+}
+ 
+.upload-section {
+    margin-bottom: 32px;
+}
+ 
+.upload-section label {
+    display: block;
+    font-size: 1.6rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--spanish-gray);
+    margin-bottom: 12px;
+}
+ 
+.drop-zone {
+    position: relative;
+    border: 2px dashed hsl(0, 0%, 80%);
+    border-radius: 12px;
+    background: hsl(0, 0%, 98%);
+    padding: 40px 24px;
+    text-align: center;
+    transition: border-color 0.25s, background 0.25s;
+    cursor: pointer;
+}
+ 
+.drop-zone:hover {
+    border-color: var(--salmon-pink);
+    background: hsl(353, 100%, 99%);
+}
+ 
+.drop-zone:focus-within {
+    border-color: var(--epic-green);
+    background: hsl(162, 16%, 98%);
+    outline: none;
+}
+ 
+.drop-zone__icon {
+    display: block;
+    margin: 0 auto 12px;
+    width: 40px;
+    height: 40px;
+    color: var(--spanish-gray);
+}
+ 
+.drop-zone__icon svg {
+    width: 100%;
+    height: 100%;
+    fill: currentColor;
+}
+ 
+.drop-zone__text {
+    font-size: 1.6rem;
+    color: var(--sonic-silver);
+    margin: 0 0 8px;
+}
+ 
+.drop-zone__hint {
+    font-size: 1.5rem;
+    color: var(--spanish-gray);
+    margin: 0;
+}
+ 
+
+.drop-zone input[type="file"] {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+}
+ 
+.file-name {
+    margin-top: 10px;
+    font-size: 1.6rem;
+    color: var(--epic-green);
+    font-weight: 600;
+    min-height: 20px;
+    text-align: center;
+}
+ 
+ 
+.modificacion_error {
+    width: 100%;
+    font-weight: 600;
+    background: hsl(5, 80%, 95%);
+    color: hsl(5, 70%, 40%);
+    font-size: 1.6rem;
+    border-left: 4px solid hsl(5, 70%, 55%);
+    border-radius: 0 8px 8px 0;
+    padding: 14px 18px;
+    margin-bottom: 24px;
+}
+ 
+ 
+.article_botton {
+    display: flex;
+    justify-content: center;
+    margin-top: 8px;
+}
+
+ 
+/* From Uiverse.io by Peary74 */
+.button_article {
+    font-family: inherit;
+    font-size: 20px;
+    background: #ff8f9c;
+    color: white;
+    fill: #ff8f9c;
+    padding: 0.7em 1em;
+    padding-left: 0.9em;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    border: none;
+    border-radius: 15px;
+    font-weight: bold;
+    isolation: isolate;
+}
+ 
+.button_article span {
+    display: block;
+    margin-left: 0.3em;
+    transition: all 0.3s ease-in-out;
+}
+ 
+.button_article svg {
+    display: block;
+    transform-origin: center center;
+    transition: transform 0.3s ease-in-out;
+}
+ 
+.button_article:hover {
+    background: #f76e7e;
+}
+ 
+.button_article:hover .svg-wrapper {
+    transform: scale(1.25);
+    transition: 0.7s linear;
+}
+ 
+.button_article:hover svg {
+    transform: translateX(3.5em) scale(1.1);
+    fill: #fff;
+}
+ 
+.button_article:hover span {
+    opacity: 0;
+    transition: 0.5s linear;
+}
+ 
+.button_article:active {
+    transform: scale(0.95);
+}
+ 
+@media (max-width: 768px) {
+    .article-container {
+        grid-template-columns: 1fr;
+    }
+    .article-image-container {
+        aspect-ratio: 3/2;
+        position: static;
+    }
+}

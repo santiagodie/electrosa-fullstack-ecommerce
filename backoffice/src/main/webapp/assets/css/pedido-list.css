@@ -1,0 +1,68 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 4 abr 2026, 17:31:48
+    Author     : Santiago Die
+*/
+:root {
+
+    /**
+     * colors
+     */
+
+    --spanish-gray: hsl(0, 0%, 60%);
+    --sonic-silver: hsl(0, 0%, 47%);
+    --eerie-black: hsl(0, 0%, 13%);
+    --salmon-pink: hsl(353, 100%, 78%);
+    --sandy-brown: hsl(29, 90%, 65%);
+    --bittersweet: hsl(0, 100%, 70%);
+    --ocean-green: hsl(152, 51%, 52%);
+    --davys-gray: hsl(0, 0%, 33%);
+    --cultured: hsl(0, 0%, 93%);
+    --white: hsl(0, 100%, 100%);
+    --onyx: hsl(0, 0%, 27%);
+    --epic-green: hsl(162, 16%, 43%);
+
+}
+.table-row.odd {
+    background-color: #f9f9f9;
+}
+.table-row.even {
+    background-color: #ffffff;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+th {
+    background-color: var(--epic-green);
+    color: white;
+    text-align: center;
+}
+#t_catalogo{
+    margin: 0 auto;
+    width: 80%;
+
+}
+#t_catalogo td{
+    vertical-align: middle;
+    text-align:center;
+}
+.pedido-elemento {
+    text-align:right;
+}
+#table-row-link {
+    display: inline-block;
+    transition: transform 0.2s ease;
+}
+#table-row-link:hover {
+    transform: scale(1.05);
+
+}

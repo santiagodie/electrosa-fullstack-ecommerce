@@ -1,0 +1,127 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 1 abr 2026, 11:36:12
+    Author     : Santiago Die
+*/
+:root {
+
+    /**
+     * colors
+     */
+
+    --spanish-gray: hsl(0, 0%, 60%);
+    --sonic-silver: hsl(0, 0%, 47%);
+    --eerie-black: hsl(0, 0%, 13%);
+    --salmon-pink: hsl(353, 100%, 78%);
+    --sandy-brown: hsl(29, 90%, 65%);
+    --bittersweet: hsl(0, 100%, 70%);
+    --ocean-green: hsl(152, 51%, 52%);
+    --davys-gray: hsl(0, 0%, 33%);
+    --cultured: hsl(0, 0%, 93%);
+    --white: hsl(0, 100%, 100%);
+    --onyx: hsl(0, 0%, 27%);
+    --epic-green: hsl(162, 16%, 43%);
+}
+
+
+.card-layout {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+.card-layout__item {
+    background-color: hsla(162, 16%, 43%, 0.15);
+    border-radius: 2.5%;
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0 2px 8px hsla(0, 0%, 0%, 0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.card-layout__item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 24px hsla(162, 16%, 43%, 0.25);
+    background: linear-gradient(
+        160deg,
+        hsla(162, 16%, 43%, 0.22) 0%,
+        hsla(152, 51%, 52%, 0.12) 100%
+    );
+}
+
+.card-layout__item img {
+    border-radius: 5%;
+    max-width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.cod_articulo {
+    text-align: left;
+    color: var(--spanish-gray);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+.page-nav-container {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    text-align: center;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+
+.page-primera,
+.page-anterior,
+.page-siguiente,
+.page-ultima {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    border-radius: 4px;
+    color: var(--epic-green);
+    text-decoration: none;
+
+    font-weight: 500;
+    transition: background 0.18s ease, color 0.18s ease, transform 0.15s ease;
+}
+
+.page-primera:hover,
+.page-anterior:hover,
+.page-siguiente:hover,
+.page-ultima:hover {
+    background: var(--epic-green);
+    color: var(--white);
+    transform: scale(1.04);
+}
+
+.page-anterior::before {
+    content: "←";
+}
+
+.page-siguiente::after {
+    content: "→";
+}
+
+.page-primera::before {
+    content: "«";
+}
+
+.page-ultima::after {
+    content: "»";
+}
+
+.page-elementos {
+    padding: 10px;
+    text-align: right;
+}

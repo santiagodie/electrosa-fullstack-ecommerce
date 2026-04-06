@@ -1,0 +1,174 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 27 mar 2026, 13:36:16
+    Author     : Santiago Die
+*/
+
+:root {
+    /**
+     * colors
+     */
+
+    --spanish-gray: hsl(0, 0%, 60%);
+    --sonic-silver: hsl(0, 0%, 47%);
+    --eerie-black: hsl(0, 0%, 13%);
+    --salmon-pink: hsl(353, 100%, 78%);
+    --sandy-brown: hsl(29, 90%, 65%);
+    --bittersweet: hsl(0, 100%, 70%);
+    --ocean-green: hsl(152, 51%, 52%);
+    --davys-gray: hsl(0, 0%, 33%);
+    --cultured: hsl(0, 0%, 93%);
+    --white: hsl(0, 100%, 100%);
+    --onyx: hsl(0, 0%, 27%);
+    --epic-green: hsl(162, 16%, 43%);
+    --perfil-ink:hsl(0, 0%, 12%);
+    --perfil-white:hsl(0, 100%, 100%);
+    --perfil-radius:20px;
+}
+
+.perfil-header { margin-bottom: 2.5rem; }
+
+.perfil-breadcrumb {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1.5rem;
+    color: var(--davys-gray);
+    letter-spacing: 0.04em;
+    margin-bottom: 0.5rem;
+}
+.perfil-breadcrumb a { color: var(--epic-green); text-decoration: none; }
+.perfil-breadcrumb a:hover { opacity: 0.7; }
+.perfil-breadcrumb .sep { margin: 0 0.4rem; color: var(--spanish-gray); }
+
+h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2.2rem;
+    font-weight: 400;
+    color: var(--perfil-ink);
+    margin: 0;
+    letter-spacing: -0.02em;
+}
+
+.perfil-card {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    min-height: 520px;
+    background: var(--perfil-white);
+    border-radius: var(--perfil-radius);
+    box-shadow: 0 4px 40px hsla(0,0%,0%,0.09);
+    overflow: hidden;
+    border: 1px solid var(--spanish-gray);
+    animation: perfilFadeIn 0.4s ease both;
+}
+
+@keyframes perfilFadeIn {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.perfil-sidebar {
+    background: var(--epic-green);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 2rem;
+    gap: 1.4rem;
+}
+
+.perfil-avatar {
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 5px solid hsla(0,100%,100%,0.3);
+    box-shadow: 0 12px 40px hsla(0,0%,0%,0.25);
+    transition: transform 0.3s ease;
+}
+.perfil-avatar:hover { transform: scale(1.04); }
+.perfil-avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+.perfil-badge {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: hsla(0,100%,100%,0.95);
+    background: hsla(0,0%,0%,0.15);
+    border: 1px solid hsla(0,100%,100%,0.25);
+    border-radius: 999px;
+    padding: 0.4rem 1.2rem;
+    letter-spacing: 0.05em;
+}
+
+.perfil-body {
+    padding: 3rem 3.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.perfil-nombre {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2.2rem;
+    font-weight: 400;
+    color: var(--perfil-ink);
+    margin: 0 0 1rem;
+    letter-spacing: -0.02em;
+}
+
+.perfil-divider {
+    width: 48px;
+    height: 4px;
+    background: var(--epic-green);
+    border-radius: 2px;
+    margin-bottom: 2.5rem;
+}
+
+.perfil-datos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.8rem 3rem;
+    margin: 0;
+}
+
+.perfil-dato {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    padding-bottom: 1.4rem;
+    border-bottom: 1px solid var(--spanish-gray);
+}
+.perfil-dato:last-child,
+.perfil-dato:nth-last-child(2):nth-child(odd) { border-bottom: none; }
+
+.perfil-dato dt {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--davys-gray);
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+.perfil-icon { font-size: 1.25rem; color: var(--epic-green); }
+
+.perfil-dato dd {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1.40rem;
+    color: var(--perfil-ink);
+    margin: 0;
+}
+.perfil-dato dd a { color: var(--epic-green); text-decoration: none; }
+.perfil-dato dd a:hover { text-decoration: underline; }
+
+@media (max-width: 860px) {
+    .perfil-card { grid-template-columns: 1fr; min-height: auto; }
+    .perfil-sidebar { padding: 2rem; flex-direction: row; gap: 1.5rem; }
+    .perfil-avatar { width: 90px; height: 90px; }
+    .perfil-body { padding: 2rem; }
+    .perfil-datos { grid-template-columns: 1fr; }
+}

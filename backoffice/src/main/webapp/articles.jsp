@@ -1,324 +1,89 @@
-<%-- 
-    Document   : articles
-    Created on : 2 mar 2026, 18:25:40
-    Author     : sadie
---%>
-
-
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@page import="java.util.List"%>
 <%@page import="es.unirioja.paw.db.GestorBD" %>
-
 <!DOCTYPE html>
 <html lang="es">
+<%
+    // Estas variables son para que en cada pagina pese a usar todas los partials sea mas "personalizada"
+    String VAR = "Buqueda '" + (request.getParameter("q") != null ? request.getParameter("q") : "") + "'";
+    String CSS = "estilos_P2";
+%>
+<%@ include file='/partials/__head.jsp' %>
 
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Electrosa - Buqueda '<%= request.getParameter("q") != null ? request.getParameter("q") : "" %>' </title>
+<body>
+    <%@ include file='/partials/__body_top.jsp' %>
 
-        <link rel="shortcut icon" href="assets/images/logo/favicon.ico" type="image/x-icon">
-
-        <link href="https://cdn.lineicons.com/5.0/lineicons.css" rel="stylesheet" />
-
-        <link rel="stylesheet" href="assets/css/reset.css">
-        <link rel="stylesheet" href="assets/css/megamenu.css">
-        <link rel="stylesheet" href="assets/css/style.css">
-        <link rel="stylesheet" href="assets/css/estilos_P2.css">
-
-        <script src="assets/js/modernizr.js"></script>
-
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    </head>
-
-    <body>
-        <div class="topbar">
-
-            <span class="topbar_userinfo" style="">Santiago </span>
-            <span class="topbar_sep">/</span> 
-            <a href="#" class="topbar_link"><i class="lni lni-power-button"></i> Cerrar sesi&oacute;n</a>
-        </div>
-
-
-        <header class="cd-main-header header">
-            <a class="cd-logo" href="/backoffice">
-                <h1 class="store-branding-logo">                   
-                    <img src="assets/images/logo-electrosa-retro.png" />        
-                    <span>Backoffice</span>
-                </h1>
-            </a>
-
-            <ul class="cd-header-buttons">
-                <li><a class="cd-search-trigger" href="#cd-search">Search<span></span></a></li>
-                <li><a class="cd-nav-trigger" href="#cd-primary-nav">Menu<span></span></a></li>
-            </ul> 
-            <nav class="cd-nav ">
-                <ul id="cd-primary-nav" class="cd-primary-nav is-fixed">
-
-                    <li class="has-children">
-                        <a href="#"><i class="lni lni-rocket-5"></i> Ventas</a>
-
-                        <ul class="cd-nav-gallery is-hidden">
-                            <li class="go-back"><a href="#0">Menu</a></li>
-                            <li class="see-all"><a href="#">Ver todas las opciones</a></li>
-                            <li>
-                                <a class="cd-nav-item" href="#">
-                                    <img src="assets/images/megamenu/img.jpg" alt="Product Image">
-                                    <h3>Pedidos</h3>
-                                </a>
-                            </li>
-
-                            <li>
-                                <a class="cd-nav-item" href="#">
-                                    <img src="assets/images/megamenu/img.jpg" alt="Product Image">
-                                    <h3>Almacenes</h3>
-                                </a>
-                            </li>
-                            <li>
-                                <a class="cd-nav-item" href="#">
-                                    <img src="assets/images/megamenu/img.jpg" alt="Product Image">
-                                    <h3>Envíos</h3>
-                                </a>
-                            </li>
-                            <li>
-                                <a class="cd-nav-item" href="#">
-                                    <img src="assets/images/megamenu/img.jpg" alt="Product Image">
-                                    <h3>Herramientas de ventas</h3>
-                                </a>
-                            </li>
-
-
-                        </ul>
-                    </li>
-
-                    <li class="has-children">
-                        <a href="#"><i class="lni lni-dashboard-square-1"></i> Catálogo</a>
-                        <ul class="cd-nav-icons is-hidden">
-                            <li class="go-back"><a href="#0">Menu</a></li>
-                            <li class="see-all"><a href="#">Ver todas las opciones</a></li>
-                            <li>
-                                <a class="cd-nav-item item-9" href="#">
-                                    <h3>Productos</h3>
-                                    <p>Todos los productos</p>
-                                </a>
-                            </li>
-
-                            <li>
-                                <a class="cd-nav-item item-10" href="#">
-                                    <h3>Categorías</h3>
-                                    <p>Categorías / Tipos de producto</p>
-                                </a>
-                            </li>
-
-                            <li>
-                                <a class="cd-nav-item item-11" href="#">
-                                    <h3>Fabricantes</h3>
-                                    <p>Fabricantes y proveedores</p>
-                                </a>
-                            </li>
-
-
-                        </ul>
-                    </li>
-
-                    <li class="has-children">
-                        <a href="#"><i class="lni lni-rocket-5"></i> Analítica</a>
-
-                        <ul class="cd-nav-gallery is-hidden">
-                            <li class="go-back"><a href="#0">Menu</a></li>
-                            <li class="see-all"><a href="#">Ver todas las opciones</a></li>
-                            <li>
-                                <a class="cd-nav-item" href="#">
-                                    <img src="assets/images/megamenu/img.jpg" alt="Product Image">
-                                    <h3>Cuadro de mando</h3>
-                                </a>
-                            </li>
-                            <li>
-                                <a class="cd-nav-item" href="#">
-                                    <img src="assets/images/megamenu/img.jpg" alt="Product Image">
-                                    <h3>Marketing</h3>
-                                </a>
-                            </li>
-
-                            <li>
-                                <a class="cd-nav-item" href="#">
-                                    <img src="assets/images/megamenu/img.jpg" alt="Product Image">
-                                    <h3>Facturación</h3>
-                                </a>
-                            </li>
-
-                            <li>
-                                <a class="cd-nav-item" href="#">
-                                    <img src="assets/images/megamenu/img.jpg" alt="Product Image">
-                                    <h3>Finanzas</h3>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-
-                    <li class="has-children">
-                        <a href="#"><i class="lni lni-sliders-horizontal-square-2"></i> Ajustes</a>
-                        <ul class="cd-nav-icons is-hidden">
-                            <li class="go-back"><a href="#0">Menu</a></li>
-                            <li>
-                                <a class="cd-nav-item item-1" href="#">
-                                    <h3>Usuarios</h3>
-                                    <p>Usuarios del sistema</p>
-                                </a>
-                            </li>
-
-                            <li>
-                                <a class="cd-nav-item item-2" href="#">
-                                    <h3>Rendimiento</h3>
-                                    <p>Optimizaciones, cache y módulos</p>
-                                </a>
-                            </li>
-
-                            <li>
-                                <a class="cd-nav-item item-3" href="#">
-                                    <h3>Importar</h3>
-                                    <p>Importación de datos en el catálogo</p>
-                                </a>
-                            </li>
-
-                            <li>
-                                <a class="cd-nav-item item-4" href="#">
-                                    <h3>Servicios web</h3>
-                                    <p>API de servicios web REST</p>
-                                </a>
-                            </li>
-
-                            <li>
-                                <a class="cd-nav-item item-5" href="#">
-                                    <h3>Seguridad</h3>
-                                    <p>Parámetros de seguridad de la tienda online</p>
-                                </a>
-                            </li>
-
-                            <li>
-                                <a class="cd-nav-item item-6" href="#">
-                                    <h3>Base de datos</h3>
-                                    <p>Gestor simple SQL y copias de seguridad</p>
-                                </a>
-                            </li>
-
-                            <li>
-                                <a class="cd-nav-item item-7" href="#">
-                                    <h3>Información</h3>
-                                    <p>Información del sistema</p>
-                                </a>
-                            </li>
-
-                            <li>
-                                <a class="cd-nav-item item-8" href="#">
-                                    <h3>Logs</h3>
-                                    <p>Registros de errores y auditoría</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul> <!-- primary-nav -->
-
-            </nav> <!-- cd-nav -->
-        </header>
-
-        <!-- ++++++++++++++++++++++++++++++++++-MAIN-++++++++++++++++++++++++++++++++++++++++ -->
-
-        <main class="main cd-main-content">
-            <div class="articles_container">
-                <div class="card">
-                    <div class="card_container">
-                        <section>
-                            <form action="articles.jsp">
-                                <fieldset>
-                                    <div class ="search_container_aux">
-                                        <div>
-                                            <h3 id="cd-search" for="some-input">Buscar en todo el catálogo</h3>
-                                        </div>
-                                        <div class="group">
-                                            <input type="text" required="" id="nom" name="q"  value="<%= request.getParameter("q") != null ? request.getParameter("q") : "" %>" class="input">
-                                            <span class="highlight"></span>
-                                            <span class="bar"></span>
-                                            <label>Buscar</label>
-                                        </div>
-                                        <div class="boton">
-                                            <button type="submit" class="boton_p2" id="cd-buscador">
-                                                <span>Buscar productos</span>
-                                            </button>
-                                        </div>
-                                        <div>
-                                            <h3>Resultados de la búsqueda: </h3>
-                                        </div>
+    <main class="cd-main-content main">
+        <div class="articles_container">
+            <div class="card">
+                <div class="card_container">
+                    <section>
+                        <form action="articles.jsp">
+                            <fieldset>
+                                <div class ="search_container_aux">
+                                    <div>
+                                        <h3 id="cd-search" for="some-input">Buscar en todo el catálogo</h3>
                                     </div>
+                                    <div class="group">
+                                        <input type="text" required="" id="nom" name="q"  value="<%= request.getParameter("q") != null ? request.getParameter("q") : "" %>" class="input">
+                                        <span class="highlight"></span>
+                                        <span class="bar"></span>
+                                        <label>Buscar</label>
+                                    </div>
+                                    <div class="boton">
+                                        <button type="submit" class="boton_p2" id="cd-buscador">
+                                            <span>Buscar productos</span>
+                                        </button>
+                                    </div>
+                                    <div>
+                                        <h3>Resultados de la búsqueda: </h3>
+                                    </div>
+                                </div>
 
 
-                                </fieldset>
-                            </form>
+                            </fieldset>
+                        </form>
 
 
-                            <p>Búsqueda de <span style="font-weight: bold;">'<%= request.getParameter("q") == null ? "" : request.getParameter("q")%>'</span> en todo el catálogo de productos:</p>
-                            <div style="margin: 20px 0"> 
+                        <p>Búsqueda de <span style="font-weight: bold;">'<%= request.getParameter("q") == null ? "" : request.getParameter("q")%>'</span> en todo el catálogo de productos:</p>
+                        <div style="margin: 20px 0">
+                            <%
+                                String nombre = request.getParameter("q");
+                                if (nombre != null && !nombre.trim().isEmpty()) {
+                                    GestorBD gbd = new GestorBD();
+                                    List<String> articulos = gbd.getArticulosLike(nombre);
+                                    if (articulos != null && !articulos.isEmpty()) {
+                            %>
+                            <ul>
                                 <%
-                                    String nombre = request.getParameter("q");
-                                    if (nombre != null && !nombre.trim().isEmpty()) {
-                                        GestorBD gbd = new GestorBD();
-                                        List<String> articulos = gbd.getArticulosLike(nombre);
-                                        if (articulos != null && !articulos.isEmpty()) { 
+                                    for (String n : articulos) {
                                 %>
-                                <ul>
+                                <li><%= n %></li>
                                     <%
-                                        for (String n : articulos) {
-                                    %>
-                                    <li><%= n %></li>
-                                        <%
-                                            }
-                                        %>
-                                </ul>
-                                <%
-                                        } else { //(lista vacía o null)
-                                %>
-                                <ul>
-                                    <li>El artículo buscado no se ha podido encontrar...</li>
-                                </ul>
-                                <%
                                         }
+                                    %>
+                            </ul>
+                            <%
+                                    } else { //(lista vacía o null)
+                            %>
+                            <ul>
+                                <li>El artículo buscado no se ha podido encontrar...</li>
+                            </ul>
+                            <%
                                     }
-                                %>
+                                }
+                            %>
 
-                            </div>
-                        </section>
-                    </div>
-
+                        </div>
+                    </section>
                 </div>
+
             </div>
-        </main>
-        <!-- ++++++++++++++++++++++++++++++++++- FIN MAIN-++++++++++++++++++++++++++++++++++++++++ -->
-        <footer class="footer">
-            <p><a href="#">Programación de Aplicaciones Web - Universidad de la Rioja</a></p>
-            <p><a href="https://www.flaticon.es/iconos-gratis" title="l iconos">Icons made by Freepik - Flaticon</a></p>
-        </footer>
-
-
-        <!-- primary navigation menu -->
-        <div class="cd-overlay"></div>
-
-
-        <div id="cd-search" class="cd-search">
-            <form action="articles.jsp" >
-                <input type="search" name="q" placeholder="Nombre artículo (por ejemplo: sci)">
-            </form>
         </div>
+    </main>
 
-        <!-- #primary navigation menu -->
-
-
-        <script src="assets/js/jquery-2.1.1.js"></script>
-        <script src="assets/js/jquery.mobile.custom.min.js"></script>
-        <script src="assets/js/main.js"></script> <!-- Resource jQuery -->
-
-    </body>
+    <%@ include file='/partials/__footer.jsp' %>
+    <%@ include file='/partials/__body_bottom.jsp' %>
+</body>
 
 </html>
