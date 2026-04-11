@@ -1,0 +1,260 @@
+/* -------------------------------- 
+Variables
+-------------------------------- */
+:root {
+    --spanish-gray: hsl(0, 0%, 60%);
+    --sonic-silver: hsl(0, 0%, 47%);
+    --eerie-black: hsl(0, 0%, 13%);
+    --salmon-pink: hsl(353, 100%, 78%);
+    --sandy-brown: hsl(29, 90%, 65%);
+    --bittersweet: hsl(0, 100%, 70%);
+    --ocean-green: hsl(152, 51%, 52%);
+    --davys-gray: hsl(0, 0%, 33%);
+    --cultured: hsl(0, 0%, 93%);
+    --white: hsl(0, 100%, 100%);
+    --onyx: hsl(0, 0%, 27%);
+    --epic-green: hsl(162, 16%, 43%);
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: hsla(162, 16%, 43%, 0.25);
+}
+
+.login_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--white);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    max-width: 440px;
+    width: calc(100% - 40px);
+    max-height: 550px;
+    height: 500;
+}
+
+
+.message_error_container {
+    width: 100%;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.message_error_container .error {
+    color: var(--bittersweet); 
+    font-size: 14px;
+    font-weight: 500;
+    padding: 8px;
+    background-color: hsla(0, 100%, 70%, 0.1); 
+    border-radius: 4px;
+}
+
+
+
+.login_image_wrapper {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.login_image_wrapper h2 {
+    font-size: 24px;
+    color: var(--eerie-black);
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.login_image_wrapper img {
+    max-width: 150px;
+    height: auto;
+}
+
+
+.login_details_wrapper {
+    width: 100%;
+}
+
+
+.username_wrapper, .password_wrapper {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    border: 1px solid var(--spanish-gray);
+    border-radius: 8px;
+    padding: 8px 12px;
+    background-color: var(--white);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.username_wrapper:focus-within, .password_wrapper:focus-within {
+    border-color: var(--epic-green); 
+    box-shadow: 0 0 5px hsla(152, 51%, 52%, 0.3);
+}
+
+
+.username_icon, .password_icon {
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.username_icon svg, .password_icon svg {
+    width: 16px;
+    height: 16px;
+    fill: var(--sonic-silver);
+    transition: fill 0.3s ease;
+}
+.username_wrapper:focus-within .username_icon svg,
+.password_wrapper:focus-within .password_icon svg {
+    color: var(--epic-green); 
+}
+
+
+input[type="text"], input[type="password"] {
+    border: none;
+    outline: none;
+    flex: 1;
+    padding: 5px;
+    font-size: 14px;
+    color: var(--eerie-black);
+}
+
+input[type="text"]::placeholder, input[type="password"]::placeholder {
+    color: var(--spanish-gray);
+    font-size: 14px;
+}
+
+
+.message_error_username, .message_error_password {
+    width: 100%;
+    margin-top: 5px;
+}
+
+.message_error_username .error, .message_error_password .error {
+    color: var(--bittersweet);
+    font-size: 12px;
+    font-weight: 400;
+    padding: 4px;
+    background-color: hsla(0, 100%, 70%, 0.1);
+    border-radius: 4px;
+    text-align: left;
+    margin-bottom: 8px;
+}
+
+.button_wrapper {
+    display: flex;
+    justify-content: center;
+}
+.button_wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.button_wrapper {
+  display: flex;
+  justify-content: center;
+}
+.button_wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.btn_login {
+  background: transparent;
+  position: relative;
+  padding: 5px 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 17px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid var(--epic-green);
+  border-radius: 25px;
+  outline: none;
+  overflow: hidden;
+  color: var(--epic-green);
+  transition: color 0.3s ease;
+  width: 200px;
+  isolation: isolate;
+}
+
+.btn_login span {
+  margin: 0 10px;
+}
+
+.btn_login::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300px;
+  height: 300px;
+  background: var(--epic-green);
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.5s ease-out;
+  z-index: -1;
+}
+
+.btn_login:hover {
+  color: #fff;
+}
+
+.btn_login:hover::before {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* From Uiverse.io by satyamchaudharydev */ 
+
+.title_animation{
+  margin: 0;
+  height: auto;
+  background: transparent;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+}
+
+
+.title_animation{
+  --border-right: 6px;
+  --text-stroke-color: black;
+  --fs-size: 2em;
+  letter-spacing: 3px;
+  text-decoration: none;
+  font-size: var(--fs-size);
+  font-family: Arial, sans-serif;
+  position: relative;
+  -webkit-text-stroke: 1px black;
+}
+
+.hover-text {
+  position: absolute;
+  box-sizing: border-box;
+  color: hsl(162, 16%, 43%);
+  width: 0%;
+  inset: 0;
+  border-right: var(--border-right) solid hsl(162, 16%, 43%);
+  overflow: hidden;
+  transition: 0.5s;
+  -webkit-text-stroke: 1px hsl(162, 16%, 43%);
+}
+
+.title_animation:hover .hover-text {
+  width: 100%;
+}

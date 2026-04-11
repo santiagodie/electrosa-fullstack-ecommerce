@@ -100,6 +100,17 @@
                             </ul>
                         </div>
                     </div>
+                    <!-- P5 Backoffice -->
+                    <div class="idx-card">
+                        <div class="idx-card__num">05<span class="idx-card__session">Backoffice</span></div>
+                        <div class="idx-card__body">
+                            <h2 class="idx-card__title">Práctica 5</h2>
+                            <ul class="idx-card__links">
+                                <li><a href="${pageContext.request.contextPath}/auth/login">login</a></li>
+                                <li><a href="${pageContext.request.contextPath}/auth/logout">logout</a></li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </main>

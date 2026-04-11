@@ -40,4 +40,13 @@
         <exception-type>jakarta.servlet.ServletException</exception-type>
         <location>/error.jsp</location>
     </error-page>
+    <filter>
+        <filter-name>LoginFilter</filter-name>
+        <filter-class>es.unirioja.paw.filter.AuthFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>LoginFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+        <dispatcher>REQUEST</dispatcher>
+    </filter-mapping>
 </web-app>

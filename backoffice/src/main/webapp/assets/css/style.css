@@ -175,6 +175,10 @@ p {
     font-weight: bold;
     text-align: right;
     padding: 4px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 6px;
 }
 
 .topbar_userinfo {
@@ -428,4 +432,70 @@ a.store-index-link:hover {
     }
 
 }
+/* Estilos base para el botón */
+.logout_animation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: transparent; /* Fondo blanco para que contraste con el topbar */
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    transition: width 0.3s ease, border-radius 0.3s ease;
+}
+.logout_animation:hover{
+    background: rgb(255, 65, 65);
+}
 
+/* Estilos para el ícono */
+.logout_icon {
+    color:#fff;
+    font-size: 1.6em;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: width 0.3s ease, padding-left 0.3s ease;
+}
+
+.logout_icon i {
+    width: 24px;
+    height: 24px;
+}
+
+/* Estilos para el texto */
+.logout_text {
+    width: 0;
+    opacity: 0;
+    color:#fff; /* Color del texto para que contraste con el fondo blanco */
+    font-size: 1.2em;
+    font-weight: normal;
+    white-space: nowrap;
+    transition: width 0.3s ease, opacity 0.3s ease, padding-right 0.3s ease;
+}
+
+/* Efecto hover */
+.logout_animation:hover {
+    width: 125px;
+    border-radius: 40px;
+}
+
+/* Ajustar el ícono y el texto al hacer hover */
+.logout_animation:hover .logout_icon {
+    width: 30%;
+    padding-left: 20px;
+}
+
+.logout_animation:hover .logout_text {
+    opacity: 1;
+    width: 70%;
+    padding-right: 10px;
+}
+
+/* Efecto al hacer clic */
+.logout_animation:active {
+    transform: translate(2px, 2px);
+}
