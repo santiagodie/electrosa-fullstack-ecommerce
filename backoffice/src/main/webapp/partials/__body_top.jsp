@@ -6,7 +6,7 @@
 
 <div class="topbar">
 
-    <span class="topbar_userinfo" style="">Santiago </span>
+    <span class="topbar_userinfo" style="">${sessionScope.usuario.username}</span>
     <span class="topbar_sep">/</span> 
     <a href="${pageContext.request.contextPath}/auth/logout"}" class="topbar_link"><!-- From Uiverse.io by vinodjangid07 --> 
         <button class="logout_animation">

@@ -87,7 +87,7 @@ public class LoginController extends HttpServlet {
                     errorMessage.append("User does not have administrative privileges.");
                 } else {
                     HttpSession session = request.getSession();
-                    session.setAttribute("usuario", username);
+                    session.setAttribute("usuario", new Usuario(username));
                 String nextUrl = request.getParameter("next");
                 if (nextUrl != null && !nextUrl.isEmpty()) {
                     response.sendRedirect(request.getContextPath() + nextUrl);

@@ -31,7 +31,7 @@ public class LogoutController extends HttpServlet {
         }
 
         String contextPath = request.getContextPath();
-        String redirectUrl = contextPath + "/auth/login";
+        String redirectUrl = contextPath + "/";
 
         // Redirigir a la página de inicio
         response.sendRedirect(redirectUrl);
