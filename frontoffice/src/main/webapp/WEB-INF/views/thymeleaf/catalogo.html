@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <title>Electrosa - Catálogo</title>
+</head>
+<body>
+<main layout:fragment="main-content">
+    <div class="product-container">
+        <div class="container">
+
+            <div class="sidebar has-scrollbar" data-mobile-menu>
+                <div class="sidebar-category" style="margin-top: 90px;">
+                    <div class="sidebar-top">
+                        <h2 class="sidebar-title">Filtros de búsqueda</h2>
+                        <button class="sidebar-close-btn" data-mobile-menu-close-btn>
+                            <ion-icon name="close-outline"></ion-icon>
+                        </button>
+                    </div>
+                    <form class="form-cultured">
+                        <div class="control">
+                            <label>Fabricante:</label>
+                            <select name="fabricante">
+                                <option value="-1">-- Cualquiera --</option>
+                                <option>Edesa</option>
+                                <option>Fagor</option>
+                                <option>Miele</option>
+                            </select>
+                        </div>
+                        <div class="control">
+                            <label>Tipo:</label>
+                            <select name="tipo">
+                                <option value="-1">-- Cualquiera --</option>
+                                <option>Aspirador</option>
+                                <option>Campana</option>
+                                <option>Cocina</option>
+                                <option>Frigorifico</option>
+                                <option>Horno</option>
+                                <option>Lavadora</option>
+                                <option>Lavavajillas</option>
+                                <option>Microondas</option>
+                                <option>Placa</option>
+                            </select>
+                        </div>
+                        <div class="control">
+                            <label>Precio</label>
+                            <select name="precio">
+                                <option value="-1">-- Cualquiera --</option>
+                                <option value="10-50">10-50 &euro;</option>
+                                <option value="50-100">50-100 &euro;</option>
+                            </select>
+                        </div>
+                        <div style="margin-top: 30px;">
+                            <button class="banner-btn" type="submit" style="width: 100%;">
+                                Aplicar filtros
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="product-box">
+                <div class="product-main">
+                    <h1 class="title">Catálogo de productos</h1>
+
+                    <div class="paginator-wrapper" th:if="${totalPages > 1}">
+                        <a th:if="${currentPage > 0}" th:href="@{/catalogo(page=0)}">Primero</a>
+                        <a th:if="${currentPage > 0}" th:href="@{/catalogo(page=${currentPage - 1})}">Anterior</a>
+                        <span th:text="'Mostrando página ' + (${currentPage} + 1) + ' de ' + ${totalPages}">
+                            Mostrando página X de Y
+                        </span>
+                        <a th:if="${currentPage < totalPages - 1}" th:href="@{/catalogo(page=${currentPage + 1})}">Siguiente</a>
+                        <a th:if="${currentPage < totalPages - 1}" th:href="@{/catalogo(page=${totalPages - 1})}">Último</a>
+                    </div>
+
+                    <div class="pagination-info">
+                        <label>Artículos por página:</label>
+                        <span class="pagesize">15</span>
+                        <span class="records-found"
+                              th:text="'(' + ${articulos.size()} + ' en esta página, ' + ${totalElements} + ' en total)'">
+                            (X en total)
+                        </span>
+                    </div>
+
+                    <div class="product-grid">
+                        <div class="showcase" th:each="articulo : ${articulos}">
+                            <div class="showcase-banner">
+                                <a th:href="@{/catalogo/{id}(id=${articulo.codigo})}">
+                                    <img th:src="@{/static/assets/images/store/{foto}(foto=${articulo.foto})}"
+                                         th:alt="${articulo.nombre}"
+                                         style="max-height: 150px;"
+                                         class="product-img"/>
+                                </a>
+                            </div>
+                            <div class="showcase-content">
+                                <p class="showcase-code" th:text="${articulo.codigo}"></p>
+                                <a th:href="@{/catalogo/{id}(id=${articulo.codigo})}">
+                                    <h3 class="showcase-title" th:text="${articulo.nombre}"></h3>
+                                </a>
+                            </div>
+                            <div class="price-box">
+                                <p class="price" th:text="${articulo.pvp} + ' €'"></p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</main>
+</body>
+</html>

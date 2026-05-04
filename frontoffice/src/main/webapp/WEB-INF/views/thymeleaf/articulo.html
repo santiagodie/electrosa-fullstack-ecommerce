@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <title th:text="'Electrosa - ' + ${articulo.nombre}">Electrosa - Artículo</title>
+</head>
+<body>
+<main layout:fragment="main-content">
+
+    <div class="product-container">
+        <div class="container">
+
+            <div class="product-box">
+
+                <div class="product-featured">
+
+                    <!-- Breadcrumb -->
+                    <nav style="margin-bottom: 16px; font-size: var(--fs-7); color: var(--sonic-silver);">
+                        <a th:href="@{/catalogo}" style="color: var(--salmon-pink);">Catálogo</a>
+                        &nbsp;/&nbsp;
+                        <span th:text="${articulo.nombre}"></span>
+                    </nav>
+
+                    <h1 class="product-title" th:text="${articulo.nombre}">Nombre del artículo</h1>
+
+                    <div class="showcase-wrapper">
+                        <div class="showcase-container">
+                            <div class="showcase">
+
+                                <div class="showcase-banner">
+                                    <img th:src="@{/static/assets/images/store/{foto}(foto=${articulo.foto})}"
+                                         th:alt="${articulo.nombre}"
+                                         class="showcase-img"
+                                         style="min-height: 250px;"/>
+                                </div>
+
+                                <div class="showcase-content">
+
+                                    <p style="font-size: var(--fs-7); color: var(--sonic-silver); margin-bottom: 8px;">
+                                        Ref: <span th:text="${articulo.codigo}"></span>
+                                    </p>
+
+                                    <a th:href="@{/catalogo/{id}(id=${articulo.codigo})}">
+                                        <h3 class="showcase-title" th:text="${articulo.nombre}">nombre</h3>
+                                    </a>
+
+                                    <p class="showcase-desc" th:text="${articulo.descripcion}">Descripción</p>
+
+                                    <div class="price-box">
+                                        <p class="price">
+                                            <span th:text="${articulo.pvp}"></span>&euro;
+                                        </p>
+                                    </div>
+
+                                    <button class="add-cart-btn">Añadir al carrito</button>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</main>
+</body>
+</html>

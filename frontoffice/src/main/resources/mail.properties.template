@@ -1,0 +1,10 @@
+mail.smtp.host=smtp.unirioja.es
+mail.smtp.port=587
+mail.smtp.starttls.enable=true
+mail.smtp.auth=true
+# tu usuario 
+mail.smtp.user=user@example.com
+# tu contrase\u00f1a
+mail.smtp.password=XXXXXXXXX
+mail.smtp.ssl.trust=smtp.unirioja.es
+mail.smtp.ssl.checkserveridentity=false
