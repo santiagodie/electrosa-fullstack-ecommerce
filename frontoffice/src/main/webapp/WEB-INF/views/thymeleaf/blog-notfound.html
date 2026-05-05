@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html layout:decorate="~{layout}">
+    <head>
+        <title>Electrosa - Entrada no encontrada</title>
+        <link rel="stylesheet" th:href="@{/static/assets/css/blog.css}" />
+    </head>
+    <body>
+        <main layout:fragment="main-content">
+
+            <div class="error-container">
+
+                <!-- Atmospheric image (hidden on small screens) -->
+                <div class="error-image-wrap">
+                    <img th:src="@{/static/assets/images/mikhail-vasilyev-NodtnCsLdTE-unsplash.jpg}"
+                         alt="" aria-hidden="true" />
+                </div>
+
+                <!-- Error message -->
+                <div class="error-content">
+                    <p class="error-eyebrow">Error 404</p>
+                    <h1 class="error-title">Esta entrada no existe</h1>
+                    <p class="error-description">
+                        El artículo que buscas ha sido eliminado o la dirección
+                        no es correcta. Explora el resto de nuestro blog.
+                    </p>
+                    <a class="btn-primary" th:href="@{/blog}">
+                        Ver todos los artículos &rarr;
+                    </a>
+                </div>
+
+            </div>
+
+        </main>
+    </body>
+</html>

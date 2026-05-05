@@ -1,0 +1,214 @@
+/*
+ * ELECTROSA CUENTA — Design System
+ * Coherente con blog.css y login.css
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700;800&family=Figtree:wght@400;500;600&display=swap');
+
+/* =============================================
+   DESIGN TOKENS  (mismo sistema que blog/login)
+   ============================================= */
+
+:root {
+  --font-display: 'Urbanist', system-ui, sans-serif;
+  --font-body:    'Figtree', system-ui, sans-serif;
+
+  --color-bg:             oklch(97.2% 0.005 65);
+  --color-surface:        oklch(99.5% 0.003 65);
+  --color-surface-alt:    oklch(95.5% 0.010 65);
+  --color-border:         oklch(88%  0.008 65);
+  --color-border-strong:  oklch(76%  0.014 65);
+
+  --color-text-primary:   oklch(20%  0.012 65);
+  --color-text-secondary: oklch(44%  0.010 65);
+  --color-text-muted:     oklch(62%  0.010 65);
+
+  --color-accent:         oklch(52%  0.158 28);
+  --color-accent-subtle:  oklch(95%  0.036 28);
+
+  --radius-lg:  20px;
+  --radius-xl:  28px;
+
+  --shadow-md:  0 2px 8px oklch(20% 0.012 65 / 0.06),
+                0 8px 28px oklch(20% 0.012 65 / 0.06);
+
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* =============================================
+   KEYFRAMES
+   ============================================= */
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* =============================================
+   CUENTA LAYOUT
+   ============================================= */
+
+.usuario-content {
+  display: flex;
+  max-width: 920px;
+  margin: 3rem auto;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  animation: fadeUp 420ms var(--ease-out) both;
+}
+
+/* =============================================
+   USER INFO PANEL
+   ============================================= */
+
+.usuario-container {
+  flex: 1;
+  padding: 2.5rem 3rem;
+  box-sizing: border-box;
+}
+
+/* Name heading */
+.usuario-container h3 {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1.1;
+  color: var(--color-text-primary);
+  margin: 0 0 0.5rem;
+}
+
+/* Divider under name */
+.usuario-container h3 + .lines,
+.usuario-name-divider {
+  /* handled via border-top on .lines */
+}
+
+.lines {
+  margin-top: 1.75rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.lines > div {
+  display: flex;
+  align-items: baseline;
+  gap: 1.25rem;
+  padding: 0.9rem 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.lines > div:last-child {
+  border-bottom: none;
+}
+
+/* Label column */
+.lines label {
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  width: 90px;
+  flex-shrink: 0;
+  padding-top: 1px; /* optical alignment with span */
+}
+
+/* Value */
+.lines span {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--color-text-secondary);
+  line-height: 1.4;
+}
+
+/* =============================================
+   AVATAR / IMAGE BLOCK  (si existe)
+   ============================================= */
+
+.usuario-img-container {
+  margin: 0 0 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.usuario-img-container img {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--color-border);
+}
+
+/* =============================================
+   UPLOAD FORM  (si existe)
+   ============================================= */
+
+form {
+  margin-top: 1.75rem;
+}
+
+input[type="file"] {
+  display: block;
+  margin: 0.5rem 0 1rem;
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+}
+
+button {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-display);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #fff;
+  background-color: var(--color-accent);
+  border: none;
+  border-radius: 100px;
+  padding: 0.65rem 1.4rem;
+  cursor: pointer;
+  transition: background-color 180ms var(--ease-out),
+              transform 160ms var(--ease-out);
+}
+
+button:hover {
+  background-color: oklch(44% 0.158 28);
+}
+
+button:active {
+  transform: scale(0.97);
+}
+
+/* =============================================
+   RESPONSIVE
+   ============================================= */
+
+@media (max-width: 680px) {
+  .usuario-content {
+    flex-direction: column;
+    margin: 1.5rem 1rem;
+    border-radius: var(--radius-lg);
+  }
+
+  .usuario-container {
+    padding: 1.75rem;
+  }
+
+  .lines > div {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .lines label {
+    width: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .usuario-content { animation: none; }
+}

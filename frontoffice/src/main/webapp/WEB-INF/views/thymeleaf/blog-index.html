@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html layout:decorate="~{layout}">
+<head>
+    <title>Electrosa - Blogs</title>
+    <link rel="stylesheet" th:href="@{/static/assets/css/blog.css}" />
+</head>
+<body>
+<main layout:fragment="main-content">
+
+    <header class="blog-page-header">
+        <span class="blog-page-header__eyebrow">Nuestras historias</span>
+        <h2 class="blog-page-header__title">Blog</h2>
+    </header>
+
+    <section class="blog-featured">
+        <a class="featured-card" th:href="@{/blog/paw-2025}">
+            <div class="featured-card__image-wrap">
+                <img class="featured-card__img"
+                     th:src="@{/static/assets/images/freepik/group-friends-with-electronic-devices.jpg}"
+                     alt="Estudiantes universitarios con dispositivos electrónicos" />
+            </div>
+            <div class="featured-card__content">
+                <span class="badge">PAW</span>
+                <h3 class="featured-card__title">
+                    Electrosa con los estudiantes de la Universidad desde 2003
+                </h3>
+                <p class="featured-card__meta">
+                    Por <cite>Francisco</cite> &middot; <time datetime="2023-10-01">1 Octubre, 2023</time>
+                </p>
+                <span class="featured-card__cta" aria-hidden="true">Leer entrada &rarr;</span>
+            </div>
+        </a>
+    </section>
+
+    <section class="blog-grid" aria-label="Más entradas del blog">
+
+        <article class="card">
+            <div class="card__image-wrap">
+                <a th:href="@{/blog/tendencias-decorativas}" tabindex="-1" aria-hidden="true">
+                    <img class="card__img"
+                         th:src="@{/static/assets/images/blog/jason-briscoe-GliaHAJ3_5A-unsplash.jpg}"
+                         alt="Tendencias decorativas para el hogar" />
+                </a>
+            </div>
+            <div class="card-content">
+                <div class="blog-category">Tendencias</div>
+                <h3 class="blog-title">
+                    <a class="card__link" th:href="@{/blog/tendencias-decorativas}">
+                        Tendencias decorativas que no pasan de moda
+                    </a>
+                </h3>
+                <p class="blog-meta">
+                    Por <cite>Dustin</cite> &middot; <time datetime="2024-12-26">26 Diciembre, 2024</time>
+                </p>
+            </div>
+        </article>
+
+        <article class="card">
+            <div class="card__image-wrap">
+                <a th:href="@{/blog/consejos-renovar-casa}" tabindex="-1" aria-hidden="true">
+                    <img class="card__img"
+                         th:src="@{/static/assets/images/blog/kam-idris-Ot2iTXgC6fY-unsplash.jpg}"
+                         alt="Interior de una casa renovada" />
+                </a>
+            </div>
+            <div class="card-content">
+                <div class="blog-category">Consejos</div>
+                <h3 class="blog-title">
+                    <a class="card__link" th:href="@{/blog/consejos-renovar-casa}">
+                        5 consejos clave para renovar tu casa
+                    </a>
+                </h3>
+                <p class="blog-meta">
+                    Por <cite>Tormund</cite> &middot; <time datetime="2025-03-09">9 Marzo, 2025</time>
+                </p>
+            </div>
+        </article>
+
+        <article class="card">
+            <div class="card__image-wrap">
+                <a th:href="@{/blog/semana-verde}" tabindex="-1" aria-hidden="true">
+                    <img class="card__img"
+                         th:src="@{/static/assets/images/blog-4.jpg}"
+                         alt="Cocinas de la semana verde del ahorro" />
+                </a>
+            </div>
+            <div class="card-content">
+                <div class="blog-category">Promociones</div>
+                <h3 class="blog-title">
+                    <a class="card__link" th:href="@{/blog/semana-verde}">
+                        Semana verde del ahorro en cocinas
+                    </a>
+                </h3>
+                <p class="blog-meta">
+                    Por <cite>Víctor</cite> &middot; <time datetime="2025-01-26">26 Enero, 2025</time>
+                </p>
+            </div>
+        </article>
+
+    </section>
+
+</main>
+</body>
+</html>

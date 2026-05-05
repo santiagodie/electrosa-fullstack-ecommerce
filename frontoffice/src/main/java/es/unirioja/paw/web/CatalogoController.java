@@ -1,5 +1,13 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 package es.unirioja.paw.web;
 
+/**
+ *
+ * @author Santiago Die
+ */
 import es.unirioja.paw.exception.ArticuloNotFoundException;
 import es.unirioja.paw.jpa.ArticuloEntity;
 import es.unirioja.paw.repository.ArticuloRepository;

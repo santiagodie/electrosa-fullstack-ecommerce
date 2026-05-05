@@ -4,7 +4,6 @@ import es.unirioja.paw.jpa.ClienteEntity;
 import es.unirioja.paw.jpa.UsuarioEntity;
 import es.unirioja.paw.repository.ClienteRepository;
 import es.unirioja.paw.repository.UsuarioRepository;
-import java.security.MessageDigest;
 import java.util.Optional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

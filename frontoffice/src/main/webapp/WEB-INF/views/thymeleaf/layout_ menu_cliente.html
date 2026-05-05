@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <body>
+        <div th:fragment="menu-cliente">
+            <div class="sidebar  has-scrollbar sidebar-user-account" data-mobile-menu>
+
+                <div class="product-showcase">
+
+                    <div class="showcase-wrapper" style="margin-top: 80px;width:300px">
+
+                        <div class="showcase-container">
+
+                            <div class="showcase">
+
+                                <a th:href="@{/cliente/pedidos}" class="showcase-img-box">
+                                    <ion-icon name="cube" style="color: var(--sandy-brown);"></ion-icon>
+                                </a>
+
+                                <div class="showcase-content">
+                                    <a th:href="@{/cliente/pedidos}">
+                                        <h4 class="showcase-title">Compras realizadas</h4>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="showcase">
+
+                                <a th:href="@{/cliente/pedidos/anulados}" class="showcase-img-box">
+                                    <ion-icon name="cube" style="color: var(--salmon-pink);"></ion-icon>
+                                </a>
+
+                                <div class="showcase-content">
+                                    <a th:href="@{/cliente/pedidos/anulados}">
+                                        <h4 class="showcase-title">Pedidos Anulados</h4>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="showcase">
+
+                                <a th:href="@{/clientes/cuenta}" class="showcase-img-box">
+                                    <ion-icon name="person" style="color: var(--ocean-green);"></ion-icon>
+                                </a>
+
+                                <div class="showcase-content">
+
+                                    <a th:href="@{/clientes/cuenta}">
+                                        <h4 class="showcase-title">Datos personales</h4>
+                                    </a>
+
+                                </div>
+                            </div>
+
+                            <div class="showcase">
+                                <a th:href="@{/clientes/wishlist}" class="showcase-img-box">
+                                    <ion-icon name="heart-outline" style="color: var(--salmon-pink);"></ion-icon>
+                                </a>
+
+                                <div class="showcase-content">
+                                    <a th:href="@{/clientes/wishlist}">
+                                        <h4 class="showcase-title">Favoritos</h4>
+                                    </a>
+
+                                </div>
+                            </div>
+
+
+                            <div class="showcase">
+                                <a th:href="@{/auth/logout}" class="showcase-img-box">
+                                    <ion-icon name="exit" style="color: var(--onyx);"></ion-icon>
+                                </a>
+
+                                <div class="showcase-content">
+                                    <a th:href="@{/auth/logout}">
+                                        <h4 class="showcase-title">Cerrar sesión</h4>
+                                    </a>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </body>
+</html>

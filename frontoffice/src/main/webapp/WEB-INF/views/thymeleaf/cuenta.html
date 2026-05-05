@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" layout:decorate="~{layout}">
+    <head>
+        <title>Electrosa - Cuenta</title>
+        <link rel="stylesheet" th:href="@{/static/assets/css/cuenta.css}" />
+    </head>
+    <body>
+        <main layout:fragment="main-content">
+
+            <div class="usuario-content">
+
+                <!-- Sidebar menu (fragmento Thymeleaf sin cambios) -->
+                <div th:replace="~{layout_ menu_cliente :: menu-cliente}"></div>
+
+                <!-- Panel de información del cliente -->
+                <div class="usuario-container">
+
+                    <!-- Nombre del cliente -->
+                    <h3 th:text="${cliente.nombre}"></h3>
+
+                    <!-- Datos del perfil -->
+                    <dl class="lines">
+
+                        <div>
+                            <label>Código</label>
+                            <span th:text="${cliente.codigo}"></span>
+                        </div>
+
+                        <div>
+                            <label>Usuario</label>
+                            <span th:text="${cliente.username}"></span>
+                        </div>
+
+                        <div>
+                            <label>Email</label>
+                            <span th:text="${cliente.email}"></span>
+                        </div>
+
+                        <div>
+                            <label>Dirección</label>
+                            <span th:text="${cliente.ciudad} + ' (' + ${cliente.provincia} + ')'"></span>
+                        </div>
+
+                    </dl>
+
+                </div>
+
+            </div>
+
+        </main>
+    </body>
+</html>

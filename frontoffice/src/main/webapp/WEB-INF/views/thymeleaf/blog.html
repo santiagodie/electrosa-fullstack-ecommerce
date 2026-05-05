@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html layout:decorate="~{layout}">
+    <head>
+        <title>Electrosa - Blog</title>
+        <link rel="stylesheet" th:href="@{/static/assets/css/blog.css}" />
+    </head>
+    <body>
+        <main layout:fragment="main-content">
+
+            <header class="article-header">
+                <div class="article-header__back">
+                    <a class="back-link" th:href="@{/blog}">
+                        <span class="back-arrow" aria-hidden="true">&larr;</span>
+                        Volver al blog
+                    </a>
+                </div>
+                <h1 class="article-title" th:text="${titulo}">Título del blog</h1>
+            </header>
+
+            <div class="article-body">
+                <div class="article-divider" aria-hidden="true"></div>
+                <pre th:text="${contenido}" style="white-space: pre-wrap; word-wrap: break-word;"></pre>
+            </div>
+
+        </main>
+    </body>
+</html>
