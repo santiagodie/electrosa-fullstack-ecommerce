@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html layout:decorate="~{layout}">
+    <head>
+        <title>Electrosa - Pedidos</title>
+        <link rel="stylesheet" th:href="@{/static/assets/css/pedidos.css}" />
+    </head>
+    <body>
+        <main layout:fragment="main-content">
+            <div class="pedidos-content">
+
+                <div class="sidebar-sticky">
+                    <div th:replace="layout_ menu_cliente :: menu-cliente"></div>
+                </div>
+
+                <div class="pedidos-container">
+                    <h2 class="title">Compras realizadas</h2>
+
+                    <div th:if="${error}" class="alert">
+                        <p th:text="${error}"></p>
+                    </div>
+
+                    <div th:if="${pedidos != null and #lists.isEmpty(pedidos)}" class="pedidos_empty">
+                        <p>Aún no tienes ningún pedido.</p>
+                    </div>
+
+                    <div th:if="${pedidos != null and !#lists.isEmpty(pedidos)}">
+                        <div th:each="p : ${pedidos}" class="pedido-box">
+                            <div class="info_pedido">
+                                <h3>Pedido #<span th:text="${p.codigo}"></span></h3>
+                                <p><strong>Fecha:</strong> <span th:text="${#dates.format(p.fechacierre, 'dd/MM/yyyy HH:mm')}"></span></p>
+                                <p><strong>Dirección:</strong> <span th:text="${p.direccion.calle}"></span></p>
+                                <p><span th:text="${p.direccion.cp}"></span> (<span th:text="${p.direccion.provincia}"></span>)</p>
+                                <p><strong>Importe:</strong> <span th:text="${p.importe}"></span> &euro;</p>
+                                <a th:href="@{/cliente/pedidos/{codigo}(codigo=${p.codigo})}" class="ver_detalle">Ver detalle &rarr;</a>
+                            </div>
+                            <div class="estado_pedido">
+                                <div th:if="${p.completado}" class="estado_completado">Completado</div>
+                                <div th:if="${!p.completado}" class="estado_pendiente">Pendiente</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </body>
+</html>

@@ -9,16 +9,12 @@
 
             <div class="usuario-content">
 
-                <!-- Sidebar menu (fragmento Thymeleaf sin cambios) -->
                 <div th:replace="~{layout_ menu_cliente :: menu-cliente}"></div>
 
-                <!-- Panel de información del cliente -->
                 <div class="usuario-container">
 
-                    <!-- Nombre del cliente -->
                     <h3 th:text="${cliente.nombre}"></h3>
 
-                    <!-- Datos del perfil -->
                     <dl class="lines">
 
                         <div>

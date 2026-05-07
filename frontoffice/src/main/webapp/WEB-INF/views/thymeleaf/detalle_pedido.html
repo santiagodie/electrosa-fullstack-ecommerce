@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html layout:decorate="~{layout}">
+    <head>
+        <title>Electrosa - Detalle del pedido</title>
+        <link rel="stylesheet" th:href="@{/static/assets/css/pedidos.css}" />
+    </head>
+    <body>
+        <main layout:fragment="main-content">
+            <div class="pedidos-content">
+
+                <div class="sidebar-sticky" th:replace="layout_ menu_cliente :: menu-cliente"></div>
+
+                <div class="pedidos-container">
+
+                    <div class="pedido-detail-header">
+                        <h2 class="title">Pedido #<span th:text="${pedido.codigo}"></span></h2>
+                        <div th:if="${pedido.completado}" class="estado_completado">Completado</div>
+                        <div th:if="${!pedido.completado}" class="estado_pendiente">Pendiente</div>
+                    </div>
+
+                    <div th:if="${error}" class="alert">
+                        <p th:text="${error}"></p>
+                    </div>
+
+                    <div class="pedido-box-detalle">
+                        <div class="pedidos_info">
+                            <p><strong>Fecha:</strong> <span th:text="${#dates.format(pedido.fechacierre, 'dd/MM/yyyy')}"></span></p>
+                            <p><strong>Dirección de entrega:</strong> <span th:text="${pedido.direccion.calle}"></span></p>
+                            <p><span th:text="${pedido.direccion.cp}"></span> (<span th:text="${pedido.direccion.provincia}"></span>)</p>
+
+                            <h3>Artículos</h3>
+
+                            <div class="product-grid">
+                                <div class="showcase" th:each="l : ${pedido.lineas}">
+                                    <div class="showcase-banner">
+                                        <a th:href="@{/catalogo/{articuloId}(articuloId=${l.articulo.codigo})}">
+                                            <img th:src="@{/static/assets/images/store/{foto}(foto=${l.articulo.foto})}"
+                                                 th:alt="${l.articulo.nombre}"
+                                                 class="product-img" />
+                                        </a>
+                                    </div>
+                                    <div class="showcase-content">
+                                        <p class="showcase-code" th:text="${l.articulo.codigo}"></p>
+                                        <a th:href="@{/catalogo/{articuloId}(articuloId=${l.articulo.codigo})}">
+                                            <h3 class="showcase-title" th:text="${l.articulo.nombre}"></h3>
+                                        </a>
+                                        <p><strong>Cantidad:</strong> <span th:text="${l.cantidad}"></span></p>
+                                        <p><strong>Precio:</strong> <span th:text="${l.precioBase} + ' €'"></span></p>
+                                        <p><strong>Entrega deseada:</strong> <span th:text="${#dates.format(l.FechaEntregaDeseada, 'dd/MM/yyyy')}"></span></p>
+                                        <p th:if="${l.FechaEntregaReal != null}">
+                                            <strong>Fecha recepción:</strong> <span th:text="${#dates.format(l.FechaEntregaReal, 'dd/MM/yyyy')}"></span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <p class="importe-total"><strong>Importe total:</strong> <span th:text="${pedido.importe} + ' €'"></span></p>
+                            <a th:href="@{/cliente/pedidos}" class="btn">&larr; Volver</a>
+                        </div>
+
+                        <div class="estado_pedido_detalle">
+                            <div th:if="${!pedido.completado and pedido.cursado == 0}">
+                                <form method="post" th:action="@{/cliente/pedidos/anular}">
+                                    <input type="hidden" name="codigoPedido" th:value="${pedido.codigo}" />
+                                    <button type="submit" class="banner-btn">Anular pedido</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </main>
+    </body>
+</html>

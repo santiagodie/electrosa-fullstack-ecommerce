@@ -24,12 +24,16 @@ public interface PedidoService {
     public PedidoEntity findOne(String codigoPedido);
 
     /**
-     *
+     * Productos del pedido en realizacion (cesta)
      * @param codigoCliente Codigo del cliente
      * @return Cesta de la compra (coleccion de articulos en la cesta)
      */
     public CestaCompraEntity findCestaCliente(String codigoCliente);
 
+    /**
+     * Elimina la cesta del cliente
+     * @param codigoCliente Codigo del cliente
+     */
     public void deleteCestaCliente(String codigoCliente);
 
 }

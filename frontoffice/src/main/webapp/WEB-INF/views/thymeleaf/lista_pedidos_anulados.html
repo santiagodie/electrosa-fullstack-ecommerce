@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html layout:decorate="~{layout}">
+    <head>
+        <title>Electrosa - Pedidos anulados</title>
+        <link rel="stylesheet" th:href="@{/static/assets/css/pedidos.css}" />
+    </head>
+    <body>
+        <main layout:fragment="main-content">
+            <div class="pedidos-content">
+
+                <div class="sidebar-sticky">
+                    <div th:replace="layout_ menu_cliente :: menu-cliente"></div>
+                </div>
+
+                <div class="pedidos-container">
+                    <h2 class="title">Pedidos anulados</h2>
+
+                    <div th:if="${pedidosAnulados != null and #lists.isEmpty(pedidosAnulados)}" class="pedidos_empty">
+                        <p>No tienes pedidos anulados.</p>
+                    </div>
+
+                    <div th:if="${pedidosAnulados != null and !#lists.isEmpty(pedidosAnulados)}">
+                        <div th:each="p : ${pedidosAnulados}" class="pedido-box">
+                            <div class="info_pedido">
+                                <h3>Pedido #<span th:text="${p.codigo}"></span></h3>
+                                <p><strong>Fecha cierre:</strong> <span th:text="${#dates.format(p.Fechacierre, 'dd/MM/yyyy HH:mm')}"></span></p>
+                                <p><strong>Fecha anulación:</strong> <span th:text="${#dates.format(p.Fechaanulacion, 'dd/MM/yyyy HH:mm')}"></span></p>
+                                <a th:href="@{/cliente/pedidos/anulados/{codigo}(codigo=${p.codigo})}" class="ver_detalle">Ver detalle &rarr;</a>
+                            </div>
+                            <div class="estado_pedido">
+                                <div class="estado_anulado">Anulado</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </body>
+</html>
