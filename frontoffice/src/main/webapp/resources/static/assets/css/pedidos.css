@@ -19,9 +19,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
   --color-text-secondary: oklch(44%  0.010 65);
   --color-text-muted:     oklch(62%  0.010 65);
 
-  --color-accent:         hsl(353, 100%, 78%);
-  --color-accent-hover:   hsl(0, 0%, 13%);
-  --color-accent-subtle:  hsl(353, 100%, 96%);
+  --color-accent:         oklch(52%  0.158 28);
+  --color-accent-hover:   oklch(44%  0.158 28);
+  --color-accent-subtle:  oklch(95%  0.036 28);
 
   --color-ok-text:        oklch(42%  0.13  152);
   --color-ok-bg:          oklch(96%  0.032 152);
@@ -212,7 +212,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
   letter-spacing: 0.06em;
   text-transform: uppercase;
   padding: 0.35rem 0.9rem;
-  border-radius: 10px;
+  border-radius: 100px;
 }
 
 .estado_completado::before,
@@ -418,7 +418,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
   font-weight: 600;
   color: var(--color-text-secondary);
   border: 1.5px solid var(--color-border);
-  border-radius: 10px;
+  border-radius: 100px;
   padding: 0.6rem 1.4rem;
   text-decoration: none;
   margin-top: 1.5rem;
@@ -440,16 +440,17 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
   font-family: var(--font-display);
   font-size: 0.875rem;
   font-weight: 600;
-  background-color: var(--color-accent);
-  color: #fff;
-  border-radius: 10px;
+  color: var(--color-danger-text);
+  background-color: var(--color-danger-bg);
+  border: 1.5px solid var(--color-danger-border);
+  border-radius: 100px;
   padding: 0.6rem 1.25rem;
   cursor: pointer;
   transition: background-color 180ms var(--ease-out), transform 160ms var(--ease-out);
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .pedidos-container .banner-btn:hover { background-color: var(--color-accent-hover); }
+  .pedidos-container .banner-btn:hover { background-color: oklch(93% 0.05 22); }
 }
 
 .pedidos-container .banner-btn:active { transform: scale(0.97); }

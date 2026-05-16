@@ -12,9 +12,9 @@
     --color-text-secondary: oklch(44%  0.010 65);
     --color-text-muted:     oklch(62%  0.010 65);
 
-    --color-accent:         hsl(353, 100%, 78%);
-    --color-accent-hover:   hsl(0, 0%, 13%);
-    --color-accent-subtle:  hsl(353, 100%, 96%);
+    --color-accent:         oklch(52%  0.158 28);
+    --color-accent-hover:   oklch(44%  0.158 28);
+    --color-accent-subtle:  oklch(95%  0.036 28);
 
     --radius-sm:  8px;
     --radius-md:  14px;
@@ -176,7 +176,7 @@
     color: var(--color-accent);
     background: var(--color-accent-subtle);
     padding: 0.28rem 0.75rem;
-    border-radius: 10px;
+    border-radius: 100px;
     width: fit-content;
 }
 
@@ -442,7 +442,7 @@
     color: #fff;
     background-color: var(--color-accent);
     padding: 0.78rem 1.6rem;
-    border-radius: 10px;
+    border-radius: 100px;
     text-decoration: none;
     width: fit-content;
     transition: background-color 180ms var(--ease-out),
