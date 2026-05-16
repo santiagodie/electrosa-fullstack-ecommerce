@@ -1,48 +1,66 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" layout:decorate="~{layout}">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
     <head>
-        <title>Electrosa - Cuenta</title>
-        <link rel="stylesheet" th:href="@{/static/assets/css/cuenta.css}" />
+        <title>Electrosa - Datos personales</title>
+        <link rel="stylesheet" th:href="@{/static/assets/css/cuenta.css}"/>
     </head>
     <body>
         <main layout:fragment="main-content">
-
             <div class="usuario-content">
 
-                <div th:replace="~{layout_ menu_cliente :: menu-cliente}"></div>
+                <div class="sidebar-sticky">
+                    <div th:replace="~{layout_ menu_cliente :: menu-cliente}"></div>
+                </div>
 
                 <div class="usuario-container">
 
                     <h3 th:text="${cliente.nombre}"></h3>
 
                     <dl class="lines">
-
                         <div>
                             <label>Código</label>
                             <span th:text="${cliente.codigo}"></span>
                         </div>
-
                         <div>
                             <label>Usuario</label>
                             <span th:text="${cliente.username}"></span>
                         </div>
-
                         <div>
                             <label>Email</label>
                             <span th:text="${cliente.email}"></span>
                         </div>
-
                         <div>
                             <label>Dirección</label>
                             <span th:text="${cliente.ciudad} + ' (' + ${cliente.provincia} + ')'"></span>
                         </div>
-
                     </dl>
 
+                    <div class="avatar-section">
+
+                        <div class="avatar-wrap">
+                            <th:block th:if="${session.clienteAvatar != null and !session.clienteAvatar.isDefault()}">
+                                <img th:if="${session.clienteAvatar.isRemoteURL()}" th:src="${session.clienteAvatar.imageSource}" alt="Avatar" />
+                                <img th:if="${!session.clienteAvatar.isRemoteURL()}" th:src="@{/static/assets/avatar/{img}(img=${session.clienteAvatar.imageSource})}" alt="Avatar" />
+                            </th:block>
+                            <th:block th:if="${session.clienteAvatar == null or session.clienteAvatar.isDefault()}">
+                                <svg class="avatar-default-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/>
+                                </svg>
+                            </th:block>
+                        </div>
+
+                        <form class="avatar-upload-form" method="post" th:action="@{/cliente/cuenta}" enctype="multipart/form-data">
+                            <label for="avatar-file">Foto de perfil</label>
+                            <input id="avatar-file" type="file" name="file" accept="image/*" />
+                            <button class="btn-upload" type="submit">Subir imagen</button>
+                        </form>
+
+                    </div>
+
                 </div>
-
             </div>
-
         </main>
     </body>
 </html>

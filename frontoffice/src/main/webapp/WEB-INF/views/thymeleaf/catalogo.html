@@ -10,6 +10,7 @@
     <div class="product-container">
         <div class="container">
 
+            <!-- SIDEBAR -->
             <div class="sidebar has-scrollbar" data-mobile-menu>
                 <div class="sidebar-category" style="margin-top: 90px;">
                     <div class="sidebar-top">
@@ -18,37 +19,38 @@
                             <ion-icon name="close-outline"></ion-icon>
                         </button>
                     </div>
-                    <form class="form-cultured">
+                    <form class="form-cultured" th:action="@{/catalogo}" method="get">
                         <div class="control">
                             <label>Fabricante:</label>
                             <select name="fabricante">
-                                <option value="-1">-- Cualquiera --</option>
-                                <option>Edesa</option>
-                                <option>Fagor</option>
-                                <option>Miele</option>
+                                <option value="">-- Cualquiera --</option>
+                                <option th:each="f : ${fabricantes}"
+                                        th:value="${f}"
+                                        th:text="${f}"
+                                        th:selected="${f == fabricanteSeleccionado}">
+                                </option>
                             </select>
                         </div>
                         <div class="control">
                             <label>Tipo:</label>
                             <select name="tipo">
-                                <option value="-1">-- Cualquiera --</option>
-                                <option>Aspirador</option>
-                                <option>Campana</option>
-                                <option>Cocina</option>
-                                <option>Frigorifico</option>
-                                <option>Horno</option>
-                                <option>Lavadora</option>
-                                <option>Lavavajillas</option>
-                                <option>Microondas</option>
-                                <option>Placa</option>
+                                <option value="">-- Cualquiera --</option>
+                                <option th:each="t : ${tipos}"
+                                        th:value="${t}"
+                                        th:text="${t}"
+                                        th:selected="${t == tipoSeleccionado}">
+                                </option>
                             </select>
                         </div>
                         <div class="control">
                             <label>Precio</label>
                             <select name="precio">
-                                <option value="-1">-- Cualquiera --</option>
-                                <option value="10-50">10-50 &euro;</option>
-                                <option value="50-100">50-100 &euro;</option>
+                                <option value="">-- Cualquiera --</option>
+                                <option value="0-50"      th:selected="${precioSeleccionado == '0-50'}">0-50 &euro;</option>
+                                <option value="50-100"    th:selected="${precioSeleccionado == '50-100'}">50-100 &euro;</option>
+                                <option value="100-200"   th:selected="${precioSeleccionado == '100-200'}">100-200 &euro;</option>
+                                <option value="200-500"   th:selected="${precioSeleccionado == '200-500'}">200-500 &euro;</option>
+                                <option value="500-99999" th:selected="${precioSeleccionado == '500-99999'}">Más de 500 &euro;</option>
                             </select>
                         </div>
                         <div style="margin-top: 30px;">
@@ -60,51 +62,105 @@
                 </div>
             </div>
 
+            <!-- CONTENIDO -->
             <div class="product-box">
                 <div class="product-main">
                     <h1 class="title">Catálogo de productos</h1>
 
-                    <div class="paginator-wrapper" th:if="${totalPages > 1}">
-                        <a th:if="${currentPage > 0}" th:href="@{/catalogo(page=0)}">Primero</a>
-                        <a th:if="${currentPage > 0}" th:href="@{/catalogo(page=${currentPage - 1})}">Anterior</a>
-                        <span th:text="'Mostrando página ' + (${currentPage} + 1) + ' de ' + ${totalPages}">
-                            Mostrando página X de Y
-                        </span>
-                        <a th:if="${currentPage < totalPages - 1}" th:href="@{/catalogo(page=${currentPage + 1})}">Siguiente</a>
-                        <a th:if="${currentPage < totalPages - 1}" th:href="@{/catalogo(page=${totalPages - 1})}">Último</a>
+                    <div th:if="${#lists.isEmpty(articulos)}">
+                        <p>No se han encontrado artículos.</p>
                     </div>
 
-                    <div class="pagination-info">
-                        <label>Artículos por página:</label>
-                        <span class="pagesize">15</span>
-                        <span class="records-found"
-                              th:text="'(' + ${articulos.size()} + ' en esta página, ' + ${totalElements} + ' en total)'">
-                            (X en total)
-                        </span>
-                    </div>
+                    <th:block th:unless="${#lists.isEmpty(articulos)}">
 
-                    <div class="product-grid">
-                        <div class="showcase" th:each="articulo : ${articulos}">
-                            <div class="showcase-banner">
-                                <a th:href="@{/catalogo/{id}(id=${articulo.codigo})}">
-                                    <img th:src="@{/static/assets/images/store/{foto}(foto=${articulo.foto})}"
-                                         th:alt="${articulo.nombre}"
-                                         style="max-height: 150px;"
-                                         class="product-img"/>
-                                </a>
-                            </div>
-                            <div class="showcase-content">
-                                <p class="showcase-code" th:text="${articulo.codigo}"></p>
-                                <a th:href="@{/catalogo/{id}(id=${articulo.codigo})}">
-                                    <h3 class="showcase-title" th:text="${articulo.nombre}"></h3>
-                                </a>
-                            </div>
-                            <div class="price-box">
-                                <p class="price" th:text="${articulo.pvp} + ' €'"></p>
+                        <!-- Paginador -->
+                        <div class="paginator-wrapper" th:if="${totalPages > 1}">
+                            <a th:if="${currentPage > 0}"
+                               th:href="@{/catalogo(page=0, fabricante=${fabricanteSeleccionado}, tipo=${tipoSeleccionado}, precio=${precioSeleccionado})}">Primero</a>
+                            <a th:if="${currentPage > 0}"
+                               th:href="@{/catalogo(page=${currentPage - 1}, fabricante=${fabricanteSeleccionado}, tipo=${tipoSeleccionado}, precio=${precioSeleccionado})}">Anterior</a>
+                            <span class="current"
+                                  th:text="'Mostrando página ' + (${currentPage} + 1) + ' de ' + ${totalPages}"></span>
+                            <a th:if="${currentPage < totalPages - 1}"
+                               th:href="@{/catalogo(page=${currentPage + 1}, fabricante=${fabricanteSeleccionado}, tipo=${tipoSeleccionado}, precio=${precioSeleccionado})}">Siguiente</a>
+                            <a th:if="${currentPage < totalPages - 1}"
+                               th:href="@{/catalogo(page=${totalPages - 1}, fabricante=${fabricanteSeleccionado}, tipo=${tipoSeleccionado}, precio=${precioSeleccionado})}">Último</a>
+                        </div>
+
+                        <div class="pagination-info">
+                            <label>Artículos por página:</label>
+                            <span class="pagesize">15</span>
+                            <span class="records-found"
+                                  th:text="'(' + ${articulos.size()} + ' en esta página, ' + ${totalElements} + ' en total)'"></span>
+                        </div>
+
+                        <!-- GRID — misma estructura que el template -->
+                        <div class="product-grid">
+                            <div class="showcase" th:each="articulo : ${articulos}">
+
+                                <div class="showcase-banner">
+                                    <a th:href="@{/catalogo/{id}(id=${articulo.codigo})}">
+                                        <img th:src="@{/static/assets/images/store/{foto}(foto=${articulo.foto})}"
+                                             th:alt="${articulo.nombre}"
+                                             style="max-height: 150px;"
+                                             class="product-img"/>
+                                    </a>
+
+                                    <p class="showcase-badge"
+                                       th:if="${ofertas != null and ofertas[articulo.codigo] != null}"
+                                       th:text="'-' + ${T(java.lang.Math).round(
+                                                    ofertas[articulo.codigo].descuento.doubleValue() > 1
+                                                    ? ofertas[articulo.codigo].descuento.doubleValue()
+                                                    : ofertas[articulo.codigo].descuento.doubleValue() * 100
+                                                )} + '%'">
+                                    </p>
+
+                                    <div class="showcase-actions">
+                                        <button class="btn-action wishlist-add" th:id="${articulo.codigo}">
+                                            <ion-icon name="heart-outline"></ion-icon>
+                                        </button>
+                                        <button class="btn-action">
+                                            <ion-icon name="eye-outline"></ion-icon>
+                                        </button>
+                                        <button class="btn-action">
+                                            <ion-icon name="bag-add-outline"></ion-icon>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- showcase-content: código, título, rating y precio van aquí dentro -->
+                                <div class="showcase-content">
+                                    <span th:text="${articulo.codigo}"></span>
+
+                                    <a th:href="@{/catalogo/{id}(id=${articulo.codigo})}">
+                                        <h3 class="showcase-title" th:text="${articulo.nombre}"></h3>
+                                    </a>
+
+                                    <div class="showcase-rating">
+                                        <div class="showcase-rating"
+                                             th:with="rating=${T(java.lang.Math).min(5, T(java.lang.Math).max(0, articulo.rating))},
+                                                      vacias=${5 - rating}">
+                                            <ion-icon name="star"
+                                                      th:each="i : ${#numbers.sequence(1, rating)}"></ion-icon>
+                                            <ion-icon name="star-outline"
+                                                      th:if="${vacias > 0}"
+                                                      th:each="i : ${#numbers.sequence(1, vacias)}"></ion-icon>
+                                        </div>
+                                    </div>
+
+                                    <div class="price-box" th:if="${ofertas != null and ofertas[articulo.codigo] != null}">
+                                        <del th:text="${preciosConDescuento[articulo.codigo]} + ' €'"></del>
+                                        <p class="price" th:text="${articulo.pvp} + ' €'"></p>
+                                    </div>
+                                    <div class="price-box" th:unless="${ofertas != null and ofertas[articulo.codigo] != null}">
+                                        <p class="price" th:text="${articulo.pvp} + ' €'"></p>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
-                    </div>
 
+                    </th:block>
                 </div>
             </div>
 

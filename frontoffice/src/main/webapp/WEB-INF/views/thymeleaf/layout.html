@@ -1,6 +1,7 @@
-
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       class="h-100" lang="es">
 
     <head>
@@ -111,8 +112,26 @@
                     </div>
 
                     <div class="header-user-actions">
-                        <a href="/electrosa/cliente/cuenta" class="action-btn">
-                            <ion-icon name="person-outline"></ion-icon>
+                        <a th:href="@{/cliente/cuenta}" class="action-btn">
+                            <th:block th:if="${session.clienteAvatar == null or session.
+                                      clienteAvatar.isDefault()}">
+                                <ion-icon name="person-outline"></ion-icon>
+                            </th:block>
+                            <th:block th:unless="${session.clienteAvatar == null or session
+                                      .clienteAvatar.isDefault()}">
+                                <th:block th:if="${session.clienteAvatar.isRemoteURL()}">
+                                    <img th:src="${session.clienteAvatar.imageSource}"
+                                         style="border-radius: 50%; height: 36px;"
+                                         />
+                                </th:block>
+                                <th:block th:if="${not session.clienteAvatar.isRemoteURL()}
+                                          ">
+                                    <img th:src="@{/static/assets/avatar/{image}(image=${
+                                         session.clienteAvatar.imageSource})}"
+                                         style="border-radius: 50%; height: 40px;width: 40px;"
+                                         />
+                                </th:block>
+                            </th:block>
                         </a>
 
                         <a href="/electrosa/cliente/wishlist" class="action-btn">
@@ -120,9 +139,11 @@
                             <span class="count" id="wishlist-count">0</span>
                         </a>
 
-                        <a href="/electrosa/cliente/cesta" class="action-btn">
+                        <a th:href="@{/cliente/cesta}" class="action-btn">
                             <ion-icon name="bag-handle-outline"></ion-icon>
-                            <span class="count">0</span>
+                            <span th:if="${session.cesta != null}" class="count"
+                                  th:text="${#lists.size(session.cesta.lineas)}">0</span>
+                            <span th:if="${session.cesta == null}" class="count">0</span>
                         </a>
 
                     </div>
@@ -142,20 +163,21 @@
                         </li>
 
                         <li class="menu-category">
-                            <a href="/electrosa/catalogo/?family=aspiradores" class="menu-title">Aspiradores</a>
+                            <a th:href="'/electrosa/catalogo?page=0&tipo=Aspirador'" class="menu-title">[[#{menu.category.aspirator}]]</a>
                         </li>
 
                         <li class="menu-category">
-                            <a href="/electrosa/catalogo/?family=frigorificos" class="menu-title">Frigoríficos</a>
+                            <a th:href="'/electrosa/catalogo?page=0&tipo=Frigorifico'" class="menu-title">[[#{menu.category.fridge}]]</a>
                         </li>
 
                         <li class="menu-category">
-                            <a href="/electrosa/catalogo/?family=lavadoras" class="menu-title">Lavadoras</a>
+                            <a th:href="'/electrosa/catalogo?page=0&tipo=Lavadora'" class="menu-title">[[#{menu.category.washingmachine}]]</a>
                         </li>
 
                         <li class="menu-category">
-                            <a href="/electrosa/catalogo/?family=cocinas" class="menu-title">Cocinas</a>
+                            <a th:href="'/electrosa/catalogo?page=0&tipo=Cocina'" class="menu-title">[[#{menu.category.stove}]]</a>
                         </li>
+
 
                         <li class="menu-category">
                             <a href="/electrosa/blog/" class="menu-title">Blog</a>

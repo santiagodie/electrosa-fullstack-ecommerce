@@ -8,14 +8,18 @@ package es.unirioja.paw.web;
  *
  * @author Santiago Die
  */
+import es.unirioja.paw.jpa.CestaCompraEntity;
 import es.unirioja.paw.jpa.ClienteEntity;
 import es.unirioja.paw.service.AuthService;
+import es.unirioja.paw.service.PedidoService;
+import es.unirioja.paw.service.SessionConstants;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import es.unirioja.paw.web.data.ClienteAvatarInfo;
 
 @Controller
 @RequestMapping("/auth")
@@ -23,6 +27,9 @@ public class AuthController {
 
     @Autowired
     private AuthService authService;
+
+    @Autowired
+    private PedidoService pedidoService;
 
     @GetMapping("/login")
     public String login(Model model) {
@@ -61,10 +68,14 @@ public class AuthController {
         }
 
         HttpSession session = request.getSession();
-        session.setAttribute("cliente", cliente);
+        session.setAttribute(SessionConstants.CLIENTE_KEY, cliente);
 
-        String retorno = (String) session.getAttribute("retorno");
-        session.removeAttribute("retorno");
+        // Cargar la cesta del cliente en sesión
+        CestaCompraEntity cestaEntity = pedidoService.findCestaCliente(cliente.getCodigo());
+        session.setAttribute(SessionConstants.CESTA_KEY, cestaEntity);
+        session.setAttribute("clienteAvatar", new ClienteAvatarInfo(cliente));
+        String retorno = (String) session.getAttribute(SessionConstants.RETORNO_KEY);
+        session.removeAttribute(SessionConstants.RETORNO_KEY);
 
         String destinoFinal = (retorno != null && !retorno.isBlank()) ? retorno : "/cliente/cuenta";
         return "redirect:" + destinoFinal;

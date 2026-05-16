@@ -37,13 +37,20 @@
 
                                 <div class="showcase-content">
 
+                                    <!-- Estrellas de valoración -->
+                                    <div class="showcase-rating">
+                                        <ion-icon name="star"></ion-icon>
+                                        <ion-icon name="star"></ion-icon>
+                                        <ion-icon name="star"></ion-icon>
+                                        <ion-icon name="star-outline"></ion-icon>
+                                        <ion-icon name="star-outline"></ion-icon>
+                                    </div>
+
                                     <p style="font-size: var(--fs-7); color: var(--sonic-silver); margin-bottom: 8px;">
                                         Ref: <span th:text="${articulo.codigo}"></span>
                                     </p>
 
-                                    <a th:href="@{/catalogo/{id}(id=${articulo.codigo})}">
-                                        <h3 class="showcase-title" th:text="${articulo.nombre}">nombre</h3>
-                                    </a>
+                                    <h3 class="showcase-title" th:text="${articulo.nombre}">nombre</h3>
 
                                     <p class="showcase-desc" th:text="${articulo.descripcion}">Descripción</p>
 
@@ -53,7 +60,19 @@
                                         </p>
                                     </div>
 
-                                    <button class="add-cart-btn">Añadir al carrito</button>
+                                    <!-- Formulario POST para añadir al carrito -->
+                                    <form th:action="@{/cliente/cesta}" method="post">
+                                        <input type="hidden" name="codigoArticulo" th:value="${articulo.codigo}"/>
+                                        <button class="add-cart-btn" type="submit">Añadir al carrito</button>
+                                    </form>
+
+                                    <!-- Stock -->
+                                    <div class="showcase-status">
+                                        <div class="wrapper">
+                                            <p>Disponible: <b th:text="${articulo.stock}">-</b></p>
+                                        </div>
+                                        <div class="showcase-status-bar"></div>
+                                    </div>
 
                                 </div>
 
@@ -63,6 +82,32 @@
 
                 </div>
 
+            </div>
+
+            <!-- Sidebar info entrega (del template del profesor) -->
+            <div class="sidebar showcase-container"
+                 style="border: 1px solid var(--cultured);
+                        border-radius: var(--border-radius-md);
+                        padding: 10px; margin-top: 88px;
+                        color: var(--sonic-silver);
+                        font-size: var(--fs-7);
+                        font-weight: var(--weight-300);">
+                <div style="margin: 14px 0;">
+                    <ion-icon name="stopwatch-outline" style="display: inline-block"></ion-icon>
+                    Entrega en 3 a 4 días laborables
+                </div>
+                <div style="margin: 14px 0;">
+                    <ion-icon name="cube-outline" style="display: inline-block"></ion-icon>
+                    Gastos de envío 0&euro;
+                </div>
+                <div style="margin: 14px 0;">
+                    <ion-icon name="checkmark-circle-outline" style="display: inline-block"></ion-icon>
+                    Artículo con 100 días de <a href="#" style="color: var(--salmon-pink);">prueba y devolución gratuita</a>.
+                </div>
+                <div style="margin: 14px 0;">
+                    <ion-icon name="gift-outline" style="display: inline-block"></ion-icon>
+                    Recogida y reciclaje gratuito
+                </div>
             </div>
 
         </div>

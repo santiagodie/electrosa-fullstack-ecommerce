@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+    <head>
+        <title>Electrosa - Cesta</title>
+        <link rel="stylesheet" th:href="@{/static/assets/css/cesta.css}" />
+    </head>
+    <body>
+        <main layout:fragment="main-content">
+            <div class="usuario-content">
+
+                <div class="sidebar-sticky">
+                    <div th:replace="~{layout_ menu_cliente :: menu-cliente}"></div>
+                </div>
+
+                <div class="product-main">
+                    <h2 class="title">Cesta</h2>
+
+                    <div th:if="${cesta != null and cesta.lineas != null and !#lists.isEmpty(cesta.lineas)}">
+
+                        <div class="cesta-header-actions">
+                            <a class="cesta-btn--secondary" th:href="@{/catalogo}">&larr; Seguir comprando</a>
+                        </div>
+
+                        <div th:each="linea : ${cesta.lineas}" class="cesta-linea">
+                            <div class="showcase-banner">
+                                <a th:href="@{/catalogo/{id}(id=${linea.articulo.codigo})}">
+                                    <img th:src="@{/static/assets/images/store/{foto}(foto=${linea.articulo.foto})}"
+                                         th:alt="${linea.articulo.nombre}"
+                                         class="product-img" />
+                                </a>
+                            </div>
+                            <div class="showcase-content">
+                                <p th:text="${linea.cantidad} + ' × ' + ${linea.articulo.nombre}"></p>
+                                <p th:text="'Precio unidad: ' + ${linea.articulo.pvp} + ' €'"></p>
+                            </div>
+                            <div class="cesta-precio">
+                                <strong th:text="${linea.precio} + ' €'"></strong>
+                            </div>
+                        </div>
+
+                        <div class="cesta-total">
+                            <p>Total</p>
+                            <strong th:text="${total} + ' €'"></strong>
+                        </div>
+
+                        <div class="cesta-botones">
+                            <a class="cesta-btn--danger" th:href="@{/cliente/cesta/vaciar}">Vaciar cesta</a>
+                            <a class="cesta-btn--primary" th:href="@{/cliente/pedido/formulario}">Realizar pedido &rarr;</a>
+                        </div>
+
+                    </div>
+
+                    <div class="cesta-vacia" th:if="${cesta == null or cesta.lineas == null or #lists.isEmpty(cesta.lineas)}">
+                        <p>Tu cesta está vacía.</p>
+                        <a class="cesta-btn--primary" th:href="@{/catalogo}">Ir a comprar &rarr;</a>
+                    </div>
+
+                </div>
+            </div>
+        </main>
+    </body>
+</html>

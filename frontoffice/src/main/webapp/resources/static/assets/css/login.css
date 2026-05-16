@@ -1,20 +1,10 @@
-/*
- * ELECTROSA LOGIN — Design System
- * Coherente con blog.css: Urbanist + Figtree, OKLCH stone + sienna
- */
-
 @import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700;800&family=Figtree:wght@400;500;600&display=swap');
 
-/* =============================================
-   DESIGN TOKENS (mirrored from blog.css)
-   ============================================= */
 
 :root {
   --font-display: 'Urbanist', system-ui, sans-serif;
   --font-body:    'Figtree', system-ui, sans-serif;
 
-  --color-bg:             oklch(97.2% 0.005 65);
-  --color-surface:        oklch(99.5% 0.003 65);
   --color-border:         oklch(88%  0.008 65);
   --color-border-focus:   oklch(20%  0.012 65);
 
@@ -26,7 +16,6 @@
   --color-accent-hover:   oklch(44%  0.158 28);
   --color-accent-subtle:  oklch(95%  0.036 28);
 
-  /* Brand panel */
   --color-brand-bg:       oklch(17%  0.014 65);
   --color-brand-text:     oklch(96%  0.004 65);
 
@@ -40,22 +29,15 @@
   --radius-btn:   100px;
 }
 
-/* =============================================
-   RESET & BASE
-   ============================================= */
 
 *, *::before, *::after { box-sizing: border-box; }
 * { margin: 0; padding: 0; }
 
 body {
   font-family: var(--font-body);
-  background-color: var(--color-bg);
   min-height: 100dvh;
 }
 
-/* =============================================
-   SPLIT LAYOUT
-   ============================================= */
 
 .login-root {
   display: grid;
@@ -63,9 +45,6 @@ body {
   min-height: 100dvh;
 }
 
-/* =============================================
-   BRAND PANEL  (left, dark)
-   ============================================= */
 
 .login-brand {
   background-color: var(--color-brand-bg);
@@ -77,12 +56,11 @@ body {
   overflow: hidden;
 }
 
-/* Subtle grain — fixed so it never repaints on scroll */
 .login-brand::after {
   content: '';
   position: fixed;
   inset: 0;
-  width: 50vw;            /* clip to left panel only */
+  width: 50vw;        
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.045'/%3E%3C/svg%3E");
   pointer-events: none;
   z-index: 0;
@@ -119,9 +97,6 @@ body {
   letter-spacing: 0.05em;
 }
 
-/* =============================================
-   TITLE ANIMATION  (original effect — refined)
-   ============================================= */
 
 .title_animation {
   font-family: var(--font-display);
@@ -159,16 +134,11 @@ body {
   width: 100%;
 }
 
-/* =============================================
-   FORM PANEL  (right, light)
-   ============================================= */
-
 .login-form-panel {
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 2.5rem;
-  background-color: var(--color-bg);
 }
 
 .login_container {
@@ -205,10 +175,6 @@ body {
   margin-top: 0.45rem;
 }
 
-/* =============================================
-   ERROR MESSAGES
-   ============================================= */
-
 .message_error_container {
   margin-bottom: 0.75rem;
 }
@@ -223,10 +189,6 @@ body {
   padding: 0.6rem 0.9rem;
   border-radius: 8px;
 }
-
-/* =============================================
-   FORM FIELDS
-   ============================================= */
 
 .login_details_wrapper {
   display: flex;
@@ -257,7 +219,6 @@ body {
   border: 1.5px solid var(--color-border);
   border-radius: var(--radius-input);
   padding: 0.72rem 1rem;
-  background-color: var(--color-surface);
   transition: border-color 180ms var(--ease-out),
               box-shadow 180ms var(--ease-out);
 }
@@ -306,7 +267,6 @@ input[type="password"]::placeholder {
   color: var(--color-text-muted);
 }
 
-/* Field errors */
 .message_error_username,
 .message_error_password {
   margin-top: -0.4rem;
@@ -323,11 +283,6 @@ input[type="password"]::placeholder {
   border-radius: 6px;
   display: block;
 }
-
-/* =============================================
-   SUBMIT BUTTON
-   ============================================= */
-
 .button_wrapper {
   margin-top: 1.35rem;
   margin-bottom: 1.75rem;
@@ -365,7 +320,6 @@ input[type="password"]::placeholder {
   line-height: 1;
 }
 
-/* Arrow inside button */
 .login_arrow {
   position: relative;
   width: 10px;
@@ -391,10 +345,6 @@ input[type="password"]::placeholder {
 
 .btn_login:hover .login_arrow        { width: 16px; }
 .btn_login:hover .login_arrow::before { right: -2px; }
-
-/* =============================================
-   CREAR CUENTA LINK
-   ============================================= */
 
 .crear_usuario {
   padding-top: 1.5rem;
@@ -433,42 +383,4 @@ input[type="password"]::placeholder {
 
 .line a:hover {
   color: var(--color-accent-hover);
-}
-
-/* =============================================
-   RESPONSIVE
-   ============================================= */
-
-@media (max-width: 780px) {
-  .login-root {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto 1fr;
-  }
-
-  .login-brand {
-    min-height: 160px;
-    padding: 2rem;
-  }
-
-  .login-brand::after {
-    width: 100vw;
-  }
-
-  .login-form-panel {
-    padding: 2.5rem 1.5rem;
-    align-items: flex-start;
-  }
-
-  .login_container {
-    max-width: 100%;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .brand-inner,
-  .login_container { animation: none; opacity: 1; }
-  .hover-text,
-  .btn_login,
-  .username_wrapper,
-  .password_wrapper { transition: none; }
 }

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+    <head>
+        <title>Electrosa - Pedido confirmado</title>
+        <link rel="stylesheet" th:href="@{/static/assets/css/pedido.css}"/>
+    </head>
+    <body>
+        <main layout:fragment="main-content">
+            <div class="pedido-content">
+
+                <div class="sidebar-sticky" th:replace="~{layout_ menu_cliente :: menu-cliente}"></div>
+
+                <div class="pedido-container">
+
+                    <div class="confirm-icon" aria-hidden="true">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                             fill="none" stroke="currentColor"
+                             stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="20 6 9 17 4 12"/>
+                        </svg>
+                    </div>
+
+                    <h3>Pedido realizado</h3>
+
+                    <p class="confirm-body">
+                        Tu pedido ha sido tramitado correctamente.
+                        Pronto recibirás un correo con la confirmación y los detalles de entrega.
+                    </p>
+                    <p class="confirm-body">Gracias por confiar en Electrosa.</p>
+
+                    <div class="pedido-actions" style="margin-top: 2rem;">
+                        <a th:href="@{/catalogo}" class="btn-primary">Volver al catálogo</a>
+                        <a th:href="@{/cliente/cuenta}" class="btn-ghost">Ir a mi cuenta</a>
+                    </div>
+
+                </div>
+            </div>
+        </main>
+    </body>
+</html>
