@@ -176,7 +176,7 @@
     color: var(--color-accent);
     background: var(--color-accent-subtle);
     padding: 0.28rem 0.75rem;
-    border-radius: 100px;
+    border-radius: 10px;
     width: fit-content;
 }
 
@@ -442,7 +442,7 @@
     color: #fff;
     background-color: var(--color-accent);
     padding: 0.78rem 1.6rem;
-    border-radius: 100px;
+    border-radius: 10px;
     text-decoration: none;
     width: fit-content;
     transition: background-color 180ms var(--ease-out),
