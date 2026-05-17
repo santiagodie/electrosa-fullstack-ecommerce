@@ -1,7 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{layout}">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout}">
     <head>
         <title>Electrosa - Cesta</title>
         <link rel="stylesheet" th:href="@{/static/assets/css/cesta.css}" />
@@ -26,9 +24,7 @@
                         <div th:each="linea : ${cesta.lineas}" class="cesta-linea">
                             <div class="showcase-banner">
                                 <a th:href="@{/catalogo/{id}(id=${linea.articulo.codigo})}">
-                                    <img th:src="@{/static/assets/images/store/{foto}(foto=${linea.articulo.foto})}"
-                                         th:alt="${linea.articulo.nombre}"
-                                         class="product-img" />
+                                    <img th:src="@{/static/assets/images/store/{foto}(foto=${linea.articulo.foto})}" th:alt="${linea.articulo.nombre}" class="product-img" />
                                 </a>
                             </div>
                             <div class="showcase-content">

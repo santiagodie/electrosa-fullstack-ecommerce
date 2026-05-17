@@ -32,13 +32,7 @@ public class CatalogoController {
     private ArticuloRepository articuloRepository;
 
     @GetMapping
-    public String catalogo(
-            Model model,
-            @RequestParam(defaultValue = "0") int page,
-            @RequestParam(required = false) String fabricante,
-            @RequestParam(required = false) String tipo,
-            @RequestParam(required = false) String precio) {
-
+    public String catalogo(Model model,@RequestParam(defaultValue = "0") int page,@RequestParam(required = false) String fabricante,@RequestParam(required = false) String tipo,@RequestParam(required = false) String precio) {
         String fabricanteFiltro = (fabricante != null && !fabricante.isBlank()) ? fabricante : null;
         String tipoFiltro = (tipo != null && !tipo.isBlank()) ? tipo : null;
         BigDecimal precioMin = null;
@@ -50,8 +44,7 @@ public class CatalogoController {
         }
 
         Pageable pageable = PageRequest.of(page, 15);
-        Page<ArticuloEntity> pagina = articuloRepository.findWithFilters(
-                fabricanteFiltro, tipoFiltro, precioMin, precioMax, pageable);
+        Page<ArticuloEntity> pagina = articuloRepository.findWithFilters( fabricanteFiltro, tipoFiltro, precioMin, precioMax, pageable);
 
         model.addAttribute("articulos", pagina.getContent());
         model.addAttribute("totalPages", pagina.getTotalPages());
@@ -62,15 +55,13 @@ public class CatalogoController {
         model.addAttribute("fabricanteSeleccionado", fabricante != null ? fabricante : "");
         model.addAttribute("tipoSeleccionado", tipo != null ? tipo : "");
         model.addAttribute("precioSeleccionado", precio != null ? precio : "");
-
         return "catalogo";
     }
 
     @GetMapping("/{articuloId}")
     public String fichaArticulo(@PathVariable String articuloId, Model model) {
         Optional<ArticuloEntity> articuloOpt = articuloRepository.findById(articuloId);
-        ArticuloEntity articulo = articuloOpt.orElseThrow(() ->
-                new ArticuloNotFoundException("Artículo " + articuloId + " no encontrado"));
+        ArticuloEntity articulo = articuloOpt.orElseThrow(() -> new ArticuloNotFoundException("Artículo " + articuloId + " no encontrado"));
         model.addAttribute("articulo", articulo);
         return "articulo";
     }

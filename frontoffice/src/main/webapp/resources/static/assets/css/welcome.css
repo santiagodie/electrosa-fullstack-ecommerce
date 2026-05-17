@@ -1,0 +1,38 @@
+.welcome-wrapper {
+    max-width: 600px;
+    margin: 80px auto;
+    padding: 48px 40px;
+    text-align: center;
+    border-radius: 16px;
+    background: var(--cultured, hsl(0, 0%, 93%));
+}
+
+.welcome-icon {
+    font-size: 3rem;
+    margin-bottom: 16px;
+    color: var(--color-accent, var(--salmon-pink));
+}
+
+.welcome-wrapper .section-title {
+    font-size: var(--fs-2);
+    color: var(--eerie-black);
+    margin-bottom: 12px;
+}
+
+.welcome-message {
+    color: var(--sonic-silver);
+    font-size: var(--fs-6);
+    line-height: 1.7;
+    margin-bottom: 32px;
+}
+
+.welcome-message strong {
+    color: var(--eerie-black);
+}
+
+.welcome-actions {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}

@@ -1,7 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{layout}">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout}">
     <head>
         <title>Electrosa - Catálogo</title>
     </head>
@@ -23,22 +21,14 @@
                                     <label th:text="#{filters.brand.title}">Fabricante:</label>
                                     <select name="fabricante">
                                         <option value="" th:text="#{filters.options.any}">-- Cualquiera --</option>
-                                        <option th:each="f : ${fabricantes}"
-                                                th:value="${f}"
-                                                th:text="${f}"
-                                                th:selected="${f == fabricanteSeleccionado}">
-                                        </option>
+                                        <option th:each="f : ${fabricantes}" th:value="${f}" th:text="${f}" th:selected="${f == fabricanteSeleccionado}"></option>
                                     </select>
                                 </div>
                                 <div class="control">
                                     <label th:text="#{filters.category.title}">Tipo:</label>
                                     <select name="tipo">
                                         <option value="" th:text="#{filters.options.any}">-- Cualquiera --</option>
-                                        <option th:each="t : ${tipos}"
-                                                th:value="${t}"
-                                                th:text="${t}"
-                                                th:selected="${t == tipoSeleccionado}">
-                                        </option>
+                                        <option th:each="t : ${tipos}" th:value="${t}" th:text="${t}" th:selected="${t == tipoSeleccionado}"></option>
                                     </select>
                                 </div>
                                 <div class="control">
@@ -102,10 +92,7 @@
 
                                         <div class="showcase-banner">
                                             <a th:href="@{/catalogo/{id}(id=${articulo.codigo})}">
-                                                <img th:src="@{/static/assets/images/store/{foto}(foto=${articulo.foto})}"
-                                                     th:alt="${articulo.nombre}"
-                                                     style="max-height: 150px;"
-                                                     class="product-img"/>
+                                                <img th:src="@{/static/assets/images/store/{foto}(foto=${articulo.foto})}" th:alt="${articulo.nombre}" style="max-height: 150px;" class="product-img"/>
                                             </a>
 
                                             <p class="showcase-badge"
@@ -138,14 +125,9 @@
                                             </a>
 
                                             <div class="showcase-rating">
-                                                <div class="showcase-rating"
-                                                     th:with="rating=${T(java.lang.Math).min(5, T(java.lang.Math).max(0, articulo.rating))},
-                                                     vacias=${5 - rating}">
-                                                    <ion-icon name="star"
-                                                              th:each="i : ${#numbers.sequence(1, rating)}"></ion-icon>
-                                                    <ion-icon name="star-outline"
-                                                              th:if="${vacias > 0}"
-                                                              th:each="i : ${#numbers.sequence(1, vacias)}"></ion-icon>
+                                                <div class="showcase-rating" th:with="rating=${T(java.lang.Math).min(5, T(java.lang.Math).max(0, articulo.rating))},vacias=${5 - rating}">
+                                                    <ion-icon name="star" th:each="i : ${#numbers.sequence(1, rating)}"></ion-icon>
+                                                    <ion-icon name="star-outline" th:if="${vacias > 0}" th:each="i : ${#numbers.sequence(1, vacias)}"></ion-icon>
                                                 </div>
                                             </div>
 

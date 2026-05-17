@@ -102,9 +102,7 @@
 
                     <div class="header-search-container">
 
-                        <input type="search" name="search" class="search-field"
-                               th:placeholder="#{search.entireSite}"
-                               placeholder="Buscar en toda la tienda"/>
+                        <input type="search" name="search" class="search-field" th:placeholder="#{search.entireSite}" placeholder="Buscar en toda la tienda"/>
 
                         <button class="search-btn">
                             <ion-icon name="search-outline"></ion-icon>
@@ -114,23 +112,15 @@
 
                     <div class="header-user-actions">
                         <a th:href="@{/cliente/cuenta}" class="action-btn">
-                            <th:block th:if="${session.clienteAvatar == null or session.
-                                      clienteAvatar.isDefault()}">
+                            <th:block th:if="${session.clienteAvatar == null or session.clienteAvatar.isDefault()}">
                                 <ion-icon name="person-outline"></ion-icon>
                             </th:block>
-                            <th:block th:unless="${session.clienteAvatar == null or session
-                                      .clienteAvatar.isDefault()}">
+                            <th:block th:unless="${session.clienteAvatar == null or session.clienteAvatar.isDefault()}">
                                 <th:block th:if="${session.clienteAvatar.isRemoteURL()}">
-                                    <img th:src="${session.clienteAvatar.imageSource}"
-                                         style="border-radius: 50%; height: 36px;"
-                                         />
+                                    <img th:src="${session.clienteAvatar.imageSource}" style="border-radius: 50%; height: 36px;" />
                                 </th:block>
-                                <th:block th:if="${not session.clienteAvatar.isRemoteURL()}
-                                          ">
-                                    <img th:src="@{/static/assets/avatar/{image}(image=${
-                                         session.clienteAvatar.imageSource})}"
-                                         style="border-radius: 50%; height: 40px;width: 40px;"
-                                         />
+                                <th:block th:if="${not session.clienteAvatar.isRemoteURL()}">
+                                    <img th:src="@{/static/assets/avatar/{image}(image=${session.clienteAvatar.imageSource})}" style="border-radius: 50%; height: 40px;width: 40px;" />
                                 </th:block>
                             </th:block>
                         </a>

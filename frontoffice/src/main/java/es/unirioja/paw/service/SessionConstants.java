@@ -9,9 +9,10 @@ package es.unirioja.paw.service;
  * @author Santiago Die
  */
 public class SessionConstants {
-    public static final String CLIENTE_KEY = "cliente";
-    public static final String CESTA_KEY   = "cesta";
-    public static final String RETORNO_KEY = "retorno";
+    public static final String CLIENTE_KEY      = "cliente";
+    public static final String CESTA_KEY        = "cesta";
+    public static final String RETORNO_KEY      = "retorno";
+    public static final String USER_REGISTERED_KEY = "userRegistered";
 
     private SessionConstants() {}
 }

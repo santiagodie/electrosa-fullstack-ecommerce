@@ -27,7 +27,7 @@ public class PedidoEntity {
     private String codigo;
 
     @Basic
-    @Column(name = "CODIGOCLIENTE", nullable = false, length = 10)
+    @Column(name = "CODIGOCLIENTE", nullable = false, length = 53)
     private String codigoCliente;
 
     @Basic

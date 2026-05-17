@@ -148,5 +148,12 @@
             newDataType="varchar(40)"
         />
     </changeSet>
-    
+
+    <changeSet id="pedido-change-fk-cliente" author="sadie">
+        <modifyDataType
+            tableName="pedido"
+            columnName="CODIGOCLIENTE"
+            newDataType="varchar(53)"/>
+    </changeSet>
+
 </databaseChangeLog>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html layout:decorate="~{layout}">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout}">
     <head>
         <title>Electrosa - Entrada no encontrada</title>
         <link rel="stylesheet" th:href="@{/static/assets/css/blog.css}" />
@@ -11,8 +11,7 @@
 
                 <!-- Atmospheric image (hidden on small screens) -->
                 <div class="error-image-wrap">
-                    <img th:src="@{/static/assets/images/mikhail-vasilyev-NodtnCsLdTE-unsplash.jpg}"
-                         alt="" aria-hidden="true" />
+                    <img th:src="@{/static/assets/images/mikhail-vasilyev-NodtnCsLdTE-unsplash.jpg}" alt="" aria-hidden="true" />
                 </div>
 
                 <!-- Error message -->

@@ -1,7 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{layout}">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout}">
     <head>
         <title>Electrosa - Realizar pedido</title>
         <link rel="stylesheet" th:href="@{/static/assets/css/pedido.css}"/>
@@ -22,30 +20,22 @@
                         <div class="form-row">
                             <div class="form-field">
                                 <label for="cp">Código postal</label>
-                                <input type="text" id="cp" name="cp"
-                                       maxlength="5" required
-                                       placeholder="Ej:26004"/>
+                                <input type="text" id="cp" name="cp" maxlength="5" required placeholder="Ej:26004"/>
                             </div>
                             <div class="form-field">
                                 <label for="ciudad">Ciudad</label>
-                                <input type="text" id="ciudad" name="ciudad"
-                                       maxlength="20" required
-                                       placeholder="Ej:Logroño"/>
+                                <input type="text" id="ciudad" name="ciudad" maxlength="20" required placeholder="Ej:Logroño"/>
                             </div>
                         </div>
 
                         <div class="form-row">
                             <div class="form-field">
                                 <label for="calle">Calle</label>
-                                <input type="text" id="calle" name="calle"
-                                       maxlength="50" required
-                                       placeholder="Ej:C. Madre de Dios, 53"/>
+                                <input type="text" id="calle" name="calle" maxlength="50" required placeholder="Ej:C. Madre de Dios, 53"/>
                             </div>
                             <div class="form-field">
                                 <label for="provincia">Provincia</label>
-                                <input type="text" id="provincia" name="provincia"
-                                       maxlength="35" required
-                                       placeholder="Ej:La Rioja"/>
+                                <input type="text" id="provincia" name="provincia" maxlength="35" required placeholder="Ej:La Rioja"/>
                             </div>
                         </div>
 

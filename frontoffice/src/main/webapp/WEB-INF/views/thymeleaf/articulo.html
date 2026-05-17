@@ -1,7 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{layout}">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout}">
 <head>
     <title th:text="'Electrosa - ' + ${articulo.nombre}">Electrosa - Artículo</title>
 </head>
@@ -29,10 +27,7 @@
                             <div class="showcase">
 
                                 <div class="showcase-banner">
-                                    <img th:src="@{/static/assets/images/store/{foto}(foto=${articulo.foto})}"
-                                         th:alt="${articulo.nombre}"
-                                         class="showcase-img"
-                                         style="min-height: 250px;"/>
+                                    <img th:src="@{/static/assets/images/store/{foto}(foto=${articulo.foto})}" th:alt="${articulo.nombre}" class="showcase-img" style="min-height: 250px;"/>
                                 </div>
 
                                 <div class="showcase-content">

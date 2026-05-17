@@ -35,9 +35,7 @@ public class InternacionalizacionController {
     }
 
     @PostMapping("/prefs")
-    public String setLocale(@RequestParam("lang") String lang,
-            HttpServletRequest request,
-            HttpServletResponse response) {
+    public String setLocale(@RequestParam("lang") String lang, HttpServletRequest request, HttpServletResponse response) {
         localeResolver.setLocale(request, response, new Locale(lang));
         String referer = request.getHeader("Referer");
         if (referer != null && !referer.isBlank()) {

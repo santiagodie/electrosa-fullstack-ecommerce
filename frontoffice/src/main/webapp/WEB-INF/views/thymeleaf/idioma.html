@@ -19,11 +19,7 @@
                     <div class="control">
                         <label class="lang-label" th:text="#{lang.settings.change.title}">Cambiar preferencias</label>
                         <select name="lang">
-                            <option th:each="idioma : ${idiomas}"
-                                    th:value="${idioma}"
-                                    th:text="#{lang.__${idioma}__}"
-                                    th:selected="${idioma == #locale.language}">
-                            </option>
+                            <option th:each="idioma : ${idiomas}" th:value="${idioma}" th:text="#{lang.__${idioma}__}" th:selected="${idioma == #locale.language}"></option>
                         </select>
                     </div>
                     <button type="submit" class="banner-btn" th:text="#{lang.settings.change.submit}">Aplicar cambios</button>

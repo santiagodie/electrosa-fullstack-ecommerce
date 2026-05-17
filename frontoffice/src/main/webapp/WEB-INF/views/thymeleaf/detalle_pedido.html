@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html layout:decorate="~{layout}">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout}">
     <head>
         <title>Electrosa - Detalle del pedido</title>
         <link rel="stylesheet" th:href="@{/static/assets/css/pedidos.css}" />
@@ -34,9 +34,7 @@
                                 <div class="showcase" th:each="l : ${pedido.lineas}">
                                     <div class="showcase-banner">
                                         <a th:href="@{/catalogo/{articuloId}(articuloId=${l.articulo.codigo})}">
-                                            <img th:src="@{/static/assets/images/store/{foto}(foto=${l.articulo.foto})}"
-                                                 th:alt="${l.articulo.nombre}"
-                                                 class="product-img" />
+                                            <img th:src="@{/static/assets/images/store/{foto}(foto=${l.articulo.foto})}" th:alt="${l.articulo.nombre}" class="product-img" />
                                         </a>
                                     </div>
                                     <div class="showcase-content">

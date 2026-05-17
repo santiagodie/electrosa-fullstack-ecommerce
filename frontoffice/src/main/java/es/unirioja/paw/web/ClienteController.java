@@ -65,18 +65,13 @@ public class ClienteController {
     }
 
     @PostMapping("/cuenta")
-    public String uploadAvatar(HttpSession session,HttpServletRequest request,@RequestParam("file") MultipartFile file) {
+    public String uploadAvatar(HttpSession session, HttpServletRequest request, @RequestParam("file") MultipartFile file) {
         ClienteEntity cliente = (ClienteEntity) session.getAttribute(SessionConstants.CLIENTE_KEY);
         if (cliente == null) {
             return "redirect:/auth/login";
         }
-        String realTargetPath = request.getServletContext()
-                .getRealPath("/resources/static/assets/avatar");
-        Optional<AvatarClienteChangeResponse> response = avatarClienteChangeUseCase
-                .execute(new AvatarClienteChangeRequest(
-                        cliente.getCodigo(),
-                        file,
-                        realTargetPath));
+        String realTargetPath = request.getServletContext().getRealPath("/resources/static/assets/avatar");
+        Optional<AvatarClienteChangeResponse> response = avatarClienteChangeUseCase.execute(new AvatarClienteChangeRequest(cliente.getCodigo(), file, realTargetPath));
         if (response.isPresent()) {
             session.setAttribute("clienteAvatar", new ClienteAvatarInfo(response.get().cliente));
         }
@@ -103,8 +98,7 @@ public class ClienteController {
         }
         PedidoEntity pedido = pedidoService.findOne(codigo);
         if (pedido != null && !pedido.getCodigoCliente().equals(cliente.getCodigo())) {
-            throw new AccessNotAuthorizedException(
-                    "No está autorizado para consultar este pedido");
+            throw new AccessNotAuthorizedException("No está autorizado para consultar este pedido");
         }
         if (pedido == null) {
             throw new PedidoNotFoundException("Pedido " + codigo + " no encontrado");
@@ -126,8 +120,7 @@ public class ClienteController {
     }
 
     @GetMapping("/pedidos/anulados/{codigo}")
-    public String detallePedidoAnulado(@PathVariable("codigo") String codigo,
-            HttpSession session, Model model) {
+    public String detallePedidoAnulado(@PathVariable("codigo") String codigo, HttpSession session, Model model) {
         ClienteEntity cliente = (ClienteEntity) session.getAttribute(SessionConstants.CLIENTE_KEY);
         if (cliente == null) {
             return "redirect:/auth/login";
@@ -137,8 +130,7 @@ public class ClienteController {
             throw new PedidoNotFoundException("Pedido " + codigo + " no encontrado");
         }
         if (!pedido.getCodigoCliente().equals(cliente.getCodigo())) {
-            throw new AccessNotAuthorizedException(
-                    "No está autorizado para consultar este pedido");
+            throw new AccessNotAuthorizedException("No está autorizado para consultar este pedido");
         }
         BigDecimal importeTotal = pedido.getLineas().stream()
                 .filter(l -> l.getArticulo() != null && l.getArticulo().getPvp() != null)
@@ -150,9 +142,7 @@ public class ClienteController {
     }
 
     @PostMapping("/pedidos/anular")
-    public String anularPedido(@RequestParam("codigoPedido") String codigoPedido,
-            HttpSession session,
-            RedirectAttributes redirectAttributes) {
+    public String anularPedido(@RequestParam("codigoPedido") String codigoPedido, HttpSession session, RedirectAttributes redirectAttributes) {
         ClienteEntity cliente = (ClienteEntity) session.getAttribute(SessionConstants.CLIENTE_KEY);
         if (cliente == null) {
             return "redirect:/auth/login";

@@ -39,7 +39,6 @@ public class CestaController {
 
     @Autowired
     private PedidoService pedidoService;
-    
 
     @GetMapping
     public String verCesta(HttpSession session, Model model) {
@@ -61,14 +60,11 @@ public class CestaController {
     }
 
     @PostMapping
-    public String addToCart(@RequestParam("codigoArticulo") String codigoArticulo,
-            HttpSession session) {
+    public String addToCart(@RequestParam("codigoArticulo") String codigoArticulo, HttpSession session) {
         CestaCompraEntity cesta = cestaFromSession(session);
-        Optional<AddToCartResponse> response = cestaCompraUseCase.add(
-                new AddToCartRequest(codigoArticulo, cesta));
+        Optional<AddToCartResponse> response = cestaCompraUseCase.add(new AddToCartRequest(codigoArticulo, cesta));
 
         if (response.isPresent()) {
-            // Actualizar la cesta en sesión con la entidad guardada
             session.setAttribute("cesta", response.get().cesta);
             logger.info("Cesta actualizada en sesión");
         }

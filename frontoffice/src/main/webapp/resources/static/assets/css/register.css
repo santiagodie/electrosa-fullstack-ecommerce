@@ -1,0 +1,39 @@
+.form-header__subtitle {
+    font-size: 0.78rem;
+    color: var(--color-text-muted);
+    margin-top: 4px;
+}
+
+.login_details_wrapper .field-group {
+    margin-bottom: 14px;
+}
+
+.privacy-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 10px;
+    margin: 12px 0 20px;
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    line-height: 1.5;
+    width: 100%;
+}
+
+.privacy-wrapper input[type="checkbox"] {
+    margin-top: 3px;
+    accent-color: var(--color-accent);
+    cursor: pointer;
+    flex-shrink: 0;
+    width: 16px;
+    height: 16px;
+}
+
+.privacy-wrapper span {
+    flex: 1;
+}
+
+.privacy-wrapper a {
+    color: var(--color-accent);
+    text-decoration: underline;
+}

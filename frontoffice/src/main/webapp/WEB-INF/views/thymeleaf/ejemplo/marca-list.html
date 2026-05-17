@@ -9,10 +9,7 @@
             <h2>Marcas</h2>
             <section class="card-layout">
 
-
-                <div th:each="fabricante,loop : ${fabricantes}" 
-                     class="card-layout__item clg-item"
-                     >
+                <div th:each="fabricante,loop : ${fabricantes}" class="card-layout__item clg-item">
                     <h3>[[ ${fabricante.nombre} ]]</h3>
 
                     

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+
+    <head>
+        <title>Bienvenido - Electrosa</title>
+        <link rel="stylesheet" th:href="@{/static/assets/css/welcome.css}"/>
+    </head>
+
+    <main layout:fragment="main-content" class="main">
+
+        <section class="section">
+            <div class="container">
+                <div class="welcome-wrapper">
+
+                    <ion-icon name="checkmark-circle-outline" class="welcome-icon"></ion-icon>
+
+                    <h2 class="section-title">Área de clientes</h2>
+
+                    <!-- Registro exitoso: se llegó desde el flujo de registro -->
+                    <div th:if="${clienteRegistrado}">
+                        <p class="welcome-message">
+                            Gracias por registrarse en Electrosa,
+                            <strong th:text="${clienteRegistrado.nombre}">nombre</strong>.
+                            En unos momentos recibirá un correo electrónico de confirmación.
+                        </p>
+                        <div class="welcome-actions">
+                            <a th:href="@{/auth/login}" class="btn banner-btn">
+                                Iniciar sesión
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Acceso directo sin flujo de registro -->
+                    <div th:unless="${clienteRegistrado}">
+                        <p class="welcome-message">
+                            Bienvenido a Electrosa. Accede a tu cuenta para gestionar tus pedidos y datos personales.
+                        </p>
+                        <div class="welcome-actions">
+                            <a th:href="@{/auth/login}" class="btn banner-btn">
+                                Ir al inicio de sesión
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+</html>

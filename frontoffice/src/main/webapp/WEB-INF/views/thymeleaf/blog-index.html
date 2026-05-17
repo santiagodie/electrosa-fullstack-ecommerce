@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html layout:decorate="~{layout}">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout}">
 <head>
     <title>Electrosa - Blogs</title>
     <link rel="stylesheet" th:href="@{/static/assets/css/blog.css}" />
@@ -15,9 +15,7 @@
     <section class="blog-featured">
         <a class="featured-card" th:href="@{/blog/paw-2025}">
             <div class="featured-card__image-wrap">
-                <img class="featured-card__img"
-                     th:src="@{/static/assets/images/freepik/group-friends-with-electronic-devices.jpg}"
-                     alt="Estudiantes universitarios con dispositivos electrónicos" />
+                <img class="featured-card__img" th:src="@{/static/assets/images/freepik/group-friends-with-electronic-devices.jpg}" alt="Estudiantes universitarios con dispositivos electrónicos" />
             </div>
             <div class="featured-card__content">
                 <span class="badge">PAW</span>
@@ -37,9 +35,7 @@
         <article class="card">
             <div class="card__image-wrap">
                 <a th:href="@{/blog/tendencias-decorativas}" tabindex="-1" aria-hidden="true">
-                    <img class="card__img"
-                         th:src="@{/static/assets/images/blog/jason-briscoe-GliaHAJ3_5A-unsplash.jpg}"
-                         alt="Tendencias decorativas para el hogar" />
+                    <img class="card__img" th:src="@{/static/assets/images/blog/jason-briscoe-GliaHAJ3_5A-unsplash.jpg}" alt="Tendencias decorativas para el hogar" />
                 </a>
             </div>
             <div class="card-content">
@@ -58,9 +54,7 @@
         <article class="card">
             <div class="card__image-wrap">
                 <a th:href="@{/blog/consejos-renovar-casa}" tabindex="-1" aria-hidden="true">
-                    <img class="card__img"
-                         th:src="@{/static/assets/images/blog/kam-idris-Ot2iTXgC6fY-unsplash.jpg}"
-                         alt="Interior de una casa renovada" />
+                    <img class="card__img" th:src="@{/static/assets/images/blog/kam-idris-Ot2iTXgC6fY-unsplash.jpg}" alt="Interior de una casa renovada" />
                 </a>
             </div>
             <div class="card-content">
@@ -79,9 +73,7 @@
         <article class="card">
             <div class="card__image-wrap">
                 <a th:href="@{/blog/semana-verde}" tabindex="-1" aria-hidden="true">
-                    <img class="card__img"
-                         th:src="@{/static/assets/images/blog-4.jpg}"
-                         alt="Cocinas de la semana verde del ahorro" />
+                    <img class="card__img" th:src="@{/static/assets/images/blog-4.jpg}" alt="Cocinas de la semana verde del ahorro" />
                 </a>
             </div>
             <div class="card-content">
