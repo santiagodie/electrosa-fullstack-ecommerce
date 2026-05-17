@@ -12,9 +12,9 @@
     --color-text-secondary: oklch(44%  0.010 65);
     --color-text-muted:     oklch(62%  0.010 65);
 
-    --color-accent:         oklch(52%  0.158 28);
-    --color-accent-hover:   oklch(44%  0.158 28);
-    --color-accent-subtle:  oklch(95%  0.036 28);
+    --color-accent:         hsl(353, 100%, 78%);
+    --color-accent-hover:   hsl(0, 0%, 13%);
+    --color-accent-subtle:  hsl(353, 100%, 96%);
 
     --radius-sm:  8px;
     --radius-md:  14px;
