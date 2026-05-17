@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout}">
+    <head>
+        <title>Electrosa - Preferencias de idioma</title>
+        <link rel="stylesheet" th:href="@{/static/assets/css/idioma.css}">
+    </head>
+    <body>
+        <main layout:fragment="main-content">
+            <div class="idioma-wrapper">
+
+                <h1 th:text="#{lang.settings.title}">Preferencias de idioma</h1>
+
+                <p class="current-lang">
+                    <strong th:text="#{lang.settings.current}">Idioma actual</strong>:
+                    <span th:text="${#locale.getDisplayLanguage(#locale)} + ' (' + ${#locale.language} + ')'">español (es)</span>
+                </p>
+
+                <form th:action="@{/lang/prefs}" method="post">
+                    <div class="control">
+                        <label class="lang-label" th:text="#{lang.settings.change.title}">Cambiar preferencias</label>
+                        <select name="lang">
+                            <option th:each="idioma : ${idiomas}"
+                                    th:value="${idioma}"
+                                    th:text="#{lang.__${idioma}__}"
+                                    th:selected="${idioma == #locale.language}">
+                            </option>
+                        </select>
+                    </div>
+                    <button type="submit" class="banner-btn" th:text="#{lang.settings.change.submit}">Aplicar cambios</button>
+                </form>
+
+            </div>
+        </main>
+    </body>
+</html>

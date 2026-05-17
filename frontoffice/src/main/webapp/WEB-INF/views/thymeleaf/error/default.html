@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+
+    <body>
+        <main layout:fragment="main-content" class="main">
+
+            <h1 class="title">Ha ocurrido un error</h1>
+            <div>
+                [[ ${exception.message} ]]
+            </div>
+            <div class="line">
+                <ion-icon name="close-outline"></ion-icon>
+                <a th:href="@{/}">Salir de aquí</a>
+            </div>
+
+        </main>
+    </body>
+
+</html>

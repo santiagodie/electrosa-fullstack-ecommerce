@@ -319,3 +319,21 @@ ion-icon {
     margin: 30px 0;
     text-align: center;
 }
+
+.empty-result {
+    padding: 60px 20px;
+    text-align: center;
+    color: var(--sonic-silver);
+    font-size: var(--fs-5);
+}
+
+.empty-result a {
+    display: inline-block;
+    margin-top: 16px;
+    color: var(--salmon-pink);
+    font-size: var(--fs-6);
+    text-decoration: none;
+    transition: color var(--transition-timing);
+}
+
+.empty-result a:hover { color: var(--eerie-black); }

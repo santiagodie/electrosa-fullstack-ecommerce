@@ -9,6 +9,8 @@ package es.unirioja.paw.web;
  * @author Santiago Die
  */
 
+import es.unirioja.paw.exception.AccessNotAuthorizedException;
+import es.unirioja.paw.exception.PedidoNotFoundException;
 import es.unirioja.paw.jpa.ClienteEntity;
 import es.unirioja.paw.jpa.PedidoEntity;
 import es.unirioja.paw.jpa.PedidoanuladoEntity;
@@ -100,8 +102,12 @@ public class ClienteController {
             return "redirect:/auth/login";
         }
         PedidoEntity pedido = pedidoService.findOne(codigo);
-        if (pedido == null || !pedido.getCodigoCliente().equals(cliente.getCodigo())) {
-            return "redirect:/cliente/pedidos";
+        if (pedido != null && !pedido.getCodigoCliente().equals(cliente.getCodigo())) {
+            throw new AccessNotAuthorizedException(
+                    "No está autorizado para consultar este pedido");
+        }
+        if (pedido == null) {
+            throw new PedidoNotFoundException("Pedido " + codigo + " no encontrado");
         }
         model.addAttribute("pedido", pedido);
         return "detalle_pedido";
@@ -127,8 +133,12 @@ public class ClienteController {
             return "redirect:/auth/login";
         }
         PedidoanuladoEntity pedido = pedidoAnuladoService.findOne(codigo);
-        if (pedido == null || !pedido.getCodigoCliente().equals(cliente.getCodigo())) {
-            return "redirect:/cliente/pedidos/anulados";
+        if (pedido == null) {
+            throw new PedidoNotFoundException("Pedido " + codigo + " no encontrado");
+        }
+        if (!pedido.getCodigoCliente().equals(cliente.getCodigo())) {
+            throw new AccessNotAuthorizedException(
+                    "No está autorizado para consultar este pedido");
         }
         BigDecimal importeTotal = pedido.getLineas().stream()
                 .filter(l -> l.getArticulo() != null && l.getArticulo().getPvp() != null)

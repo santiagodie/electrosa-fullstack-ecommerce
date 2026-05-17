@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+
+    <head>
+        <link rel="stylesheet" th:href="@{/static/assets/css/error.css}">
+    </head>
+
+    <body>
+        <main layout:fragment="main-content" class="main">
+
+            <div class="error-wrapper">
+                <h1 class="title">Acceso no autorizado</h1>
+                <div class="error-message">[[ ${exception.message} ]]</div>
+                <div>
+                    <a class="error-link" th:href="@{/}">
+                        <ion-icon name="close-outline"></ion-icon>
+                        Salir de aquí
+                    </a>
+                </div>
+            </div>
+
+        </main>
+    </body>
+
+</html>

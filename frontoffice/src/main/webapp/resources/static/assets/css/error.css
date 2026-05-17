@@ -1,0 +1,32 @@
+.error-wrapper {
+    max-width: 600px;
+    margin: 80px auto;
+    padding: 40px;
+    text-align: center;
+}
+
+.error-wrapper .title {
+    font-size: var(--fs-1);
+    color: var(--eerie-black);
+    margin-bottom: 16px;
+}
+
+.error-wrapper .error-message {
+    color: var(--sonic-silver);
+    font-size: var(--fs-5);
+    margin-bottom: 32px;
+}
+
+.error-wrapper .error-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--salmon-pink);
+    font-size: var(--fs-6);
+    text-decoration: none;
+    transition: color var(--transition-timing);
+}
+
+.error-wrapper .error-link:hover {
+    color: var(--eerie-black);
+}

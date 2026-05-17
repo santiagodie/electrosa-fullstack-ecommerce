@@ -69,7 +69,8 @@ public class CatalogoController {
     @GetMapping("/{articuloId}")
     public String fichaArticulo(@PathVariable String articuloId, Model model) {
         Optional<ArticuloEntity> articuloOpt = articuloRepository.findById(articuloId);
-        ArticuloEntity articulo = articuloOpt.orElseThrow(ArticuloNotFoundException::new);
+        ArticuloEntity articulo = articuloOpt.orElseThrow(() ->
+                new ArticuloNotFoundException("Artículo " + articuloId + " no encontrado"));
         model.addAttribute("articulo", articulo);
         return "articulo";
     }

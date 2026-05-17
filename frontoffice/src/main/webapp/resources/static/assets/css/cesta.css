@@ -11,8 +11,8 @@
   --color-text-secondary: oklch(44%  0.010 65);
   --color-text-muted:     oklch(62%  0.010 65);
 
-  --color-accent:         oklch(52%  0.158 28);
-  --color-accent-hover:   oklch(44%  0.158 28);
+  --color-accent:         hsl(353, 100%, 78%);
+  --color-accent-hover:   hsl(0, 0%, 13%);
 
   --color-danger-text:    oklch(48%  0.18  22);
   --color-danger-bg:      oklch(97%  0.030 22);

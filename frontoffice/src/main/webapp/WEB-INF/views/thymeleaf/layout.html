@@ -66,7 +66,7 @@
                     </ul>
 
                     <div class="header-alert-news">
-                        <p><b>Envíos gratis</b> en junio a partir de 130&euro;</p>
+                        <p th:utext="#{shipment.banner.free}"><b>Envíos gratis</b> en junio a partir de 130&euro;</p>
                     </div>
 
                     <div class="header-top-actions">
@@ -76,12 +76,12 @@
                             <option value="usd">USD &dollar;</option>
                         </select>
 
-                        <form>
-                            <select name="lang" id="language-selector">
-                                <option value="es" selected="selected">Español</option>
-                                <option value="en">Inglés</option>
-                                <option value="fr">Francés</option>
-                                <option value="de">Alemán</option>
+                        <form method="post" th:action="@{/lang/prefs}">
+                            <select name="lang" id="language-selector" onchange="this.form.submit()">
+                                <option value="es" th:text="#{lang.es}" th:selected="${#locale.language == 'es'}">Español</option>
+                                <option value="en" th:text="#{lang.en}" th:selected="${#locale.language == 'en'}">Inglés</option>
+                                <option value="fr" th:text="#{lang.fr}" th:selected="${#locale.language == 'fr'}">Francés</option>
+                                <option value="de" th:text="#{lang.de}" th:selected="${#locale.language == 'de'}">Alemán</option>
                             </select>
                         </form>
                         <a style="display:none;" href="/electrosa/i18n/lang">Cambiar preferencias</a>
@@ -103,6 +103,7 @@
                     <div class="header-search-container">
 
                         <input type="search" name="search" class="search-field"
+                               th:placeholder="#{search.entireSite}"
                                placeholder="Buscar en toda la tienda"/>
 
                         <button class="search-btn">
@@ -163,28 +164,28 @@
                         </li>
 
                         <li class="menu-category">
-                            <a th:href="'/electrosa/catalogo?page=0&tipo=Aspirador'" class="menu-title">[[#{menu.category.aspirator}]]</a>
+                            <a th:href="'/electrosa/catalogo?page=0&tipo=Aspirador'" class="menu-title" th:text="#{menu.category.aspirator}">Aspiradores</a>
                         </li>
 
                         <li class="menu-category">
-                            <a th:href="'/electrosa/catalogo?page=0&tipo=Frigorifico'" class="menu-title">[[#{menu.category.fridge}]]</a>
+                            <a th:href="'/electrosa/catalogo?page=0&tipo=Frigorifico'" class="menu-title" th:text="#{menu.category.fridge}">Frigoríficos</a>
                         </li>
 
                         <li class="menu-category">
-                            <a th:href="'/electrosa/catalogo?page=0&tipo=Lavadora'" class="menu-title">[[#{menu.category.washingmachine}]]</a>
+                            <a th:href="'/electrosa/catalogo?page=0&tipo=Lavadora'" class="menu-title" th:text="#{menu.category.washingmachine}">Lavadoras</a>
                         </li>
 
                         <li class="menu-category">
-                            <a th:href="'/electrosa/catalogo?page=0&tipo=Cocina'" class="menu-title">[[#{menu.category.stove}]]</a>
+                            <a th:href="'/electrosa/catalogo?page=0&tipo=Cocina'" class="menu-title" th:text="#{menu.category.stove}">Cocinas</a>
                         </li>
 
 
                         <li class="menu-category">
-                            <a href="/electrosa/blog/" class="menu-title">Blog</a>
+                            <a href="/electrosa/blog/" class="menu-title" th:text="#{menu.category.blog}">Blog</a>
                         </li>
 
                         <li class="menu-category">
-                            <a href="/electrosa/catalogo/ofertas" class="menu-title">Ofertas</a>
+                            <a href="/electrosa/catalogo/ofertas" class="menu-title" th:text="#{menu.category.sales}">Ofertas</a>
                         </li>
 
                     </ul>
@@ -232,25 +233,25 @@
                 <ul class="mobile-menu-category-list">
 
                     <li class="menu-category">
-                        <a href="#" class="menu-title">Aspiradores</a>
+                        <a th:href="'/electrosa/catalogo?page=0&tipo=Aspirador'" class="menu-title" th:text="#{menu.category.aspirator}">Aspiradores</a>
                     </li>
 
                     <li class="menu-category">
-                        <a href="#" class="menu-title">Frigoríficos</a>
+                        <a th:href="'/electrosa/catalogo?page=0&tipo=Frigorifico'" class="menu-title" th:text="#{menu.category.fridge}">Frigoríficos</a>
                     </li>
                     <li class="menu-category">
-                        <a href="#" class="menu-title">Lavadoras</a>
+                        <a th:href="'/electrosa/catalogo?page=0&tipo=Lavadora'" class="menu-title" th:text="#{menu.category.washingmachine}">Lavadoras</a>
                     </li>
                     <li class="menu-category">
-                        <a href="#" class="menu-title">Cocinas</a>
-                    </li>
-
-                    <li class="menu-category">
-                        <a href="#" class="menu-title">Blog</a>
+                        <a th:href="'/electrosa/catalogo?page=0&tipo=Cocina'" class="menu-title" th:text="#{menu.category.stove}">Cocinas</a>
                     </li>
 
                     <li class="menu-category">
-                        <a href="#" class="menu-title">Ofertas</a>
+                        <a href="/electrosa/blog/" class="menu-title" th:text="#{menu.category.blog}">Blog</a>
+                    </li>
+
+                    <li class="menu-category">
+                        <a href="/electrosa/catalogo/ofertas" class="menu-title" th:text="#{menu.category.sales}">Ofertas</a>
                     </li>
 
                 </ul>

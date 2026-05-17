@@ -1,6 +1,8 @@
 package es.unirioja.paw.config;
 
 import es.unirioja.paw.exception.AccessNotAuthorizedException;
+import es.unirioja.paw.exception.ArticuloNotFoundException;
+import es.unirioja.paw.exception.PedidoNotFoundException;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.servlet.http.HttpServletResponse;
 import java.util.Locale;
@@ -203,7 +205,7 @@ public class SpringWebConfig implements WebMvcConfigurer {
         registry.addInterceptor(localeChangeInterceptor());
     }
 
-//    @Bean(name = "simpleMappingExceptionResolver")
+    @Bean(name = "simpleMappingExceptionResolver")
     public SimpleMappingExceptionResolver createSimpleMappingExceptionResolver() {
         // Puedes revisar la configuracion en https://spring.io/blog/2013/11/01/exception-handling-in-spring-mvc
         SimpleMappingExceptionResolver r = new SimpleMappingExceptionResolver();
@@ -211,7 +213,8 @@ public class SpringWebConfig implements WebMvcConfigurer {
         // Propiedades (clave, valor): Excepcion --> Vista
         Properties mappings = new Properties();
         mappings.setProperty(AccessNotAuthorizedException.class.getName(), "error/forbidden");
-        // TODO: añade otro mapping para ArticuloNotFoundException
+        mappings.setProperty(ArticuloNotFoundException.class.getName(), "error/notFound");
+        mappings.setProperty(PedidoNotFoundException.class.getName(), "error/notFound");
         r.setExceptionMappings(mappings);
 
         r.setDefaultStatusCode(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
@@ -219,7 +222,7 @@ public class SpringWebConfig implements WebMvcConfigurer {
 
         // Propiedades (clave, valor): Vista --> Codigo de estado HTTP        
         r.addStatusCode("error/forbidden", HttpServletResponse.SC_FORBIDDEN);
-        // TODO: añade otro codigo de estado (404) para la vista notFound
+        r.addStatusCode("error/notFound", HttpServletResponse.SC_NOT_FOUND);
 
         r.setExceptionAttribute("exception");
         return r;
