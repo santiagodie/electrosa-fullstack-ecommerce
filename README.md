@@ -79,26 +79,6 @@ Key points:
 - **Back office persistence.** The servlets depend only on DAO interfaces. The MySQL implementations obtain connections from the container's JNDI `DataSource`, and the HSQLDB-based tests reuse the same DAO code against an in-memory database.
 - **Schema evolution.** The storefront ships a Liquibase changelog (`frontoffice/src/main/resources/dbchangelog.xml`) that adapts the course-provided schema. For example, it widens `pedido.CODIGOCLIENTE` so that orders from newly registered customers, who get 53-character UUIDs, can be stored.
 
-## Screenshots
-
-Storefront home
-_(screenshot pending)_
-
-Catalogue
-_(screenshot pending)_
-
-Article detail
-_(screenshot pending)_
-
-Shopping cart
-_(screenshot pending)_
-
-Orders
-_(screenshot pending)_
-
-Back office
-_(screenshot pending)_
-
 ## Getting started
 
 ### Requirements
