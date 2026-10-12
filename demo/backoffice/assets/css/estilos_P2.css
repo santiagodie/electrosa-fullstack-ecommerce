@@ -1,0 +1,225 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 25 feb 2026, 18:01:04
+    Author     : sadie
+*/
+
+:root {
+
+    /**
+     * colors
+     */
+
+    --spanish-gray: hsl(0, 0%, 60%);
+    --sonic-silver: hsl(0, 0%, 47%);
+    --eerie-black: hsl(0, 0%, 13%);
+    --salmon-pink: hsl(353, 100%, 78%);
+    --sandy-brown: hsl(29, 90%, 65%);
+    --bittersweet: hsl(0, 100%, 70%);
+    --ocean-green: hsl(152, 51%, 52%);
+    --davys-gray: hsl(0, 0%, 33%);
+    --cultured: hsl(0, 0%, 93%);
+    --white: hsl(0, 100%, 100%);
+    --onyx: hsl(0, 0%, 27%);
+    --epic-green: hsl(162, 16%, 43%);
+
+}
+/*xxxxxxxxxxxxxxxxxxxxxx------welcome.html------xxxxxxxxxxxxxxxxxxxxxxxxxxxxx    */
+.p2_container form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 5px;
+}
+
+/* From Uiverse.io by abrahamcalsin */
+.boton_p2 {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    background: hsl(353, 100%, 78%);
+    box-shadow: 0px 6px 24px 0px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    cursor: pointer;
+    border: none;
+}
+
+.boton_p2:after {
+    content: " ";
+    width: 0%;
+    height: 100%;
+    background: #f76e7e;
+    position: absolute;
+    transition: all 0.4s ease-in-out;
+    right: 0;
+}
+
+.boton_p2:hover::after {
+    right: auto;
+    left: 0;
+    width: 100%;
+}
+
+.boton_p2 span {
+    text-align: center;
+    text-decoration: none;
+    width: 100%;
+    padding: 7px 22px;
+    color: #fff;
+    font-size: 1.125em;
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    z-index: 20;
+    transition: all 0.3s ease-in-out;
+}
+
+button:hover span {
+    scale:1.15;
+    animation: scaleUp 0.3s ease-in-out;
+}
+
+@keyframes scaleUp {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(0.95);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* From Uiverse.io by dovatgabriel */
+.group {
+    position: relative;
+}
+
+.input {
+    font-size: 16px;
+    padding: 10px 10px 10px 5px;
+    display: block;
+    width: 200px;
+    border: none;
+    border-bottom: 1px solid hsl(162, 16%, 43%);
+    background: transparent;
+}
+
+.input:focus {
+    outline: none;
+}
+
+.group label {
+    color: hsl(162, 16%, 43%);
+    font-size: 18px;
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    left: 5px;
+    top: 10px;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+}
+
+.input:focus ~ label, .input:valid ~ label {
+    top: -20px;
+    font-size: 14px;
+    color: hsl(162, 16%, 43%);
+}
+
+.bar {
+    position: relative;
+    display: block;
+    width: 200px;
+}
+
+.bar:before, .bar:after {
+    content: '';
+    height: 2px;
+    width: 0;
+    bottom: 1px;
+    position: absolute;
+    background: hsl(162, 16%, 43%);
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+}
+
+.bar:before {
+    left: 50%;
+}
+
+.bar:after {
+    right: 50%;
+}
+
+.input:focus ~ .bar:before, .input:focus ~ .bar:after {
+    width: 50%;
+}
+
+.highlight {
+    position: absolute;
+    height: 60%;
+    width: 100px;
+    top: 25%;
+    left: 0;
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+.input:focus ~ .highlight {
+    animation: inputHighlighter 0.3s ease;
+}
+/*xxxxxxxxxxxxxxxxxxxxxx------diHola.jsp------xxxxxxxxxxxxxxxxxxxxxxxxxxxxx    */
+.span_p2_diHola{
+    color: var(--epic-green);
+    font-weight: bold;
+}
+.dihola_container, .search_container{
+    display: flex;
+    justify-content: center;
+}
+.dihola_container h2{
+    font-size:2.5rem;
+    font-weight:normal;
+
+
+}
+
+.card {
+    width: fit-content;
+    height: auto;
+    border-radius: 50px;
+    box-shadow: 20px 20px 60px #bebebe,
+        -20px -20px 60px #ffffff;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.search_container_aux {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+    align-items: center;
+}
+.articles_container ul {
+    display: grid;
+    grid-template-columns: repeat(3, 1.1fr);
+    gap: 10px;
+    column-gap: 50px;
+}
+
+.articles_container {
+    display: flex;
+    justify-content: center;
+}

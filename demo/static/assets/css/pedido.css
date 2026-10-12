@@ -1,0 +1,270 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 12 may 2026, 19:32:16
+    Author     : Santiago Die
+*/
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700;800&family=Figtree:wght@400;500;600&display=swap');
+
+:root {
+    --font-display: 'Urbanist', system-ui, sans-serif;
+    --font-body:    'Figtree', system-ui, sans-serif;
+
+    --color-border:         oklch(88%  0.008 65);
+    --color-border-strong:  oklch(76%  0.014 65);
+
+    --color-text-primary:   oklch(20%  0.012 65);
+    --color-text-secondary: oklch(44%  0.010 65);
+    --color-text-muted:     oklch(62%  0.010 65);
+
+    --color-accent:         hsl(353, 100%, 78%);
+    --color-accent-hover:   hsl(0, 0%, 13%);
+    --color-accent-subtle:  hsl(353, 100%, 96%);
+
+    --color-success:        oklch(52%  0.14  145);
+    --color-success-subtle: oklch(96%  0.030 145);
+
+    --radius-sm:  8px;
+    --radius-md:  14px;
+    --radius-lg:  20px;
+    --radius-xl:  28px;
+
+    --shadow-md: 0 2px 8px oklch(20% 0.012 65 / 0.06),
+        0 8px 28px oklch(20% 0.012 65 / 0.06);
+
+    --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+    to   {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+.pedido-content {
+    display: flex;
+    align-items: flex-start;
+    max-width: 920px;
+    margin: 3rem auto;
+    background-color: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    overflow: visible;
+    box-shadow: var(--shadow-md);
+    animation: fadeUp 420ms var(--ease-out) both;
+}
+
+.sidebar-sticky {
+    position: sticky;
+    top: 1.5rem;
+    align-self: flex-start;
+    flex-shrink: 0;
+    height: fit-content;
+}
+
+.pedido-container {
+    flex: 1;
+    padding: 2.5rem 3rem;
+    box-sizing: border-box;
+    min-width: 0;
+}
+
+
+.pedido-container h3 {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -0.035em;
+    line-height: 1.1;
+    color: var(--color-text-primary);
+    margin: 0 0 0.35rem;
+}
+
+.pedido-container .pedido-subtitle {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+    margin: 0 0 2rem;
+}
+
+
+.pedido-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border-top: 1px solid var(--color-border);
+    margin-top: 1.75rem;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 2rem;
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.form-row .form-field {
+    border-bottom: 1px solid var(--color-border);
+}
+
+.form-field:last-child,
+.form-row:last-of-type .form-field {
+    border-bottom: none;
+}
+
+.form-field label {
+    font-family: var(--font-display);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+}
+
+.form-field input {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: var(--color-text-primary);
+    border: 1.5px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    padding: 0.6rem 0.85rem;
+    outline: none;
+    transition: border-color 160ms var(--ease-out),
+        box-shadow  160ms var(--ease-out);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.form-field input:focus {
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 3px var(--color-accent-subtle);
+}
+
+.form-field input::placeholder {
+    color: var(--color-text-muted);
+    opacity: 0.7;
+}
+
+.form-field input[type="date"] {
+    color-scheme: light;
+    max-width: 220px;
+}
+
+
+.pedido-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    flex-wrap: wrap;
+}
+.btn-primary,
+.btn-ghost {
+    align-self: center;
+    line-height: 1;
+    margin: 0;
+}
+
+.btn-primary {
+    display: inline-flex;
+    align-items: center;
+    font-family: var(--font-display);
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #fff;
+    background-color: var(--color-accent);
+    border: none;
+    border-radius: 100px;
+    padding: 0.65rem 1.6rem;
+    cursor: pointer;
+    transition: background-color 180ms var(--ease-out),
+        transform 160ms var(--ease-out);
+    text-decoration: none;
+}
+
+.btn-primary:active {
+    transform: scale(0.97);
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .btn-primary:hover {
+        background-color: var(--color-accent-hover);
+    }
+}
+
+.btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    font-family: var(--font-display);
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-text-secondary);
+    background: transparent;
+    border: 1.5px solid var(--color-border);
+    border-radius: 100px;
+    padding: 0.65rem 1.4rem;
+    cursor: pointer;
+    text-decoration: none;
+    transition: border-color 180ms var(--ease-out),
+        color 180ms var(--ease-out),
+        transform 160ms var(--ease-out);
+}
+
+.btn-ghost:active {
+    transform: scale(0.97);
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .btn-ghost:hover {
+        border-color: var(--color-border-strong);
+        color: var(--color-text-primary);
+    }
+}
+
+
+.confirm-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background-color: var(--color-success-subtle);
+    margin-bottom: 1.5rem;
+    flex-shrink: 0;
+}
+
+.confirm-icon svg {
+    width: 26px;
+    height: 26px;
+    color: var(--color-success);
+}
+
+.confirm-body {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin: 0 0 0.5rem;
+}
+
+.confirm-body + .confirm-body {
+    color: var(--color-text-muted);
+    font-size: 0.875rem;
+}

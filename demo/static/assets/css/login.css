@@ -1,0 +1,386 @@
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700;800&family=Figtree:wght@400;500;600&display=swap');
+
+
+:root {
+  --font-display: 'Urbanist', system-ui, sans-serif;
+  --font-body:    'Figtree', system-ui, sans-serif;
+
+  --color-border:         oklch(88%  0.008 65);
+  --color-border-focus:   oklch(20%  0.012 65);
+
+  --color-text-primary:   oklch(20%  0.012 65);
+  --color-text-secondary: oklch(44%  0.010 65);
+  --color-text-muted:     oklch(62%  0.010 65);
+
+  --color-accent:         hsl(353, 100%, 78%);
+  --color-accent-hover:   hsl(0, 0%, 13%);
+  --color-accent-subtle:  hsl(353, 100%, 96%);
+
+  --color-brand-bg:       oklch(17%  0.014 65);
+  --color-brand-text:     oklch(96%  0.004 65);
+
+  --color-error:          oklch(56%  0.195 25);
+  --color-error-bg:       oklch(97.5% 0.028 25);
+
+  --ease-out:    cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+
+  --radius-input: 10px;
+  --radius-btn:   10px;
+}
+
+
+*, *::before, *::after { box-sizing: border-box; }
+* { margin: 0; padding: 0; }
+
+body {
+  font-family: var(--font-body);
+  min-height: 100dvh;
+}
+
+
+.login-root {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 100dvh;
+}
+
+
+.login-brand {
+  background-color: var(--color-brand-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.login-brand::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  width: 50vw;        
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(../../../unavailable.html)' opacity='0.045'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+}
+
+.brand-inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  text-align: center;
+  animation: brandFadeUp 600ms var(--ease-out) 100ms both;
+}
+
+@keyframes brandFadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.brand-accent-line {
+  width: 36px;
+  height: 3px;
+  background-color: var(--color-accent);
+  border-radius: 100px;
+}
+
+.brand-tagline {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: oklch(65% 0.008 65);
+  letter-spacing: 0.05em;
+}
+
+
+.title_animation {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+  font-weight: 800;
+  letter-spacing: 0.10em;
+  text-decoration: none;
+  position: relative;
+  -webkit-text-stroke: 1.5px var(--color-brand-text);
+  color: transparent;
+  cursor: default;
+  display: inline-block;
+}
+
+.actual-text {
+  -webkit-text-stroke: 0;
+  color: var(--color-brand-text);
+}
+
+.hover-text {
+  position: absolute;
+  inset: 0;
+  box-sizing: border-box;
+  color: var(--color-brand-bg);
+  background: var(--color-accent);
+  width: 0%;
+  overflow: hidden;
+  border-right: 4px solid var(--color-accent);
+  transition: width 480ms var(--ease-out);
+  -webkit-text-stroke: 0;
+  white-space: nowrap;
+}
+
+.title_animation:hover .hover-text {
+  width: 100%;
+}
+
+.login-form-panel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2.5rem;
+}
+
+.login_container {
+  width: 100%;
+  max-width: 360px;
+  display: flex;
+  flex-direction: column;
+  animation: formFadeUp 500ms var(--ease-out) 180ms both;
+}
+
+@keyframes formFadeUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Form header */
+.form-header {
+  margin-bottom: 2rem;
+}
+
+.form-header__title {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  color: var(--color-text-primary);
+  line-height: 1.05;
+}
+
+.form-header__subtitle {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  margin-top: 0.45rem;
+}
+
+.message_error_container {
+  margin-bottom: 0.75rem;
+}
+
+.message_error_container .error {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--color-error);
+  background-color: var(--color-error-bg);
+  border: 1px solid oklch(56% 0.195 25 / 0.18);
+  padding: 0.6rem 0.9rem;
+  border-radius: 8px;
+}
+
+.login_details_wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  margin-bottom: 0.85rem;
+}
+
+.field-label {
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+}
+
+.username_wrapper,
+.password_wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-input);
+  padding: 0.72rem 1rem;
+  transition: border-color 180ms var(--ease-out),
+              box-shadow 180ms var(--ease-out);
+}
+
+.username_wrapper:focus-within,
+.password_wrapper:focus-within {
+  border-color: var(--color-border-focus);
+  box-shadow: 0 0 0 3px oklch(20% 0.012 65 / 0.08);
+}
+
+.username_icon,
+.password_icon {
+  display: flex;
+  align-items: center;
+  color: var(--color-text-muted);
+  flex-shrink: 0;
+  transition: color 180ms var(--ease-out);
+}
+
+.username_wrapper:focus-within .username_icon,
+.password_wrapper:focus-within .password_icon {
+  color: var(--color-text-primary);
+}
+
+.username_icon svg,
+.password_icon svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+}
+
+input[type="text"],
+input[type="password"] {
+  border: none;
+  outline: none;
+  flex: 1;
+  min-width: 0;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--color-text-primary);
+  background: transparent;
+}
+
+input[type="text"]::placeholder,
+input[type="password"]::placeholder {
+  color: var(--color-text-muted);
+}
+
+.message_error_username,
+.message_error_password {
+  margin-top: -0.4rem;
+  margin-bottom: 0.6rem;
+}
+
+.message_error_username .error,
+.message_error_password .error {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  color: var(--color-error);
+  background-color: var(--color-error-bg);
+  padding: 0.3rem 0.65rem;
+  border-radius: 6px;
+  display: block;
+}
+.button_wrapper {
+  margin-top: 1.35rem;
+  margin-bottom: 1.75rem;
+}
+
+.btn_login {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: #fff;
+  background-color: var(--color-accent);
+  border: none;
+  border-radius: var(--radius-btn);
+  padding: 0.875rem 2rem;
+  cursor: pointer;
+  transition: background-color 200ms var(--ease-out),
+              transform 160ms var(--ease-out);
+}
+
+.btn_login:hover {
+  background-color: var(--color-accent-hover);
+}
+
+.btn_login:active {
+  transform: scale(0.97);
+}
+
+.btn_login span {
+  line-height: 1;
+}
+
+.login_arrow {
+  position: relative;
+  width: 10px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.65);
+  border-radius: 1px;
+  flex-shrink: 0;
+  transition: width 220ms var(--ease-out);
+}
+
+.login_arrow::before {
+  content: '';
+  position: absolute;
+  top: -3px;
+  right: 0;
+  width: 6px;
+  height: 6px;
+  border-top: 2px solid rgba(255, 255, 255, 0.85);
+  border-right: 2px solid rgba(255, 255, 255, 0.85);
+  transform: rotate(45deg);
+  transition: right 220ms var(--ease-out);
+}
+
+.btn_login:hover .login_arrow        { width: 16px; }
+.btn_login:hover .login_arrow::before { right: -2px; }
+
+.crear_usuario {
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.crear_usuario p {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+}
+
+.line {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.line-icon {
+  display: flex;
+  align-items: center;
+  color: var(--color-accent);
+}
+
+.line a {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: color 180ms var(--ease-out);
+}
+
+.line a:hover {
+  color: var(--color-accent-hover);
+}
