@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Crear cuenta - Electrosa</title>
+        <meta charset="UTF-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+        <link rel="apple-touch-icon" sizes="180x180" href="../static/assets/images/logo/apple-touch-icon.png"/>
+        <link rel="icon" type="image/png" sizes="32x32" href="../static/assets/images/logo/favicon-32x32.png"/>
+        <link rel="icon" type="image/png" sizes="16x16" href="../static/assets/images/logo/favicon-16x16.png"/>
+
+        <link rel="stylesheet" href="../static/assets/css/style.css"/>
+        <link rel="stylesheet" href="../static/assets/css/custom.css"/>
+        <link rel="stylesheet" href="../static/assets/css/login.css"/>
+        <link rel="stylesheet" href="../static/assets/css/register.css"/>
+    <meta name="demo-lang" content="es"><meta name="demo-alt-es" content="register.html"><meta name="demo-alt-en" content="../en/auth/register.html"><link rel="stylesheet" href="../../demo-assets/demo.css"></head>
+    <body>
+
+        <div class="login-root">
+
+            <!-- ===========================
+                 PANEL IZQUIERDO — Marca
+                 =========================== -->
+            <aside class="login-brand" aria-hidden="true">
+                <div class="brand-inner">
+                    <div class="title_animation">
+                        <span class="actual-text">&nbsp;ELECTROSA&nbsp;</span>
+                        <span class="hover-text">&nbsp;ELECTROSA&nbsp;</span>
+                    </div>
+                    <div class="brand-accent-line"></div>
+                    <p class="brand-tagline">Tu hogar, nuestra pasión.</p>
+                </div>
+            </aside>
+
+            <!-- ===========================
+                 PANEL DERECHO — Formulario
+                 =========================== -->
+            <main class="login-form-panel">
+                <div class="login_container">
+
+                    <!-- Encabezado -->
+                    <header class="form-header">
+                        <h1 class="form-header__title">Crear cuenta</h1>
+                        <p class="form-header__subtitle">Únete a Electrosa</p>
+                    </header>
+
+                    <!-- Mensajes de validación -->
+                    
+
+                    <!-- Formulario de registro -->
+                    <div class="login_details_wrapper">
+                        <form method="post" action="../unavailable.html">
+
+                            <!-- Email -->
+                            <div class="field-group">
+                                <label class="field-label" for="reg_email">Email</label>
+                                <div class="username_wrapper">
+                                    <span class="username_icon" aria-hidden="true">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                            <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/>
+                                        </svg>
+                                    </span>
+                                    <input type="text" id="reg_email" name="email" value="" placeholder="Tu dirección de email" autocomplete="email" maxlength="100"/>
+                                </div>
+                            </div>
+
+                            <!-- Nombre de usuario -->
+                            <div class="field-group">
+                                <label class="field-label" for="reg_username">Nombre de usuario</label>
+                                <div class="username_wrapper">
+                                    <span class="username_icon" aria-hidden="true">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                                        </svg>
+                                    </span>
+                                    <input type="text" id="reg_username" name="username" value="" placeholder="Elige un nombre de usuario" autocomplete="username" maxlength="50"/>
+                                </div>
+                            </div>
+
+                            <!-- Contraseña -->
+                            <div class="field-group">
+                                <label class="field-label" for="reg_password1">Contraseña</label>
+                                <div class="password_wrapper">
+                                    <span class="password_icon" aria-hidden="true">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                            <path d="M12 2C8.13 2 5 5.13 5 9v2H4c-.55 0-1 .45-1 1v8c0 .55.45 1 1 1h16c.55 0 1-.45 1-1v-8c0-.55-.45-1-1-1h-1V9c0-3.87-3.13-7-7-7zm0 2c2.76 0 5 2.24 5 5v2H7V9c0-2.76 2.24-5 5-5zm0 9c.55 0 1 .45 1 1v2c0 .55-.45 1-1 1s-1-.45-1-1v-2c0-.55.45-1 1-1z"/>
+                                        </svg>
+                                    </span>
+                                    <input type="password" id="reg_password1" name="password1" placeholder="Elige una contraseña" autocomplete="new-password"/>
+                                </div>
+                            </div>
+
+                            <!-- Repetir contraseña -->
+                            <div class="field-group">
+                                <label class="field-label" for="reg_password2">Repita contraseña</label>
+                                <div class="password_wrapper">
+                                    <span class="password_icon" aria-hidden="true">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                            <path d="M12 2C8.13 2 5 5.13 5 9v2H4c-.55 0-1 .45-1 1v8c0 .55.45 1 1 1h16c.55 0 1-.45 1-1v-8c0-.55-.45-1-1-1h-1V9c0-3.87-3.13-7-7-7zm0 2c2.76 0 5 2.24 5 5v2H7V9c0-2.76 2.24-5 5-5zm0 9c.55 0 1 .45 1 1v2c0 .55-.45 1-1 1s-1-.45-1-1v-2c0-.55.45-1 1-1z"/>
+                                        </svg>
+                                    </span>
+                                    <input type="password" id="reg_password2" name="password2" placeholder="Repite la contraseña" autocomplete="new-password"/>
+                                </div>
+                            </div>
+
+                            <!-- Política de privacidad -->
+                            <div class="privacy-wrapper">
+                                <input type="checkbox" name="privacidad" required/>
+                                <span>He leído y acepto la política de privacidad</span>
+                            </div>
+
+                            <!-- Botón -->
+                            <div class="button_wrapper">
+                                <button type="submit" class="btn_login banner-btn">
+                                    <span>CREAR CUENTA</span>
+                                    <div class="login_arrow" aria-hidden="true"></div>
+                                </button>
+                            </div>
+
+                        </form>
+
+                        <!-- Volver a login -->
+                        <div class="crear_usuario">
+                            <p>¿Ya tienes cuenta?</p>
+                            <div class="line">
+                                <span class="line-icon" aria-hidden="true">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M10 17v-3H3v-4h7V7l5 5-5 5z"/>
+                                        <path d="M19 3H5c-1.1 0-2 .9-2 2v4h2V5h14v14H5v-4H3v4c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/>
+                                    </svg>
+                                </span>
+                                <a href="login.html">¿Ya tienes cuenta? Inicia sesión</a>
+                            </div>
+                        </div>
+
+                    </div><!-- /login_details_wrapper -->
+
+                </div><!-- /login_container -->
+            </main>
+
+        </div><!-- /login-root -->
+
+    <div class="demo-banner" role="note">Demo estática — la aplicación completa necesita Java, Tomcat y MySQL. <a href="https://github.com/santiagodie/electrosa-fullstack-ecommerce">Ver el código en GitHub</a> · <a href="../../index.html">Portada de la demo</a></div><script src="../../demo-assets/demo.js" defer></script></body>
+</html>

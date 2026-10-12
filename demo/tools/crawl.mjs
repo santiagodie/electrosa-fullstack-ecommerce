@@ -3,6 +3,8 @@
 // store.war and backoffice.war deployed on Tomcat (localhost:8080), the course
 // database loaded, a demo customer ("demo") with a couple of orders and a
 // non-empty cart, and a back office administrator ("admin").
+// Output: demo/frontoffice/ (Spanish), demo/frontoffice/en/ and demo/backoffice/.
+// demo/index.html (the landing page) and demo/demo-assets/ are hand-written.
 //
 // Usage (from the repository root, Node 18+, no dependencies):
 //   node demo/tools/crawl.mjs
@@ -22,8 +24,8 @@ const ASSET_EXT = /\.(css|js|png|jpe?g|gif|svg|ico|webp|woff2?|ttf|eot|otf|webma
 const ACTION_PATHS = [/^\/store\/cliente\/cesta\/vaciar$/, /^\/store\/auth\/logout$/, /^\/backoffice\/auth\/logout$/];
 
 const TREES = {
-  es: { app: '/store', dir: '', lang: 'es' },
-  en: { app: '/store', dir: 'en/', lang: 'en' },
+  es: { app: '/store', dir: 'frontoffice/', lang: 'es' },
+  en: { app: '/store', dir: 'frontoffice/en/', lang: 'en' },
   bo: { app: '/backoffice', dir: 'backoffice/', lang: 'es' },
 };
 
@@ -31,6 +33,7 @@ const TEXT = {
   es: {
     banner: 'Demo estática — la aplicación completa necesita Java, Tomcat y MySQL.',
     repo: 'Ver el código en GitHub',
+    landing: 'Portada de la demo',
     unavailableTitle: 'No disponible en la demo',
     unavailable: 'Esta página no forma parte de la demo estática. En la aplicación completa se genera en el servidor.',
     back: 'Volver',
@@ -39,6 +42,7 @@ const TEXT = {
   en: {
     banner: 'Static demo — the full application needs Java, Tomcat and MySQL.',
     repo: 'View the source on GitHub',
+    landing: 'Demo home',
     unavailableTitle: 'Not available in the demo',
     unavailable: 'This page is not part of the static demo. In the full application it is rendered by the server.',
     back: 'Go back',
@@ -125,7 +129,7 @@ function pageFile(tree, key) {
 }
 
 function assetFile(pathname) {
-  if (pathname.startsWith('/store/')) return pathname.slice('/store/'.length);
+  if (pathname.startsWith('/store/')) return 'frontoffice/' + pathname.slice('/store/'.length);
   if (pathname.startsWith('/backoffice/')) return 'backoffice/' + pathname.slice('/backoffice/'.length);
   return 'misc' + pathname;
 }
@@ -248,7 +252,9 @@ function chrome(tree, fromFile, altEs, altEn) {
     altEn ? `<meta name="demo-alt-en" content="${altEn}">` : '',
     `<link rel="stylesheet" href="${base}demo.css">`,
   ].join('');
-  const body = `<div class="demo-banner" role="note">${t.banner} <a href="${REPO}">${t.repo}</a></div>`
+  const landing = rel(fromFile, 'index.html');
+  const body = `<div class="demo-banner" role="note">${t.banner} <a href="${REPO}">${t.repo}</a>`
+    + ` · <a href="${landing}">${t.landing}</a></div>`
     + `<script src="${base}demo.js" defer></script>`;
   return { head, body };
 }
@@ -263,8 +269,8 @@ function rewritePage(tree, key, { url, html }) {
 
   let altEs = null, altEn = null;
   if (tree !== 'bo') {
-    altEs = rel(file, pages.es.has(key) ? pageFile('es', key) : 'index.html');
-    altEn = rel(file, pages.en.has(key) ? pageFile('en', key) : 'en/index.html');
+    altEs = rel(file, pages.es.has(key) ? pageFile('es', key) : 'frontoffice/index.html');
+    altEn = rel(file, pages.en.has(key) ? pageFile('en', key) : 'frontoffice/en/index.html');
   }
   const { head, body } = chrome(tree, file, altEs, altEn);
   out = out.replace(/<\/head>/i, `${head}</head>`).replace(/<\/body>(?![\s\S]*<\/body>)/i, `${body}</body>`);

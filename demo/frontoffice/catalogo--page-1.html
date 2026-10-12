@@ -1,0 +1,1264 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      class="h-100" lang="es">
+
+    <head>
+        <title>Electrosa - Catálogo</title>
+        <meta charset="UTF-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+        <link rel="apple-touch-icon" sizes="180x180" href="static/assets/images/logo/apple-touch-icon.png"/>
+        <link rel="icon" type="image/png" sizes="32x32" href="static/assets/images/logo/favicon-32x32.png"/>
+        <link rel="icon" type="image/png" sizes="16x16" href="static/assets/images/logo/favicon-16x16.png"/>
+
+        <link rel="stylesheet" href="static/assets/css/style.css"/>
+        <link rel="stylesheet" href="static/assets/css/custom.css"/>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com"/>
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+
+    <meta name="demo-lang" content="es"><meta name="demo-alt-es" content="catalogo--page-1.html"><meta name="demo-alt-en" content="en/catalogo--page-1.html"><link rel="stylesheet" href="../demo-assets/demo.css"></head>
+
+    <body>
+
+        <div class="overlay" data-overlay></div>
+
+
+        <!--
+          - HEADER
+        -->
+
+        <header>
+            <div class="header-top">
+
+                <div class="container">
+
+                    <ul class="header-social-container">
+
+                        <li>
+                            <a href="#" class="social-link">
+                                <ion-icon name="logo-facebook"></ion-icon>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#" class="social-link">
+                                <ion-icon name="logo-twitter"></ion-icon>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#" class="social-link">
+                                <ion-icon name="logo-instagram"></ion-icon>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#" class="social-link">
+                                <ion-icon name="logo-linkedin"></ion-icon>
+                            </a>
+                        </li>
+
+                    </ul>
+
+                    <div class="header-alert-news">
+                        <p><b>Envíos gratis</b> en junio a partir de 130&euro;</p>
+                    </div>
+
+                    <div class="header-top-actions">
+
+                        <select name="currency">
+                            <option value="eur">EUR &euro;</option>
+                            <option value="usd">USD &dollar;</option>
+                        </select>
+
+                        <form method="post" action="unavailable.html">
+                            <select name="lang" id="language-selector">
+                                <option value="es" selected="selected">Español</option>
+                                <option value="en">Inglés</option>
+                                <option value="fr">Francés</option>
+                                <option value="de">Alemán</option>
+                            </select>
+                        </form>
+                        <a style="display:none;" href="unavailable.html">Cambiar preferencias</a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="header-main">
+
+                <div class="container">
+
+                    <a href="index.html" class="header-logo">
+                        <span>ELECTROSA</span>
+                    </a>
+
+                    <div class="header-search-container">
+
+                        <input type="search" name="search" class="search-field" placeholder="Buscar en toda la tienda"/>
+
+                        <button class="search-btn">
+                            <ion-icon name="search-outline"></ion-icon>
+                        </button>
+
+                    </div>
+
+                    <div class="header-user-actions">
+                        <a href="cliente/cuenta.html" class="action-btn">
+                            
+                                <ion-icon name="person-outline"></ion-icon>
+                            
+                            
+                        </a>
+
+                        <a href="unavailable.html" class="action-btn">
+                            <ion-icon name="heart-outline"></ion-icon>
+                            <span class="count" id="wishlist-count">0</span>
+                        </a>
+
+                        <a href="cliente/cesta.html" class="action-btn">
+                            <ion-icon name="bag-handle-outline"></ion-icon>
+                            
+                            <span class="count">0</span>
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <nav class="desktop-navigation-menu">
+
+                <div class="container">
+
+                    <ul class="desktop-menu-category-list">
+
+                        <li class="menu-category">
+                            <a href="index.html" class="menu-title">Home</a>
+                        </li>
+
+                        <li class="menu-category">
+                            <a href="unavailable.html" class="menu-title">Aspiradores</a>
+                        </li>
+
+                        <li class="menu-category">
+                            <a href="unavailable.html" class="menu-title">Frigoríficos</a>
+                        </li>
+
+                        <li class="menu-category">
+                            <a href="unavailable.html" class="menu-title">Lavadoras</a>
+                        </li>
+
+                        <li class="menu-category">
+                            <a href="unavailable.html" class="menu-title">Cocinas</a>
+                        </li>
+
+
+                        <li class="menu-category">
+                            <a href="unavailable.html" class="menu-title">Blog</a>
+                        </li>
+
+                        <li class="menu-category">
+                            <a href="unavailable.html" class="menu-title">Ofertas</a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </nav>
+
+            <div class="mobile-bottom-navigation">
+
+                <button class="action-btn" data-mobile-menu-open-btn>
+                    <ion-icon name="menu-outline"></ion-icon>
+                </button>
+
+                <button class="action-btn">
+                    <ion-icon name="bag-handle-outline"></ion-icon>
+                    <span class="count">0</span>
+                </button>
+
+                <button class="action-btn">
+                    <ion-icon name="home-outline"></ion-icon>
+                </button>
+
+                <button class="action-btn">
+                    <ion-icon name="heart-outline"></ion-icon>
+                    <span class="count">0</span>
+                </button>
+
+                <button class="action-btn" data-mobile-menu-open-btn>
+                    <ion-icon name="grid-outline"></ion-icon>
+                </button>
+
+            </div>
+
+            <nav class="mobile-navigation-menu  has-scrollbar" data-mobile-menu>
+
+                <div class="menu-top">
+                    <h2 class="menu-title">Menu</h2>
+
+                    <button class="menu-close-btn" data-mobile-menu-close-btn>
+                        <ion-icon name="close-outline"></ion-icon>
+                    </button>
+                </div>
+
+                <ul class="mobile-menu-category-list">
+
+                    <li class="menu-category">
+                        <a href="unavailable.html" class="menu-title">Aspiradores</a>
+                    </li>
+
+                    <li class="menu-category">
+                        <a href="unavailable.html" class="menu-title">Frigoríficos</a>
+                    </li>
+                    <li class="menu-category">
+                        <a href="unavailable.html" class="menu-title">Lavadoras</a>
+                    </li>
+                    <li class="menu-category">
+                        <a href="unavailable.html" class="menu-title">Cocinas</a>
+                    </li>
+
+                    <li class="menu-category">
+                        <a href="unavailable.html" class="menu-title">Blog</a>
+                    </li>
+
+                    <li class="menu-category">
+                        <a href="unavailable.html" class="menu-title">Ofertas</a>
+                    </li>
+
+                </ul>
+
+                <div class="menu-bottom">
+
+                    <ul class="menu-category-list">
+
+                        <li class="menu-category">
+
+                            <button class="accordion-menu" data-accordion-btn>
+                                <p class="menu-title">Language</p>
+
+                                <ion-icon name="caret-back-outline" class="caret-back"></ion-icon>
+                            </button>
+
+                            <ul class="submenu-category-list" data-accordion>
+
+                                <li class="submenu-category">
+                                    <a href="#" class="submenu-title">English</a>
+                                </li>
+
+                                <li class="submenu-category">
+                                    <a href="#" class="submenu-title">Espa&ntilde;ol</a>
+                                </li>
+
+                                <li class="submenu-category">
+                                    <a href="#" class="submenu-title">Fren&ccedil;h</a>
+                                </li>
+
+                            </ul>
+
+                        </li>
+
+                        <li class="menu-category">
+                            <button class="accordion-menu" data-accordion-btn>
+                                <p class="menu-title">Currency</p>
+                                <ion-icon name="caret-back-outline" class="caret-back"></ion-icon>
+                            </button>
+
+                            <ul class="submenu-category-list" data-accordion>
+                                <li class="submenu-category">
+                                    <a href="#" class="submenu-title">USD &dollar;</a>
+                                </li>
+
+                                <li class="submenu-category">
+                                    <a href="#" class="submenu-title">EUR &euro;</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                    </ul>
+
+                    <ul class="menu-social-container">
+
+                        <li>
+                            <a href="#" class="social-link">
+                                <ion-icon name="logo-facebook"></ion-icon>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#" class="social-link">
+                                <ion-icon name="logo-twitter"></ion-icon>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#" class="social-link">
+                                <ion-icon name="logo-instagram"></ion-icon>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#" class="social-link">
+                                <ion-icon name="logo-linkedin"></ion-icon>
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </nav>
+
+        </header>
+
+
+        <!--
+          - MAIN
+        -->
+
+        <main class="main">
+            <div class="product-container">
+                <div class="container">
+
+                    <div class="sidebar has-scrollbar" data-mobile-menu>
+                        <div class="sidebar-category" style="margin-top: 90px;">
+                            <div class="sidebar-top">
+                                <h2 class="sidebar-title">Filtros de búsqueda</h2>
+                                <button class="sidebar-close-btn" data-mobile-menu-close-btn>
+                                    <ion-icon name="close-outline"></ion-icon>
+                                </button>
+                            </div>
+                            <form class="form-cultured" action="unavailable.html" method="get">
+                                <div class="control">
+                                    <label>Fabricante</label>
+                                    <select name="fabricante">
+                                        <option value="">Cualquiera</option>
+                                        <option value="Edesa">Edesa</option>
+                                        <option value="Fagor">Fagor</option>
+                                        <option value="Miele">Miele</option>
+                                    </select>
+                                </div>
+                                <div class="control">
+                                    <label>Tipo</label>
+                                    <select name="tipo">
+                                        <option value="">Cualquiera</option>
+                                        <option value="Aspirador">Aspirador</option>
+                                        <option value="Campana">Campana</option>
+                                        <option value="Cocina">Cocina</option>
+                                        <option value="Frigorifico">Frigorifico</option>
+                                        <option value="Horno">Horno</option>
+                                        <option value="Lavadora">Lavadora</option>
+                                        <option value="Lavavajillas">Lavavajillas</option>
+                                        <option value="Microondas">Microondas</option>
+                                        <option value="Placa">Placa</option>
+                                    </select>
+                                </div>
+                                <div class="control">
+                                    <label>Precio</label>
+                                    <select name="precio">
+                                        <option value="">Cualquiera</option>
+                                        <option value="0-50">0-50 &euro;</option>
+                                        <option value="50-100">50-100 &euro;</option>
+                                        <option value="100-200">100-200 &euro;</option>
+                                        <option value="200-500">200-500 &euro;</option>
+                                        <option value="500-99999">Más de 500 &euro;</option>
+                                    </select>
+                                </div>
+                                <div style="margin-top: 30px;">
+                                    <button class="banner-btn" type="submit" style="width: 100%;">Aplicar filtros</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- CONTENIDO -->
+                    <div class="product-box">
+                        <div class="product-main">
+                            <h1 class="title">Catálogo de productos</h1>
+
+                            
+
+                            
+
+                                <!-- Paginador -->
+                                <div class="paginator-wrapper">
+                                    <a href="catalogo.html">Primero</a>
+                                    <a href="catalogo.html">Anterior</a>
+                                    <span class="current">Mostrando página 2 de 30</span>
+                                    <a href="catalogo--page-2.html">Siguiente</a>
+                                    <a href="unavailable.html">Último</a>
+                                </div>
+
+                                <div class="pagination-info">
+                                    <label>Artículos por página</label>
+                                    <span class="pagesize">15</span>
+                                    <span class="records-found">(447 en total)</span>
+                                </div>
+
+                                <div class="product-grid">
+                                    <div class="showcase">
+
+                                        <div class="showcase-banner">
+                                            <a href="catalogo/Ede-353FO.html">
+                                                <img src="static/assets/images/store/Frigorifico/frigo150.jpg" alt="Frigorífico 2C-336 - Edesa" style="max-height: 150px;" class="product-img"/>
+                                            </a>
+
+                                            
+
+                                            <div class="showcase-actions">
+                                                <button class="btn-action wishlist-add" id="Ede-353FO">
+                                                    <ion-icon name="heart-outline"></ion-icon>
+                                                </button>
+                                                <button class="btn-action">
+                                                    <ion-icon name="eye-outline"></ion-icon>
+                                                </button>
+                                                <button class="btn-action">
+                                                    <ion-icon name="bag-add-outline"></ion-icon>
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                        <div class="showcase-content">
+                                            <span>Ede-353FO</span>
+
+                                            <a href="catalogo/Ede-353FO.html">
+                                                <h3 class="showcase-title">Frigorífico 2C-336 - Edesa</h3>
+                                            </a>
+
+                                            <div class="showcase-rating">
+                                                <div class="showcase-rating">
+                                                    <ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon>
+                                                    <ion-icon name="star-outline"></ion-icon><ion-icon name="star-outline"></ion-icon>
+                                                </div>
+                                            </div>
+
+                                            
+                                            <div class="price-box">
+                                                <p class="price">747.50 €</p>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="showcase">
+
+                                        <div class="showcase-banner">
+                                            <a href="catalogo/Ede-354LD.html">
+                                                <img src="static/assets/images/store/Lavadora/lavadora1017.jpg" alt="Lavadora 4L-1046 IT - Edesa" style="max-height: 150px;" class="product-img"/>
+                                            </a>
+
+                                            
+
+                                            <div class="showcase-actions">
+                                                <button class="btn-action wishlist-add" id="Ede-354LD">
+                                                    <ion-icon name="heart-outline"></ion-icon>
+                                                </button>
+                                                <button class="btn-action">
+                                                    <ion-icon name="eye-outline"></ion-icon>
+                                                </button>
+                                                <button class="btn-action">
+                                                    <ion-icon name="bag-add-outline"></ion-icon>
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                        <div class="showcase-content">
+                                            <span>Ede-354LD</span>
+
+                                            <a href="catalogo/Ede-354LD.html">
+                                                <h3 class="showcase-title">Lavadora 4L-1046 IT - Edesa</h3>
+                                            </a>
+
+                                            <div class="showcase-rating">
+                                                <div class="showcase-rating">
+                                                    <ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon>
+                                                    <ion-icon name="star-outline"></ion-icon>
+                                                </div>
+                                            </div>
+
+                                            
+                                            <div class="price-box">
+                                                <p class="price">350.00 €</p>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="showcase">
+
+                                        <div class="showcase-banner">
+                                            <a href="catalogo/Ede-355LD.html">
+                                                <img src="static/assets/images/store/Lavadora/lavadora1024.jpg" alt="Lavadora L-3126 - Edesa" style="max-height: 150px;" class="product-img"/>
+                                            </a>
+
+                                            
+
+                                            <div class="showcase-actions">
+                                                <button class="btn-action wishlist-add" id="Ede-355LD">
+                                                    <ion-icon name="heart-outline"></ion-icon>
+                                                </button>
+                                                <button class="btn-action">
+                                                    <ion-icon name="eye-outline"></ion-icon>
+                                                </button>
+                                                <button class="btn-action">
+                                                    <ion-icon name="bag-add-outline"></ion-icon>
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                        <div class="showcase-content">
+                                            <span>Ede-355LD</span>
+
+                                            <a href="catalogo/Ede-355LD.html">
+                                                <h3 class="showcase-title">Lavadora L-3126 - Edesa</h3>
+                                            </a>
+
+                                            <div class="showcase-rating">
+                                                <div class="showcase-rating">
+                                                    <ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon>
+                                                    <ion-icon name="star-outline"></ion-icon>
+                                                </div>
+                                            </div>
+
+                                            
+                                            <div class="price-box">
+                                                <p class="price">353.50 €</p>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="showcase">
+
+                                        <div class="showcase-banner">
+                                            <a href="catalogo/Ede-356LD.html">
+                                                <img src="static/assets/images/store/Lavadora/lavadora1012.jpg" alt="Lavadora 3LP-114 S - Edesa" style="max-height: 150px;" class="product-img"/>
+                                            </a>
+
+                                            
+
+                                            <div class="showcase-actions">
+                                                <button class="btn-action wishlist-add" id="Ede-356LD">
+                                                    <ion-icon name="heart-outline"></ion-icon>
+                                                </button>
+                                                <button class="btn-action">
+                                                    <ion-icon name="eye-outline"></ion-icon>
+                                                </button>
+                                                <button class="btn-action">
+                                                    <ion-icon name="bag-add-outline"></ion-icon>
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                        <div class="showcase-content">
+                                            <span>Ede-356LD</span>
+
+                                            <a href="catalogo/Ede-356LD.html">
+                                                <h3 class="showcase-title">Lavadora 3LP-114 S - Edesa</h3>
+                                            </a>
+
+                                            <div class="showcase-rating">
+                                                <div class="showcase-rating">
+                                                    <ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon>
+                                                    <ion-icon name="star-outline"></ion-icon><ion-icon name="star-outline"></ion-icon>
+                                                </div>
+                                            </div>
+
+                                            
+                                            <div class="price-box">
+                                                <p class="price">357.00 €</p>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="showcase">
+
+                                        <div class="showcase-banner">
+                                            <a href="catalogo/Ede-357LD.html">
+                                                <img src="static/assets/images/store/Lavadora/lavadora1021.jpg" alt="Lavadora L-2106 - Edesa" style="max-height: 150px;" class="product-img"/>
+                                            </a>
+
+                                            
+
+                                            <div class="showcase-actions">
+                                                <button class="btn-action wishlist-add" id="Ede-357LD">
+                                                    <ion-icon name="heart-outline"></ion-icon>
+                                                </button>
+                                                <button class="btn-action">
+                                                    <ion-icon name="eye-outline"></ion-icon>
+                                                </button>
+                                                <button class="btn-action">
+                                                    <ion-icon name="bag-add-outline"></ion-icon>
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                        <div class="showcase-content">
+                                            <span>Ede-357LD</span>
+
+                                            <a href="catalogo/Ede-357LD.html">
+                                                <h3 class="showcase-title">Lavadora L-2106 - Edesa</h3>
+                                            </a>
+
+                                            <div class="showcase-rating">
+                                                <div class="showcase-rating">
+                                                    <ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon>
+                                                    <ion-icon name="star-outline"></ion-icon>
+                                                </div>
+                                            </div>
+
+                                            
+                                            <div class="price-box">
+                                                <p class="price">360.50 €</p>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="showcase">
+
+                                        <div class="showcase-banner">
+                                            <a href="catalogo/Ede-358LD.html">
+                                                <img src="static/assets/images/store/Lavadora/lavadora1023.jpg" alt="Lavadora 4L-73 - Edesa" style="max-height: 150px;" class="product-img"/>
+                                            </a>
+
+                                            
+
+                                            <div class="showcase-actions">
+                                                <button class="btn-action wishlist-add" id="Ede-358LD">
+                                                    <ion-icon name="heart-outline"></ion-icon>
+                                                </button>
+                                                <button class="btn-action">
+                                                    <ion-icon name="eye-outline"></ion-icon>
+                                                </button>
+                                                <button class="btn-action">
+                                                    <ion-icon name="bag-add-outline"></ion-icon>
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                        <div class="showcase-content">
+                                            <span>Ede-358LD</span>
+
+                                            <a href="catalogo/Ede-358LD.html">
+                                                <h3 class="showcase-title">Lavadora 4L-73 - Edesa</h3>
+                                            </a>
+
+                                            <div class="showcase-rating">
+                                                <div class="showcase-rating">
+                                                    <ion-icon name="star"></ion-icon>
+                                                    <ion-icon name="star-outline"></ion-icon><ion-icon name="star-outline"></ion-icon><ion-icon name="star-outline"></ion-icon><ion-icon name="star-outline"></ion-icon>
+                                                </div>
+                                            </div>
+
+                                            
+                                            <div class="price-box">
+                                                <p class="price">364.00 €</p>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="showcase">
+
+                                        <div class="showcase-banner">
+                                            <a href="catalogo/Ede-359LD.html">
+                                                <img src="static/assets/images/store/Lavadora/lavadora1014.jpg" alt="Lavadora LP-2096 - Edesa" style="max-height: 150px;" class="product-img"/>
+                                            </a>
+
+                                            
+
+                                            <div class="showcase-actions">
+                                                <button class="btn-action wishlist-add" id="Ede-359LD">
+                                                    <ion-icon name="heart-outline"></ion-icon>
+                                                </button>
+                                                <button class="btn-action">
+                                                    <ion-icon name="eye-outline"></ion-icon>
+                                                </button>
+                                                <button class="btn-action">
+                                                    <ion-icon name="bag-add-outline"></ion-icon>
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                        <div class="showcase-content">
+                                            <span>Ede-359LD</span>
+
+                                            <a href="catalogo/Ede-359LD.html">
+                                                <h3 class="showcase-title">Lavadora LP-2096 - Edesa</h3>
+                                            </a>
+
+                                            <div class="showcase-rating">
+                                                <div class="showcase-rating">
+                                                    <ion-icon name="star"></ion-icon>
+                                                    <ion-icon name="star-outline"></ion-icon><ion-icon name="star-outline"></ion-icon><ion-icon name="star-outline"></ion-icon><ion-icon name="star-outline"></ion-icon>
+                                                </div>
+                                            </div>
+
+                                            
+                                            <div class="price-box">
+                                                <p class="price">367.50 €</p>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="showcase">
+
+                                        <div class="showcase-banner">
+                                            <a href="catalogo/Ede-360LD.html">
+                                                <img src="static/assets/images/store/Lavadora/lavadora1024.jpg" alt="Lavadora LP-2096 N - Edesa" style="max-height: 150px;" class="product-img"/>
+                                            </a>
+
+                                            
+
+                                            <div class="showcase-actions">
+                                                <button class="btn-action wishlist-add" id="Ede-360LD">
+                                                    <ion-icon name="heart-outline"></ion-icon>
+                                                </button>
+                                                <button class="btn-action">
+                                                    <ion-icon name="eye-outline"></ion-icon>
+                                                </button>
+                                                <button class="btn-action">
+                                                    <ion-icon name="bag-add-outline"></ion-icon>
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                        <div class="showcase-content">
+                                            <span>Ede-360LD</span>
+
+                                            <a href="catalogo/Ede-360LD.html">
+                                                <h3 class="showcase-title">Lavadora LP-2096 N - Edesa</h3>
+                                            </a>
+
+                                            <div class="showcase-rating">
+                                                <div class="showcase-rating">
+                                                    <ion-icon name="star"></ion-icon>
+                                                    <ion-icon name="star-outline"></ion-icon><ion-icon name="star-outline"></ion-icon><ion-icon name="star-outline"></ion-icon><ion-icon name="star-outline"></ion-icon>
+                                                </div>
+                                            </div>
+
+                                            
+                                            <div class="price-box">
+                                                <p class="price">371.00 €</p>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="showcase">
+
+                                        <div class="showcase-banner">
+                                            <a href="catalogo/Ede-361LD.html">
+                                                <img src="static/assets/images/store/Lavadora/lavadora1016.jpg" alt="Lavadora 4L-53 - Edesa" style="max-height: 150px;" class="product-img"/>
+                                            </a>
+
+                                            
+
+                                            <div class="showcase-actions">
+                                                <button class="btn-action wishlist-add" id="Ede-361LD">
+                                                    <ion-icon name="heart-outline"></ion-icon>
+                                                </button>
+                                                <button class="btn-action">
+                                                    <ion-icon name="eye-outline"></ion-icon>
+                                                </button>
+                                                <button class="btn-action">
+                                                    <ion-icon name="bag-add-outline"></ion-icon>
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                        <div class="showcase-content">
+                                            <span>Ede-361LD</span>
+
+                                            <a href="catalogo/Ede-361LD.html">
+                                                <h3 class="showcase-title">Lavadora 4L-53 - Edesa</h3>
+                                            </a>
+
+                                            <div class="showcase-rating">
+                                                <div class="showcase-rating">
+                                                    <ion-icon name="star"></ion-icon>
+                                                    <ion-icon name="star-outline"></ion-icon><ion-icon name="star-outline"></ion-icon><ion-icon name="star-outline"></ion-icon><ion-icon name="star-outline"></ion-icon>
+                                                </div>
+                                            </div>
+
+                                            
+                                            <div class="price-box">
+                                                <p class="price">374.50 €</p>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="showcase">
+
+                                        <div class="showcase-banner">
+                                            <a href="catalogo/Ede-362LD.html">
+                                                <img src="static/assets/images/store/Lavadora/lavadora1018.jpg" alt="Lavadora L-2086 LX - Edesa" style="max-height: 150px;" class="product-img"/>
+                                            </a>
+
+                                            
+
+                                            <div class="showcase-actions">
+                                                <button class="btn-action wishlist-add" id="Ede-362LD">
+                                                    <ion-icon name="heart-outline"></ion-icon>
+                                                </button>
+                                                <button class="btn-action">
+                                                    <ion-icon name="eye-outline"></ion-icon>
+                                                </button>
+                                                <button class="btn-action">
+                                                    <ion-icon name="bag-add-outline"></ion-icon>
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                        <div class="showcase-content">
+                                            <span>Ede-362LD</span>
+
+                                            <a href="catalogo/Ede-362LD.html">
+                                                <h3 class="showcase-title">Lavadora L-2086 LX - Edesa</h3>
+                                            </a>
+
+                                            <div class="showcase-rating">
+                                                <div class="showcase-rating">
+                                                    <ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon>
+                                                    <ion-icon name="star-outline"></ion-icon><ion-icon name="star-outline"></ion-icon><ion-icon name="star-outline"></ion-icon>
+                                                </div>
+                                            </div>
+
+                                            
+                                            <div class="price-box">
+                                                <p class="price">378.00 €</p>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="showcase">
+
+                                        <div class="showcase-banner">
+                                            <a href="catalogo/Ede-363LD.html">
+                                                <img src="static/assets/images/store/Lavadora/lavadora1015.jpg" alt="Lavadora L-2086 - Edesa" style="max-height: 150px;" class="product-img"/>
+                                            </a>
+
+                                            
+
+                                            <div class="showcase-actions">
+                                                <button class="btn-action wishlist-add" id="Ede-363LD">
+                                                    <ion-icon name="heart-outline"></ion-icon>
+                                                </button>
+                                                <button class="btn-action">
+                                                    <ion-icon name="eye-outline"></ion-icon>
+                                                </button>
+                                                <button class="btn-action">
+                                                    <ion-icon name="bag-add-outline"></ion-icon>
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                        <div class="showcase-content">
+                                            <span>Ede-363LD</span>
+
+                                            <a href="catalogo/Ede-363LD.html">
+                                                <h3 class="showcase-title">Lavadora L-2086 - Edesa</h3>
+                                            </a>
+
+                                            <div class="showcase-rating">
+                                                <div class="showcase-rating">
+                                                    <ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon>
+                                                    <ion-icon name="star-outline"></ion-icon><ion-icon name="star-outline"></ion-icon><ion-icon name="star-outline"></ion-icon>
+                                                </div>
+                                            </div>
+
+                                            
+                                            <div class="price-box">
+                                                <p class="price">381.50 €</p>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="showcase">
+
+                                        <div class="showcase-banner">
+                                            <a href="catalogo/Ede-364LD.html">
+                                                <img src="static/assets/images/store/Lavadora/lavadora1012.jpg" alt="Lavadora 4L-51 - Edesa" style="max-height: 150px;" class="product-img"/>
+                                            </a>
+
+                                            
+
+                                            <div class="showcase-actions">
+                                                <button class="btn-action wishlist-add" id="Ede-364LD">
+                                                    <ion-icon name="heart-outline"></ion-icon>
+                                                </button>
+                                                <button class="btn-action">
+                                                    <ion-icon name="eye-outline"></ion-icon>
+                                                </button>
+                                                <button class="btn-action">
+                                                    <ion-icon name="bag-add-outline"></ion-icon>
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                        <div class="showcase-content">
+                                            <span>Ede-364LD</span>
+
+                                            <a href="catalogo/Ede-364LD.html">
+                                                <h3 class="showcase-title">Lavadora 4L-51 - Edesa</h3>
+                                            </a>
+
+                                            <div class="showcase-rating">
+                                                <div class="showcase-rating">
+                                                    <ion-icon name="star"></ion-icon>
+                                                    <ion-icon name="star-outline"></ion-icon><ion-icon name="star-outline"></ion-icon><ion-icon name="star-outline"></ion-icon><ion-icon name="star-outline"></ion-icon>
+                                                </div>
+                                            </div>
+
+                                            
+                                            <div class="price-box">
+                                                <p class="price">385.00 €</p>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="showcase">
+
+                                        <div class="showcase-banner">
+                                            <a href="catalogo/Ede-365LD.html">
+                                                <img src="static/assets/images/store/Lavadora/lavadora1018.jpg" alt="Lavadora LP-2065 - Edesa" style="max-height: 150px;" class="product-img"/>
+                                            </a>
+
+                                            
+
+                                            <div class="showcase-actions">
+                                                <button class="btn-action wishlist-add" id="Ede-365LD">
+                                                    <ion-icon name="heart-outline"></ion-icon>
+                                                </button>
+                                                <button class="btn-action">
+                                                    <ion-icon name="eye-outline"></ion-icon>
+                                                </button>
+                                                <button class="btn-action">
+                                                    <ion-icon name="bag-add-outline"></ion-icon>
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                        <div class="showcase-content">
+                                            <span>Ede-365LD</span>
+
+                                            <a href="catalogo/Ede-365LD.html">
+                                                <h3 class="showcase-title">Lavadora LP-2065 - Edesa</h3>
+                                            </a>
+
+                                            <div class="showcase-rating">
+                                                <div class="showcase-rating">
+                                                    <ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon>
+                                                    
+                                                </div>
+                                            </div>
+
+                                            
+                                            <div class="price-box">
+                                                <p class="price">388.50 €</p>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="showcase">
+
+                                        <div class="showcase-banner">
+                                            <a href="catalogo/Ede-366LD.html">
+                                                <img src="static/assets/images/store/Lavadora/lavadora1013.jpg" alt="Lavadora 3L-114 S - Edesa" style="max-height: 150px;" class="product-img"/>
+                                            </a>
+
+                                            
+
+                                            <div class="showcase-actions">
+                                                <button class="btn-action wishlist-add" id="Ede-366LD">
+                                                    <ion-icon name="heart-outline"></ion-icon>
+                                                </button>
+                                                <button class="btn-action">
+                                                    <ion-icon name="eye-outline"></ion-icon>
+                                                </button>
+                                                <button class="btn-action">
+                                                    <ion-icon name="bag-add-outline"></ion-icon>
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                        <div class="showcase-content">
+                                            <span>Ede-366LD</span>
+
+                                            <a href="catalogo/Ede-366LD.html">
+                                                <h3 class="showcase-title">Lavadora 3L-114 S - Edesa</h3>
+                                            </a>
+
+                                            <div class="showcase-rating">
+                                                <div class="showcase-rating">
+                                                    <ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon>
+                                                    
+                                                </div>
+                                            </div>
+
+                                            
+                                            <div class="price-box">
+                                                <p class="price">392.00 €</p>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="showcase">
+
+                                        <div class="showcase-banner">
+                                            <a href="catalogo/Ede-367LD.html">
+                                                <img src="static/assets/images/store/Lavadora/lavadora1016.jpg" alt="Lavadora 4L-956 - Edesa" style="max-height: 150px;" class="product-img"/>
+                                            </a>
+
+                                            
+
+                                            <div class="showcase-actions">
+                                                <button class="btn-action wishlist-add" id="Ede-367LD">
+                                                    <ion-icon name="heart-outline"></ion-icon>
+                                                </button>
+                                                <button class="btn-action">
+                                                    <ion-icon name="eye-outline"></ion-icon>
+                                                </button>
+                                                <button class="btn-action">
+                                                    <ion-icon name="bag-add-outline"></ion-icon>
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                        <div class="showcase-content">
+                                            <span>Ede-367LD</span>
+
+                                            <a href="catalogo/Ede-367LD.html">
+                                                <h3 class="showcase-title">Lavadora 4L-956 - Edesa</h3>
+                                            </a>
+
+                                            <div class="showcase-rating">
+                                                <div class="showcase-rating">
+                                                    <ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon>
+                                                    
+                                                </div>
+                                            </div>
+
+                                            
+                                            <div class="price-box">
+                                                <p class="price">395.50 €</p>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </main>
+
+
+        <!--
+          - FOOTER
+        -->
+
+        <footer>
+
+            <div class="footer-nav">
+
+                <div class="container">
+
+                    <ul class="footer-nav-list">
+
+                        <li class="footer-nav-item">
+                            <h2 class="nav-title">Sobre Electrosa</h2>
+                        </li>
+
+                        <li class="footer-nav-item">
+                            <a href="unavailable.html" class="footer-nav-link">Dónde estamos</a>
+                        </li>
+
+                        <li class="footer-nav-item">
+                            <a href="about/team.html" class="footer-nav-link">Nuestro equipo</a>
+                        </li>
+
+                        <li class="footer-nav-item">
+                            <a href="#" class="footer-nav-link">Trabaja con nosotros</a>
+                        </li>
+
+                    </ul>
+
+                    <ul class="footer-nav-list">
+
+                        <li class="footer-nav-item">
+                            <h2 class="nav-title">Información</h2>
+                        </li>
+
+                        <li class="footer-nav-item">
+                            <a href="#" class="footer-nav-link">Seguir pedido</a>
+                        </li>
+
+                        <li class="footer-nav-item">
+                            <a href="#" class="footer-nav-link">Plazos de entrega</a>
+                        </li>
+
+                        <li class="footer-nav-item">
+                            <a href="#" class="footer-nav-link">Formas de pago</a>
+                        </li>
+
+                    </ul>
+
+                    <ul class="footer-nav-list">
+
+                        <li class="footer-nav-item">
+                            <h2 class="nav-title">Servicios</h2>
+                        </li>
+
+                        <li class="footer-nav-item">
+                            <a href="#" class="footer-nav-link">Tarjeta PAW</a>
+                        </li>
+
+                        <li class="footer-nav-item">
+                            <a href="#" class="footer-nav-link">Financiación de compras</a>
+                        </li>
+
+                        <li class="footer-nav-item">
+                            <a href="#" class="footer-nav-link">Devoluciones</a>
+                        </li>
+
+                        <li class="footer-nav-item">
+                            <a href="#" class="footer-nav-link">Mapa del sitio</a>
+                        </li>
+
+                    </ul>
+
+                    <ul class="footer-nav-list">
+
+                        <li class="footer-nav-item">
+                            <h2 class="nav-title">Extras</h2>
+                        </li>
+
+                        <li class="footer-nav-item">
+                            <a href="#" class="footer-nav-link">Blog</a>
+                        </li>
+
+                        <li class="footer-nav-item">
+                            <a href="#" class="footer-nav-link">Etiquetado energético</a>
+                        </li>
+
+                        <li class="footer-nav-item">
+                            <a href="#" class="footer-nav-link">Política de cookies</a>
+                        </li>
+
+                        <li class="footer-nav-item">
+                            <a href="#" class="footer-nav-link">Política de privacidad</a>
+                        </li>
+
+                    </ul>
+
+                    <ul class="footer-nav-list">
+
+                        <li class="footer-nav-item">
+                            <h2 class="nav-title">Contacto</h2>
+                        </li>
+
+                        <li class="footer-nav-item flex">
+                            <div class="icon-box">
+                                <ion-icon name="location-outline"></ion-icon>
+                            </div>
+                            <address class="content">
+                                <b>Facultad de Ciencia y Tecnología</b>
+                                <br/>
+                                Edificio CCT<br/>
+                                C/ Madre de Dios, 53<br/>
+                                26006 Logroño (La Rioja)
+                            </address>
+                        </li>
+
+                        <li class="footer-nav-item flex">
+                            <div class="icon-box">
+                                <ion-icon name="call-outline"></ion-icon>
+                            </div>
+
+                            <a href="tel:+34 941001002" class="footer-nav-link">941 001 002</a>
+                        </li>
+
+                    </ul>
+
+                    <ul class="footer-nav-list">
+
+                        <li class="footer-nav-item">
+                            <h2 class="nav-title">Redes sociales</h2>
+                        </li>
+
+                        <li>
+                            <ul class="social-link">
+
+                                <li class="footer-nav-item">
+                                    <a href="#" class="footer-nav-link">
+                                        <ion-icon name="logo-facebook"></ion-icon>
+                                    </a>
+                                </li>
+
+                                <li class="footer-nav-item">
+                                    <a href="#" class="footer-nav-link">
+                                        <ion-icon name="logo-twitter"></ion-icon>
+                                    </a>
+                                </li>
+
+                                <li class="footer-nav-item">
+                                    <a href="#" class="footer-nav-link">
+                                        <ion-icon name="logo-linkedin"></ion-icon>
+                                    </a>
+                                </li>
+
+                                <li class="footer-nav-item">
+                                    <a href="#" class="footer-nav-link">
+                                        <ion-icon name="logo-instagram"></ion-icon>
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+
+                <div class="container">
+
+                    <p></p>
+                    <p class="copyright">
+                        Programación de aplicaciones web - Universidad de La Rioja
+                        <br/>
+                        &#x2661;
+                        Crafted with love
+                    </p>
+
+                </div>
+
+            </div>
+
+        </footer>
+
+
+        <!--
+          - custom js link
+        -->
+        <script src="static/assets/js/script.js"></script>
+
+        <!--
+          - ionicon link
+        -->
+        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+    <div class="demo-banner" role="note">Demo estática — la aplicación completa necesita Java, Tomcat y MySQL. <a href="https://github.com/santiagodie/electrosa-fullstack-ecommerce">Ver el código en GitHub</a> · <a href="../index.html">Portada de la demo</a></div><script src="../demo-assets/demo.js" defer></script></body>
+
+</html>
