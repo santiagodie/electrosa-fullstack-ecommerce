@@ -156,20 +156,6 @@ mvn test -Dtest='ArticuloDaoMySQLTest,CatalogoDaoMySQLTest,PageNumberPaginationT
 
 `mvn test` without the filter also runs `GestorBDTest` and `AlmacenDaoMySQLTest`, which connect to the local MySQL database. The storefront has no automated tests.
 
-## Known limitations
-
-- The database schema and data are not part of the repository (see above), so the applications cannot be fully run from this repository alone.
-- The storefront has no automated tests. Two back office tests require a live MySQL database.
-- `/catalogo` with a malformed `precio` parameter (for example `?precio=abc`) returns HTTP 500.
-- Sign-up calls the external genderize.io API without error handling, so registration fails when the API is unreachable or rate-limited.
-- The language page offers French and German, but only Spanish and English message bundles exist.
-- After a language change, the storefront redirects to the unvalidated `Referer` header (open redirect).
-- Cancelling an order does not check that the order belongs to the logged-in customer.
-- Passwords are stored as unsalted SHA-1 hashes, because that is the format of the course database.
-- Uploaded avatars are written inside the deployed web application folder, so they are lost on redeploy.
-- The cart is cached in the session at login, so changes made from another device only appear after logging in again.
-- The back office hard-codes its `/backoffice` context path in some links and its database credentials in `GestorBD`.
-- Blog posts are placeholder text.
 
 ## What I learned
 
