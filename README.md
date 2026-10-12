@@ -2,6 +2,8 @@
 
 A two-part web application for a fictional home-appliance retailer: a Spring MVC + JPA storefront for customers and a Servlet/JSP back office for staff, both running on Tomcat over a shared MySQL database.
 
+**[Live demo](https://santiagodie.github.io/electrosa-fullstack-ecommerce/)**: a static snapshot for browsing the interface only; forms and actions do not work without the Java backend.
+
 ## Overview
 
 Electrosa models the day-to-day of an online appliance store. Customers browse a filterable catalogue, keep a persistent shopping cart, place orders with a delivery address and date, and can cancel orders that have not been shipped yet. Staff use a separate back office to browse the catalogue, edit articles and their images, and review customers, orders and warehouses.
@@ -79,6 +81,32 @@ Key points:
 - **Back office persistence.** The servlets depend only on DAO interfaces. The MySQL implementations obtain connections from the container's JNDI `DataSource`, and the HSQLDB-based tests reuse the same DAO code against an in-memory database.
 - **Schema evolution.** The storefront ships a Liquibase changelog (`frontoffice/src/main/resources/dbchangelog.xml`) that adapts the course-provided schema. For example, it widens `pedido.CODIGOCLIENTE` so that orders from newly registered customers, who get 53-character UUIDs, can be stored.
 
+## Screenshots
+
+Storefront home
+
+![Storefront home page](docs/screenshots/home.png)
+
+Catalogue
+
+![Catalogue with filters and pagination](docs/screenshots/catalog.png)
+
+Article detail
+
+![Article detail page](docs/screenshots/article.png)
+
+Shopping cart
+
+![Shopping cart of the demo customer](docs/screenshots/cart.png)
+
+Orders
+
+![Order history of the demo customer](docs/screenshots/orders.png)
+
+Back office
+
+![Back office article catalogue](docs/screenshots/backoffice-catalog.png)
+
 ## Getting started
 
 ### Requirements
@@ -123,7 +151,7 @@ Deploy the back office as `backoffice.war`: several of its links and redirects a
 With the course database loaded, apply the storefront's schema changes once, from `frontoffice/`:
 
 ```bash
-mvn liquibase:update
+mvn process-resources liquibase:update
 ```
 
 ### Tests
