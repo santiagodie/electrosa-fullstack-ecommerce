@@ -1,10 +1,27 @@
-# Electrosa
+<p align="center"><img src="assets/banner.svg" width="100%" alt="Electrosa · University of La Rioja" /></p>
 
-A two-part web application for a fictional home-appliance retailer: a Spring MVC + JPA storefront for customers and a Servlet/JSP back office for staff, both running on Tomcat over a shared MySQL database.
+<p align="center">A two-part web application for a fictional home-appliance retailer: a Spring MVC + JPA storefront for customers and a Servlet/JSP back office for staff, both running on Tomcat over a shared MySQL database.</p>
 
-**[Live demo](https://santiagodie.github.io/electrosa-fullstack-ecommerce/)**: a static snapshot for browsing the interface only; forms and actions do not work without the Java backend.
+<p align="center">
+  <img src="https://img.shields.io/badge/language-Java-C9A227?style=flat-square&labelColor=0B1F3A" alt="Language: Java" />
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-C9A227?style=flat-square&labelColor=0B1F3A" alt="License: MIT" /></a>
+  <a href="https://santiagodie.github.io/electrosa-fullstack-ecommerce/"><img src="https://img.shields.io/badge/live%20demo-GitHub%20Pages-C9A227?style=flat-square&labelColor=0B1F3A" alt="Live demo" /></a>
+</p>
 
-## Overview
+## Table of Contents
+
+- [About the Project](#about-the-project)
+- [Live Demo](#live-demo)
+- [Features](#features)
+- [Built With](#built-with)
+- [How It Works](#how-it-works)
+- [Getting Started](#getting-started)
+- [Project Structure](#project-structure)
+- [Credits](#credits)
+- [License](#license)
+- [Contact](#contact)
+
+## About the Project
 
 Electrosa models the day-to-day of an online appliance store. Customers browse a filterable catalogue, keep a persistent shopping cart, place orders with a delivery address and date, and can cancel orders that have not been shipped yet. Staff use a separate back office to browse the catalogue, edit articles and their images, and review customers, orders and warehouses.
 
@@ -12,7 +29,17 @@ The two applications deliberately use different stacks. The back office is built
 
 The project grew over five consecutive assignments. Their commit history has been merged into this repository in chronological order, and each commit message is prefixed with its assignment (`[P2]` to `[P7]`). The user interface is in Spanish, and part of the storefront is also translated into English.
 
-Built for the Web Application Programming course at the University of La Rioja (2025-2026).
+| Storefront home | Catalogue |
+| --- | --- |
+| ![Storefront home page](docs/screenshots/home.png) | ![Catalogue with filters and pagination](docs/screenshots/catalog.png) |
+| **Article detail** | **Shopping cart** |
+| ![Article detail page](docs/screenshots/article.png) | ![Shopping cart of the demo customer](docs/screenshots/cart.png) |
+| **Orders** | **Back office** |
+| ![Order history of the demo customer](docs/screenshots/orders.png) | ![Back office article catalogue](docs/screenshots/backoffice-catalog.png) |
+
+## Live Demo
+
+**[santiagodie.github.io/electrosa-fullstack-ecommerce](https://santiagodie.github.io/electrosa-fullstack-ecommerce/)**: a static snapshot for browsing the interface only; forms and actions do not work without the Java backend.
 
 ## Features
 
@@ -37,7 +64,7 @@ Built for the Web Application Programming course at the University of La Rioja (
 - Customer list and customer detail, order list and warehouse list.
 - Custom error pages for 404, 500 and application exceptions.
 
-## Tech stack
+## Built With
 
 | Area | Storefront | Back office |
 |---|---|---|
@@ -50,7 +77,7 @@ Built for the Web Application Programming course at the University of La Rioja (
 | Other | JavaFaker, Jakarta Mail (Angus), Gson, Logback | Logback |
 | Build / runtime | Maven, WAR on Tomcat 10.1 | Maven, WAR on Tomcat 10.1 |
 
-## Architecture
+## How It Works
 
 ```mermaid
 flowchart LR
@@ -73,43 +100,15 @@ flowchart LR
     BM -->|JNDI jdbc/electrosa| DB
 ```
 
-Key points:
-
 - **Storefront layering.** Controllers stay thin. Business operations live in explicit use cases (`CestaCompraUseCase`, `AnularPedidoUseCase`, `RegistroClienteUseCase`, `AvatarClienteChangeUseCase`) that take a request object and return a response object. The transactional operations (cart checkout, order cancellation) are confined to these use cases.
 - **Dynamic filtering without extra code.** A single JPQL query (`ArticuloRepository.findWithFilters`) uses `:param IS NULL OR ...` clauses, so any combination of filters works with Spring Data's `Pageable`.
 - **Exception-to-view mapping.** `SimpleMappingExceptionResolver` maps domain exceptions to error views and HTTP status codes (403, 404, 500).
 - **Back office persistence.** The servlets depend only on DAO interfaces. The MySQL implementations obtain connections from the container's JNDI `DataSource`, and the HSQLDB-based tests reuse the same DAO code against an in-memory database.
 - **Schema evolution.** The storefront ships a Liquibase changelog (`frontoffice/src/main/resources/dbchangelog.xml`) that adapts the course-provided schema. For example, it widens `pedido.CODIGOCLIENTE` so that orders from newly registered customers, who get 53-character UUIDs, can be stored.
 
-## Screenshots
+## Getting Started
 
-Storefront home
-
-![Storefront home page](docs/screenshots/home.png)
-
-Catalogue
-
-![Catalogue with filters and pagination](docs/screenshots/catalog.png)
-
-Article detail
-
-![Article detail page](docs/screenshots/article.png)
-
-Shopping cart
-
-![Shopping cart of the demo customer](docs/screenshots/cart.png)
-
-Orders
-
-![Order history of the demo customer](docs/screenshots/orders.png)
-
-Back office
-
-![Back office article catalogue](docs/screenshots/backoffice-catalog.png)
-
-## Getting started
-
-### Requirements
+### Prerequisites
 
 - JDK 17 or newer. The builds below were verified with JDK 25 and Maven 3.9.14.
 - Maven 3.9.
@@ -118,7 +117,7 @@ Back office
 
 **The database is not included.** Its schema and sample data were provided by the course and are not distributed in this repository. Without them, any page that reads from the database returns an error.
 
-### Build
+### Installation
 
 From the repository root:
 
@@ -135,7 +134,7 @@ mvn package -DskipTests
 cd ..
 ```
 
-### Deploy
+### Usage
 
 ```bash
 cp frontoffice/target/store.war                   "$CATALINA_HOME/webapps/store.war"
@@ -164,13 +163,14 @@ mvn test -Dtest='ArticuloDaoMySQLTest,CatalogoDaoMySQLTest,PageNumberPaginationT
 
 `mvn test` without the filter also runs `GestorBDTest` and `AlmacenDaoMySQLTest`, which connect to the local MySQL database. The storefront has no automated tests.
 
+## Project Structure
 
-## What I learned
-
-- How the same features look at two levels of abstraction: servlets, JSP and hand-written JDBC DAOs versus Spring MVC, Spring Data JPA and Thymeleaf. I also learned what each layer of the framework stack takes off your hands.
-- Structuring business operations as use cases with explicit request/response objects and transactional boundaries. One example is moving an order and its lines to the cancelled-orders tables atomically.
-- Web flow patterns such as Post/Redirect/Get with flash attributes, and authentication filters that send the user back to the page they originally requested.
-- Evolving an existing schema with Liquibase changesets. One case was tracking down a `Data too long` error caused by a `varchar(10)` foreign key receiving 53-character UUIDs.
+```
+frontoffice/   # Storefront: Spring MVC + Spring Data JPA + Thymeleaf (store.war)
+backoffice/    # Back office: Servlets + JSP/JSTL + JDBC DAOs (backoffice.war)
+demo/          # Static snapshot published to GitHub Pages
+docs/          # Screenshots used in this README
+```
 
 ## Credits
 
@@ -184,4 +184,12 @@ mvn test -Dtest='ArticuloDaoMySQLTest,CatalogoDaoMySQLTest,PageNumberPaginationT
 
 ## License
 
-The source code is released under the [MIT License](LICENSE). Third-party images, icons and other assets listed in Credits remain under their respective licenses.
+The source code is released under the [MIT License](LICENSE). Third-party images, icons and other assets listed in [Credits](#credits) remain under their respective licenses.
+
+## Contact
+
+Santiago Die · [GitHub](https://github.com/santiagodie) · [LinkedIn](https://www.linkedin.com/in/santiago-die-morejon)
+
+---
+
+Built for the Web Application Programming course at the University of La Rioja (2025–26).
